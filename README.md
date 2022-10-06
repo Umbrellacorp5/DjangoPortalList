@@ -9,6 +9,8 @@ pip install gunicorn
 
 chmod a+x build.sh
 
+pip3 freeze > requirements.txt
+
 
 Documentation
 
