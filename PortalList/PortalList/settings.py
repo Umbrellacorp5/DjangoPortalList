@@ -65,14 +65,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'PortalList.urls'
 
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost:postgres',
-        conn_max_age=600
-        )
-    }
 
-'''
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -88,7 +81,7 @@ TEMPLATES = [
         },
     },
 ]
-'''
+
 
 WSGI_APPLICATION = 'PortalList.wsgi.application'
 
@@ -96,6 +89,15 @@ WSGI_APPLICATION = 'PortalList.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default='postgresql://postgres:postgres@localhost/DjangoPortalList',
+        conn_max_age=600
+    )
+}
+
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -106,6 +108,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+'''
 
 
 # Password validation

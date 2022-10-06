@@ -4,6 +4,10 @@ conexion postgres
 
 pip install dj-database-url psycopg2-binary
 pip install whitenoise[brotli]
+?python manage.py collectstatic
+pip install gunicorn
+
+chmod a+x build.sh
 
 
 Documentation
