@@ -23,9 +23,18 @@ class Grupo(models.Model):
     codGrupo = models.IntegerField(primary_key=True, null=False)
     nombre = models.CharField(max_length=255, null=False)
 
+'''
 class Estan(models.Model):
     codGrupo = models.ForeignKey(Grupo, on_delete=models.CASCADE, primary_key=True, null=False)
     usuarioci = models.ForeignKey(Usuario, on_delete=models.CASCADE, primary_key=True, null=False)
+'''
+
+class Estan(models.Model):
+    class Meta:
+        unique_together = (('codGrupo', 'usuarioci'),)
+
+    codGrupo = models.IntegerField(primary_key=True)
+    usuarioci = models.IntegerField()
 
 class Tienen(models.Model):
     codGrupo = models.ForeignKey(Grupo, on_delete=models.CASCADE, primary_key=True, null=False)
