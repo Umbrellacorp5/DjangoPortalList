@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import path
-from . import views
+from alumnos import views
+from profesores import views
+from administracion import views
 
 urlpatterns = [
     path('elegirUsuario/', views.elegirUsuario),
