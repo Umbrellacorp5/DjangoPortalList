@@ -2,7 +2,9 @@
 
 conexion postgres
 
-pip install psycopg2
+pip install dj-database-url psycopg2-binary
+pip install whitenoise[brotli]
+
 
 Documentation
 
