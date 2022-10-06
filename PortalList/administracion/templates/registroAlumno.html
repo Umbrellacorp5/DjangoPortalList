@@ -75,13 +75,14 @@
         <main>
                         <h2 id="registrarAlumnoTitle">Registrar Alumno</h2>
                         <form id="formRegAlu" action="" method="POST">
+                               {% csrf_token %}
                                 <!--Action tiene que guardar los datos en la base de datos-->
                                
-                                        <input class="form-control" id="nombreRegistroAlumno" type="text" placeholder="Nombre" required pattern="[A-Za-z]{1,50}"> <br><br>
-                                        <input class="form-control" id="apellidoRegistroAlumno"type="text" placeholder="Apellido" required pattern="[A-Za-z]{1,50}"><br><br>
-                                        <input class="form-control" id="ciRegistroAlumno"type="number" placeholder="Cédula" required><br><br>                                    
-                                        <input class="form-control" id="nPadre"type="number" placeholder="Número del padre" required><br><br>
-                                        <input class="form-control" id="fotoAlumno"type="file" placeholder="Foto" required><br><br>
+                                        <input class="form-control" {{ form.nombre }} id="nombreRegistroAlumno" type="text" placeholder="Nombre" required pattern="[A-Za-z]{1,50}"> <br><br>
+                                        <input class="form-control" {{ form.apellido }} id="apellidoRegistroAlumno"type="text" placeholder="Apellido" required pattern="[A-Za-z]{1,50}"><br><br>
+                                        <input class="form-control" {{ form.cedula }} id="ciRegistroAlumno"type="number" placeholder="Cédula" required><br><br>                                    
+                                        <input class="form-control" {{ form.numeroPadre }} id="nPadre"type="number" placeholder="Número del padre" required><br><br>
+                                        <input class="form-control" {{ form.fotoAlumno }} id="fotoAlumno"type="file" placeholder="Foto" required><br><br>
 
                                         <label>Grupo</label>
                                         <select>
@@ -89,9 +90,9 @@
                                         </select>       
 
                                         
-                                        <input class="form-control" id="emailRegistroAlumno" type="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br><br>                                     
-                                        <input class="form-control" id="usuarioRegistroAlumno"type="text" placeholder="Usuario (CI)" required><br><br>
-                                        <input class="form-control" id="contraRegistroAlumno" type="password" placeholder="Contraseña (CI)" required><br><br>
+                                        <input class="form-control" {{ form.emailRegistroAlumno }} id="emailRegistroAlumno" type="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br><br>                                     
+                                        <input class="form-control" {{ form.usuarioRegistroAlumno }} id="usuarioRegistroAlumno"type="text" placeholder="Usuario (CI)" required><br><br>
+                                        <input class="form-control" {{ form.contraRegistroAlumno }} id="contraRegistroAlumno" type="password" placeholder="Contraseña (CI)" required><br><br>
                                         <p id="correctoRA"></p>
                                         <p id="incorrectoRA"></p>
                                         
