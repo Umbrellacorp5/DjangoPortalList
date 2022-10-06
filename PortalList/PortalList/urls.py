@@ -20,5 +20,4 @@ from administracion import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('adminPL/', views.adminPL),
 ]
