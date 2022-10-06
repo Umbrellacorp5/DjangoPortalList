@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static_in_env/css/style.css"/>
+    <link rel="stylesheet" href="bootstrap.css">
+    <title>Asistencia</title>
+    <style>
+        .row::after {
+          content: "";
+          clear: both;
+          display: table;
+        }
+        
+        [class*="col-"] {
+          float: left;
+          padding: 15px;
+        }
+        
+        /* For mobile phones: */
+        [class*="col-"] {
+          width: 100%;
+        }
+        
+        @media only screen and (min-width: 600px) {
+          /* For tablets: */
+          .col-s-1 {width: 8.33%;}
+          .col-s-2 {width: 16.66%;}
+          .col-s-3 {width: 25%;}
+          .col-s-4 {width: 33.33%;}
+          .col-s-5 {width: 41.66%;}
+          .col-s-6 {width: 50%;}
+          .col-s-7 {width: 58.33%;}
+          .col-s-8 {width: 66.66%;}
+          .col-s-9 {width: 75%;}
+          .col-s-10 {width: 83.33%;}
+          .col-s-11 {width: 91.66%;}
+          .col-s-12 {width: 100%;}
+        }
+        @media only screen and (min-width: 768px) {
+          /* For desktop: */
+          .col-1 {width: 8.33%;}
+          .col-2 {width: 16.66%;}
+          .col-3 {width: 25%;}
+          .col-4 {width: 33.33%;}
+          .col-5 {width: 41.66%;}
+          .col-6 {width: 50%;}
+          .col-7 {width: 58.33%;}
+          .col-8 {width: 66.66%;}
+          .col-9 {width: 75%;}
+          .col-10 {width: 83.33%;}
+          .col-11 {width: 91.66%;}
+          .col-12 {width: 100%;}
+        }
+        </style>
+</head>
+<body id="bodyAsist">
+        <a href="portalList/index.html">
+            <h1 id="portalListAsisti">Portal List</h1>
+        </a>
+       <img id= "plImgAsistencia" src="static_in_env/img/LogoPL.png" alt="Portal List">
+    <main id="mainAsistencia">
+      <div>
+        <p id="materiaAsisti"></p>
+        <button id="btnAsisti" type="sumbit" class="btn btn-primary btn-lg">Asistí</button> <!--falta terminar-->
+    </div>
+    </main>
+
+    <footer id="footerAsistencia">
+        <p id="contactUs"> <a href="contactUs.html">Contáctanos</a></p>
+        <p id="copyR">© 2022 Portal List, Inc.</p>
+    </footer>
+</body>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="templates/script/script.js"></script>
+</html>

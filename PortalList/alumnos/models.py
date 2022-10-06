@@ -1,15 +1,13 @@
 from django.db import models
+from administracion.models import models
+from profesores.models import models
 
 # Create your models here.
 
 
-"""
-    create table Alumno (
-        cod_alumno int not null,
-        usuarioci int not null, 
-        num_padre int not null,
-        foto varchar(255),
-        primary key (cod_alumno, usuarioci),
-        foreign key (usuarioci) REFERENCES Usuario (cedula)
-    );
-"""
+class Alumno(models.Model):
+    cod_alumno = models.IntegerField("cod_profesor",primary_key=True, null=False)
+    usuarioci = models.ForeignKey(Usuario, on_delete=models.CASCADE, primary_key=True, null=False)
+    num_padre = models.CharField("num_padre", max_length=255, null=False)
+    foto = models.CharField(max_length=255)
+    mac = models.CharField(max_length=255)

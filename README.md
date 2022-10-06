@@ -4,6 +4,12 @@ conexion postgres
 
 pip install psycopg2
 
+Documentation
+
+part3
+https://docs.djangoproject.com/en/4.1/intro/tutorial03/
+
+
 SQL
 python manage.py makemigrations app
 python manage.py sqlmigrate app 0001
