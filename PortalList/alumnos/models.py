@@ -1,5 +1,7 @@
 from django.db import models
 from administracion.models import Usuario
+from administracion.forms import RegistroAlumno
+
 
 # Create your models here.
 

@@ -2,14 +2,13 @@
 
 conexion postgres
 
-pip install dj-database-url psycopg2-binary
-pip install whitenoise[brotli]
-?python manage.py collectstatic
-pip install gunicorn
+Instalar librerias necesarias
+pip install -r ./PortalList/requirements.txt
+pip3 freeze > requirements.txt / si se instala otra libreria
 
-chmod a+x build.sh
+chmod a+x build.sh /ace ejecutable build.sh
 
-pip3 freeze > requirements.txt
+
 
 
 Documentation
