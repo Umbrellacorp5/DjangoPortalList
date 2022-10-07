@@ -6,7 +6,6 @@ from administracion import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('adminPL/', views.adminPL),
     path('contactUs/', views.contactUs),
     path('ingresarAdministrador/', views.ingresarAdministrador),
     path('registroAlumno/', views.registroAlumno),
