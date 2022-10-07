@@ -6,4 +6,5 @@ from django.contrib.auth.forms import UserChangeForm
 #Definir ue ejecutar y que enviar al cliente, enviar html
 
 def admin(request):
-    return render(request, admin.html)
+    return render(request, admin.html),
+    
