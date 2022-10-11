@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/DjangoPortalList/PortalList/administracion/static/css/styleAdmin.css">
-    <link rel="icon" href="/DjangoPortalList/PortalList/administracion/static/img/LogoNuevoAdmin.ico">
+    <link rel="stylesheet" href="/PortalList/administracion/static/css/styleAdmin.css">
+    <link rel="icon" href="/PortalList/administracion/static/img/LogoNuevoAdmin.ico">
     <title>Contáctanos</title>
 </head>
 
@@ -14,41 +14,42 @@
     <header id="headerContactUs">
         <h1 id="tituloContactUs">Portal List</h1>
         <a href="index.html">
-            <a href="index.html"><img id= "plImgCU" src="/DjangoPortalList/PortalList/administracion/static/img/Logo14.png" alt="Portal List"></a>
-            <h1 id="portalList">Portal List</h1>
+            <a href="index.html"><img id= "plImgCU" src="/PortalList/administracion/static/img/Logo14.png" alt="Portal List"></a>
         </a>
        
     </header>
 
-    <br><br><br><br>
-    <main>
+    <br><br>
+    <main id="mainContactUs">
+        <br>
         <div class="container">
             <form  id="formCU"action="" method="post">
 
-                <label for="fname">Nombre</label>
+                <label for="fname">Nombre</label><br>
                 <input type="text" id="fname" name="firstname" placeholder="Tu nombre">
                 <br><br>
-                <label for="lname">Apellido</label>
+                <label for="lname">Apellido</label><br>
                 <input type="text" id="lname" name="lastname" placeholder="Tu apellido.">
                 <br><br>
-                <label for="email">Email</label>
+                <label for="email">Email</label><br>
                 <input type="text" id="email" name="email" placeholder="Tu email">
                 <br><br>
-                <label for="Ciudad">Ciudad</label>
+                <label for="Ciudad">Ciudad</label><br>
                 <select id="country" name="country">
                     <option value="paysandu">Paysandú</option>
                     <option value="salto">Salto</option>
                     <option value="montevideo">Montevideo</option>
                 </select>
                 <br><br>
-                <label for="subject">Razon</label>
-                <textarea id="subject" name="subject" placeholder="Coméntanos" style="height:200px"></textarea>
-                <input  id="botonCU" type="submit" value="Ingresar">
+                <label for="subject">Razon</label><br>
+                <textarea id="subject" name="subject" placeholder="Coméntanos" style="height:200px"></textarea><br><br>
+                <input  id="botonCU" type="submit" value="Enviar">
 
             </form>
         </div>
+        <br>
     </main>
-    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br>
     <footer>
         <h5 id="copyR">© 2022 Portal List, Inc.</h5>
     </footer>
