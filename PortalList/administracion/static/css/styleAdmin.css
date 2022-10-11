@@ -347,7 +347,6 @@
 /*-------------------------------------------------------------Admin------------------------------------------------------------------*/
 #portalList  {
   position: relative;
-  top: -450px;
   padding: 20px 0;
   font-size: 50px;
   font-weight: 600px;
@@ -361,6 +360,12 @@
   position: relative;
   top:-30px;
   height: 0px;
+}
+
+
+#headerAdmin{
+  background-color:#238ce1;
+  height: 130px; ;
 }
 
 #btnCrearAlumno{
@@ -395,6 +400,17 @@
   bottom: 70px;
 }
 
+#formAdminAlumno{
+  position: relative;
+  background-color: white;
+  max-width: 1500px;
+  max-height: 1500px;
+  width: 700px;
+  height: 370px;
+  margin-left: 0%;
+  margin-right: 70%;
+
+}
 
 
 
@@ -649,6 +665,7 @@ width: 90%;
 position: relative;
 text-align: center;
 margin-left: 5%;
+border-radius: 5%;
 
 }
 
@@ -685,8 +702,16 @@ margin-left: 5%;
 }
 
 #headerInAdmin{
+  position: relative;
   background-color:#000;
   height: 130px; ;
+}
+
+#mainInAdmin{
+  background-image: url(https://marketplace.canva.com/EAE9oAp-Byc/1/0/1600w/canva-fondo-de-pantalla-escritorio-pc-abstracto-moderno-degradado-negro-PriNvkfDEzU.jpg);
+background-size: 150%;
+
+
 }
 
 #tituloInAdmin{
@@ -705,13 +730,15 @@ margin-left: 5%;
   max-width: 1500px;
   max-height: 1500px;
   width: 700px;
-  height: 370px;
-  margin-left: 0%;
-  margin-right: 70%;
+  height: 570px;
+  margin-left: 23%;
+  margin-right: 50%;
+  border-radius: 10%;
 }
 
 #mainInAdmin{
 margin-left: 2%;
+border-radius: 5%;
 }
 
 #btnIniciarSesiónAdmin{
@@ -726,6 +753,7 @@ margin-left: 2%;
 }
 
 #plImgIA{
+  position: relative;
   display: inline;
   height: 95%;
   margin-top: 0%;
@@ -757,3 +785,24 @@ margin-left: 2%;
   margin-top: 0%;
   height: 95%;
 }
+
+#formCU{
+  position: relative;
+  background-color: white;
+  max-width: 1500px;
+  max-height: 1500px;
+  width: 700px;
+  height: 370px;
+  margin-left: 0%;
+  margin-right: 70%;
+}
+
+
+#botonCU{
+  text-decoration: none;
+  padding: 4px 20px;
+  font-size: 20px;
+  color: #ffffff;
+  background:#000000bd;
+  border-radius: 1px;
+  border: 2px solid rgba(0, 0, 0, 0);}
