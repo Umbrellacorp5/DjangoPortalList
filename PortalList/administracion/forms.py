@@ -10,7 +10,7 @@ class RegistroAlumno(forms.Form):
     fotoAlumno = forms.ImageField(null=False)
     emailRegistroAlumno = forms.EmailField(null=False)
     usuarioRegistroAlumno = forms.CharField(max_length=255, null=False)
-    contraRegistroAlumno = forms.CharField(widget = forms.PasswordInput())
+    contraRegistroAlumno = forms.CharField(widget = forms.PasswordInput(), null=False) 
 
 class registroProfesor(forms.form):
     nombreProfesor = forms.CharField(max_length=255, null=False)
@@ -31,3 +31,5 @@ class contactUs(forms.form):
     ciudad_list = ['Paysandú','Salto', 'Montevideo']
     ciudad = forms.ChoiceField(choices=ciudad_list)
     tema = forms.Textarea(max_length=500, null=False)
+
+

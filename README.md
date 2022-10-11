@@ -35,3 +35,6 @@ python manage.py migrate /migra
 API
 python manage.py shell
 
+
+https://pythonhosted.org/djeneralize/defining_models.html
+
