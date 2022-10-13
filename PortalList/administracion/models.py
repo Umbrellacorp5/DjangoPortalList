@@ -12,6 +12,9 @@ class Administrador(models.Model):
     email = models.CharField(max_length=255, null=False)
     contraseña = models.CharField(max_length=255, null=False)
 
+    def __str__(self):
+        return self.codAdministrador
+
 class Usuario(models.Model):
     cedula = models.IntegerField(primary_key=True, null=False)
     nombre = models.CharField(max_length=255, null=False)
@@ -19,6 +22,9 @@ class Usuario(models.Model):
     apellido = models.CharField(max_length=255, null=False)
     email = models.CharField(max_length=255, null=False)
     codAdministrador = models.ForeignKey(Administrador,on_delete=models.CASCADE, null=False)
+    
+    def __str__(self):
+        return self.cedula
 
 
 class Grupo(models.Model):
@@ -26,17 +32,29 @@ class Grupo(models.Model):
     nombre = models.CharField(max_length=255, null=False)
     alumnos = models.ManyToManyField(Alumno)
 
+    def __str__(self):
+        return self.codGrupo
+
 class Estan(models.Model):
     codGrupo = models.ForeignKey(Grupo, on_delete=models.CASCADE, null=False)
     usuarioci = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=False)
 
+    def __str__(self):
+        return self.dept_id
+
 class Tienen(models.Model):
     codGrupo = models.ForeignKey(Grupo, on_delete=models.CASCADE, null=False)
     usuarioci = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=False)
+
+    def __str__(self):
+        return self.dept_id
 
 class Pasan(models.Model):
     codGrupo = models.ForeignKey( Grupo,on_delete=models.CASCADE, null=False)
     usuarioci = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=False)
     cod_lista = models.ForeignKey(Lista,on_delete=models.CASCADE, null=False)
     fecha = models.DateField(null=False)
+
+    def __str__(self):
+        return self.dept_id
 
