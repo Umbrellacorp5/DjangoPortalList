@@ -3,12 +3,12 @@ from django.urls import path, include
 from administracion import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('contactUs/', views.contactUs),
-    path('ingresarAdministracion/', views.ingresarAdministracion),
-    path('registroAlumno/', views.registroAlumno),
-    path('registroProfesor/', views.registroProfesor),
-    path("seleccionarRegistro/", views.seleccionarRegistro),    
+    path('admin/', admin.site.urls, name='admin'),
+    path('contactUs/', views.contactUs, name='contactUs'),
+    path('ingresarAdministracion/', views.ingresarAdministracion, name='ingresarAdministracion'),
+    path('registroAlumno/', views.registroAlumno, name='registroAlumno'),
+    path('registroProfesor/', views.registroProfesor, name='registroProfesor'),
+    path("seleccionarRegistro/", views.seleccionarRegistro, name='seleccionarRegistro'),    
     path("",views.index, name='index')
 
 
