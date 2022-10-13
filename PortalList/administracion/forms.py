@@ -20,7 +20,7 @@ class registroProfesor(forms.form):
     usuarioRegistroProfesor = forms.NumberInput(null=False)
     contraRegistroProfesor = forms.CharField(widget = forms.PasswordInput())
 
-class ingresarAdministracion(forms.form):
+class ingresarAdministracionF(forms.form):
     emailAdmin = forms.EmailField(null=False)
     contraAdmin = forms.CharField(widget = forms.PasswordInput())
 
