@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from alumnos.forms import RegistroAlumno
-from administracion.urls import ingresarAdministrador
+from administracion.urls import ingresarAdministracion
 from django.contrib.auth.forms import UserChangeForm
 from django.http import HttpResponse
 import json
@@ -44,15 +44,15 @@ def admin(request):
     #-------------------------------------------------------LogIn Administraciòn---------------------------------------------------
 
 
-def ingresarAdministracio(request):
+def ingresarAdministracion(request):
     if request.method == 'POST':
         cajaEmail = request.POST.get('cajaEmail')
         cajaContraseña = request.POST.get('cajaContraseña')
 
-        Admin = authenticate(request, cajaEmail=cajaEmail, cajaContraseña=cajaContraseña)
+        user = authenticate(request, cajaEmail=cajaEmail, cajaContraseña=cajaContraseña)
 
-        if Admin is not None:
-            ingresarAdministrador(request, Admin)
+        if user is not None:
+            login(request, user)
             return redirect('index')
         else:
             messages.info(request, "El usuario o la contraseña no son correctas")

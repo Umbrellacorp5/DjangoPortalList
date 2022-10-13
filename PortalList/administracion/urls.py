@@ -8,7 +8,9 @@ urlpatterns = [
     path('ingresarAdministracion/', views.ingresarAdministracion),
     path('registroAlumno/', views.registroAlumno),
     path('registroProfesor/', views.registroProfesor),
-    path('seleccionarRegistro/', views.seleccionarRegistro),
-    
-    path('',include('authentication.urls')),
-]
+    path("seleccionarRegistro/", views.seleccionarRegistro),    
+    path("",views.index, name='index')
+
+
+
+]  
