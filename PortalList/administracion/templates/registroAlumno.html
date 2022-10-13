@@ -84,10 +84,9 @@
                                         <input class="form-control" {{ form.numeroPadre }} id="nPadre"type="number" placeholder="Número del padre" required><br><br>
                                         <input class="form-control" {{ form.fotoAlumno }} id="fotoAlumno"type="file" placeholder="Foto" required><br><br>
 
-                                        <label>Grupo</label>
-                                        <select>
-                                                <option>3BK</option>
-                                        </select>       
+                                        <input class="form-control" {{ form.grupo}} id="Grupo" type="text" placeholder="Grupo" required pattern="[A-Za-z]{1,50}"> <br><br>
+
+                                          
 
                                         
                                         <input class="form-control" {{ form.emailRegistroAlumno }} id="emailRegistroAlumno" type="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br><br>                                     

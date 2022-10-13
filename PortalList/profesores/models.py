@@ -2,18 +2,28 @@ from enum import unique
 from django.db import models
 from alumnos import *
 from profesores import *
-from administracion import *
+from administracion import Administrador
 
 # Create your models here.
 
 class Profesor(models.Model):
     codProfesor = models.IntegerField(primary_key=True, null=False, unique = True)
-    usuarioci = models.ForeignKey( on_delete=models.CASCADE, null=False)
+    #usuarioci = models.ForeignKey( on_delete=models.CASCADE, null=False)
     cargo = models.CharField(max_length=255, null=False)
-    antiguedad = models.CharField(max_length=255, null=False)
+    #antiguedad = models.CharField(max_length=255, null=False)
+    cedula = models.IntegerField(null=False, unique=True)
+    nombre = models.CharField(max_length=255, null=False)
+    usuario = models.CharField(max_length=255, null=False)
+    #contrasenia, lo maneja django (?)
+    apellido = models.CharField(max_length=255, null=False)
+    nombre = models.CharField(max_length=255, null=False)
+    email  = models.EmailField(max_length=70,blank=True,unique=True)
+    codadministrador = models.ForeignKey(Administrador,on_delete=models.CASCADE, null=False)
+
 
     def __str__(self):
         return self.codProfesor
+
 
 
 class Lista(models.Model):

@@ -2,6 +2,9 @@ import email
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from profesores.models import Profesor
+from django.forms import ModelForm, widgets
+from django.contrib.auth.models import User
 
 
 class RegistroAlumno(forms.Form):
@@ -35,13 +38,13 @@ class contactUs(forms.form):
     ciudad = forms.ChoiceField(choices=ciudad_list)
     tema = forms.Textarea(max_length=500, null=False)
 
-class CreateUserForm(UserCreationForm):
+class CrearUsuario(UserCreationForm):
     class Meta:
         model = User
         fields = ['username','email','password1']
     
     def __init__(self, *args, **kwargs):
-        super(CreateUserForm, self).__init__(*args, **kwargs)
+        super(CrearUsuario, self).__init__(*args, **kwargs)
         self.fields['username'].widget.attrs['class'] = 'form-control'
         self.fields['username'].widget.attrs['placeholder'] = 'Username'
         self.fields['email'].widget.attrs['class'] = 'form-control'
@@ -49,3 +52,24 @@ class CreateUserForm(UserCreationForm):
         self.fields['password1'].widget.attrs['class'] = 'form-control'
         self.fields['password1'].widget.attrs['placeholder'] = 'Password'
 
+class CrearProfesor(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(CrearProfesor, self).__init__(*args, **kwargs)
+        self.fields['nombre'].widget.attrs['class'] = 'form-control'
+        self.fields['nombre'].widget.attrs['placeholder'] = "Nombre"
+        self.fields['apellido'].widget.attrs['class'] = 'form-control'
+        self.fields['apellido'].widget.attrs['placeholder'] = "Apellido"
+        self.fields['cedula'].widget.attrs['class'] = 'form-control'
+        self.fields['cedula'].widget.attrs['placeholder'] = "Cédula"
+        self.fields['email'].widget.attrs['class'] = 'form-control'
+        self.fields['email'].widget.attrs['placeholder'] = "Email"
+        self.fields['materias'].widget.attrs['class'] = 'form-control'
+        self.fields['materias'].widget.attrs['placeholder'] = "Materias"
+        self.fields['grupos'].widget.attrs['class'] = 'form-control'
+        self.fields['grupos'].widget.attrs['placeholder'] = "Grupos"
+        
+        
+#Mirar lo de materias y grupo en models
+    class Meta:
+        model = Profesor
+        fields = ['nombre','apellido','cedula','email','materias', 'grupos']
