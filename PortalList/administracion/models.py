@@ -1,10 +1,11 @@
 from enum import unique
 from django.db import models
-from alumnos.models import models, Alumno
+from alumnos.models import Alumno
 from profesores.models import Lista
 from django.forms import ModelForm
 # Create your models here.
 #crea las tablas en pyhton
+#Saca datros de la BD y se los presenta al usuario
 
 class Administrador(models.Model):
     codAdministrador = models.IntegerField( primary_key=True, null=False, unique=True)

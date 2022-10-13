@@ -38,3 +38,4 @@ python manage.py shell
 
 https://pythonhosted.org/djeneralize/defining_models.html
 
+indian project: https://github.com/neyamul-sbr/university_management_system_extend

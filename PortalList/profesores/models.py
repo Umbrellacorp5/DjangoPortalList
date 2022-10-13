@@ -1,7 +1,8 @@
 from enum import unique
 from django.db import models
-from alumnos.models import models
-from administracion.models import models
+from alumnos import *
+from profesores import *
+from administracion import *
 
 # Create your models here.
 
