@@ -2,6 +2,7 @@ from django.forms import ModelForm
 from django.shortcuts import render
 #from administracion.forms import RegistroAlumno
 from administracion.urls import ingresarAdministracion
+#error circular
 from django.contrib.auth.forms import UserChangeForm
 from django.http import HttpResponse
 import json
