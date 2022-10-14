@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django.shortcuts import render
-from administracion.forms import RegistroAlumno
+#from administracion.forms import RegistroAlumno
 from administracion.urls import ingresarAdministracion
 from django.contrib.auth.forms import UserChangeForm
 from django.http import HttpResponse
@@ -42,6 +42,9 @@ from administracion.forms import CrearProfesor
 
 def admin(request):
     return render(request, admin.html),
+
+def ingresarAdministracion(request):
+    return render(request, ingresarAdministracion.html),
     
 
     #-------------------------------------------------------LogIn Administraciòn---------------------------------------------------
