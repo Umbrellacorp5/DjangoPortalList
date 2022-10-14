@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django.shortcuts import render
-from alumnos.forms import RegistroAlumno
+from administracion.forms import RegistroAlumno
 from administracion.urls import ingresarAdministracion
 from django.contrib.auth.forms import UserChangeForm
 from django.http import HttpResponse
@@ -32,7 +32,7 @@ import io
 from django.db import connections
 import os
 from django.db.models import Avg
-from decorators import allowed_users, unauthenticated_user,allowed_users_homeç
+from decorators import allowed_users, allowed_users_home
 from administracion.forms import CrearUsuario
 from administracion.forms import CrearProfesor
 
