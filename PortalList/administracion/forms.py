@@ -72,4 +72,4 @@ class CrearProfesor(ModelForm):
 #Mirar lo de materias y grupo en models
     class Meta:
         model = Profesor
-        fields = ['nombre','apellido','cedula','email','materias', 'grupos']
+        fields = ['nombre','apellido','cedula','email','Materia', 'grupos']
