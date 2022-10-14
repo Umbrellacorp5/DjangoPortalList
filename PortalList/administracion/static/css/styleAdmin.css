@@ -356,7 +356,7 @@
 #footerAdmin{
   margin: 0 0 0px;
   font-size: 18px;
-  text-align: center;
+  margin-left: 2%;
   position: relative;
   top:-30px;
   height: 0px;
@@ -369,35 +369,81 @@
 }
 
 #btnCrearAlumno{
-  text-align: center;
-  position: relative;
-  width:auto;
-  top:-150px;
-  left: 635px;
+  text-decoration: none;
+  padding: 4px 20px;
+  font-size: 20px;
+  color: #ffffff;
+  background:#000000bd;
+  border-radius: 1px;
+  border: 2px solid rgba(0, 0, 0, 0);
+
+
 }
 
 #btnCrearProfesor{
-  text-align: center;
-  position: relative;
-  width:auto;
-  top:-150px;
-  left: 635px;
+  text-decoration: none;
+  padding: 4px 20px;
+  font-size: 20px;
+  color: #ffffff;
+  background:#000000bd;
+  border-radius: 1px;
+  border: 2px solid rgba(0, 0, 0, 0);
+
 }
 
 #btnVerRegistros{
-  text-align: center;
+  text-decoration: none;
+  padding: 4px 20px;
+  font-size: 20px;
+  color: #ffffff;
+  background:#000000bd;
+  border-radius: 1px;
+  border: 2px solid rgba(0, 0, 0, 0);
+}
+
+#fondoAdmin{
+  margin-top: 2%;
+background-image: url(https://th.bing.com/th/id/OIP.RHTsaLeJGW8s_RnB21raHAHaFY?pid=ImgDet&rs=1);
+color: #FFFFFF;
+height: 600px;
+width: 90%;
+position: relative;
+text-align: center;
+margin-left: 5%;
+border-radius: 5%;
+background-size: 120%;
+
+}
+
+#formAdminBlanco{
   position: relative;
-  width:auto;
-  top:-150px;
-  left: 635px;
+  text-align: center;
+  background-color: white;
+  max-width: 1500px;
+  max-height: 1500px;
+  width: 500px;
+  height: 500px;
+  margin-left: 28%;
+  margin-right:45%;
+  border-radius: 10%;
+}
+
+#tituloAdmin{
+  display: inline;
+  margin-left: 2% ;
+  color: white;
+  text-decoration-color: white;
+  width: 100px;
+  height: 100px;
+  margin-top: 0%;
 }
 
 #plImgAdmin{
   position: relative;
-  left: 475px;
-  height: 450px;
-  width: 400px;
-  bottom: 70px;
+  display: inline;
+  height: 95%;
+  margin-top: 0%;
+  height: 95%;
 }
 
 #formAdminAlumno{
@@ -405,14 +451,16 @@
   background-color: white;
   max-width: 1500px;
   max-height: 1500px;
-  width: 700px;
-  height: 370px;
-  margin-left: 0%;
+  width: 300px;
+  height: 700px;
+  margin-left: 43%;
   margin-right: 70%;
 
 }
 
+#copyRAdmin{
 
+}
 
 
 /*-------------------------------------------------------------Registrar Profesor------------------------------------------------------------------*/
@@ -453,11 +501,11 @@
 }
 
 /*El tamaño y posicionamiento del logo */
-#imgRP {
+#imgIP {
   position: relative;
   margin: auto;
-  height: 270px;
-  width: 250px;
+  height: 350px;
+  width: 350px;
   object-fit: none;
   padding-top: 10px;
 }
@@ -733,8 +781,8 @@ border-radius: 5%;
   max-height: 1500px;
   width: 700px;
   height: 570px;
-  margin-left: 30%;
-  margin-right: 50%;
+  margin-left: 21%;
+  margin-right: 30%;
   border-radius: 10%;
 }
 
@@ -811,8 +859,8 @@ border-radius: 5%;
   max-height: 1500px;
   width: 900px;
   height: 700px;
-  margin-left: 15%;
-  margin-right: 50%;
+  margin-left: 10%;
+  margin-right:45%;
   border-radius: 10%;
 }
 
