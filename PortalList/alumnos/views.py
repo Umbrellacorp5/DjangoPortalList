@@ -1,5 +1,12 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+def asistencia(request):
+    return render(request, 'admin.html')
+
+def elegirUsuario(request):
+    return render(request, 'admin.html')
+
+def ingresarAlumno(request):
+    return render(request, 'admin.html')

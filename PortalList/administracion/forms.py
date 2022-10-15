@@ -2,7 +2,7 @@ import email
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from DjangoPortalList.PortalList.profesores.models import Materia
+from profesores.models import Materia
 from profesores.models import Profesor
 from django.forms import ModelForm, widgets
 from django.contrib.auth.models import User
