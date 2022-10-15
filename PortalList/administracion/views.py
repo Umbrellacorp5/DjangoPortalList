@@ -45,16 +45,16 @@ def admin(request):
     return render(request, admin.html)
 
 def contactUs(request):
-    return render(request, admin.html)
+    return render(request, 'admin.html')
 
 def registroAlumno(request):
-    return render(request, admin.html)
+    return render(request, 'admin.html')
 
 def seleccionarRegistro(request):
-    return render(request, admin.html)
+    return render(request, 'admin.html')
 
 def index(request):
-    return render(request, admin.html)
+    return render(request, 'admin.html')
 
 
 
