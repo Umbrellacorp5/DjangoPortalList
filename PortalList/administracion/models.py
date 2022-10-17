@@ -105,4 +105,4 @@ MATERIAS_CHOICES = (
 )
 
 class MiMateria(models.Model):
-  Materia = models.CharField(max_length=6, choices=MATERIAS_CHOICES, default='Selecciona')
+  Materia = models.CharField(max_length=255, choices=MATERIAS_CHOICES, default='Selecciona')

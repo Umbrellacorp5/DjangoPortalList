@@ -1,7 +1,8 @@
 from django.forms import ModelForm
 from django.shortcuts import render
-from administracion.forms import RegistroAlumno
-from administracion.urls import ingresarAdministracion
+#from administracion.forms import RegistroAlumno
+#from administracion.urls import ingresarAdministracion
+#error circular
 from django.contrib.auth.forms import UserChangeForm
 from django.http import HttpResponse
 import json
@@ -27,12 +28,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.views.generic import View
 
-from django.http import FileResponse
+from django.http import FileResponse 
 import io
 from django.db import connections
 import os
 from django.db.models import Avg
-from decorators import allowed_users, allowed_users_home
+from administracion.decorators import allowed_users, allowed_users_home
 from administracion.forms import CrearUsuario
 from administracion.forms import CrearProfesor
 
@@ -41,11 +42,24 @@ from administracion.forms import CrearProfesor
 #request handler, toma una solicitud del front y la contesta
 
 def admin(request):
-    return render(request, admin.html),
-    
+    return render(request, admin.html)
+
+def contactUs(request):
+    return render(request, 'admin.html')
+
+def registroAlumno(request):
+    return render(request, 'admin.html')
+
+def seleccionarRegistro(request):
+    return render(request, 'admin.html')
+
+def index(request):
+    return render(request, 'admin.html')
+
+
 
     #-------------------------------------------------------LogIn Administraciòn---------------------------------------------------
-@unauthenticated_user
+#@unauthenticated_user
 
 def ingresarAdministracion(request):
     if request.method == 'POST':
