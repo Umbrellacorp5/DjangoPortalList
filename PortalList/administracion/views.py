@@ -36,6 +36,7 @@ from django.db.models import Avg
 from administracion.decorators import allowed_users, allowed_users_home
 from administracion.forms import CrearUsuario
 from administracion.forms import CrearProfesor
+from administracion.decorators import unauthenticated_user
 
 # Create your views here.
 #Definir ue ejecutar y que enviar al cliente, enviar html
@@ -59,7 +60,7 @@ def index(request):
 
 
     #-------------------------------------------------------LogIn Administraciòn---------------------------------------------------
-#@unauthenticated_user
+@unauthenticated_user
 
 def ingresarAdministracion(request):
     if request.method == 'POST':
