@@ -38,6 +38,10 @@ class Estan(models.Model):
     codGrupo = models.ForeignKey(Grupo, on_delete=models.CASCADE, null=False)
     codAlumno = models.ForeignKey(to='alumnos.Alumno', on_delete=models.CASCADE, null=False)
 
+    class Meta:
+        unique_together = (("codGrupo","codAlumno"))
+
+
     def __str__(self):
         return self.dept_id
 
@@ -45,14 +49,21 @@ class Tienen(models.Model):
     codGrupo = models.ForeignKey(Grupo, on_delete=models.CASCADE, null=False)
     codProfesor = models.ForeignKey(to='profesores.Profesor', on_delete=models.CASCADE, null=False)
 
+    class Meta:
+        unique_together = (("codGrupo","codProfesor"))
+
+
     def __str__(self):
         return self.dept_id
 
 class Pasan(models.Model):
     codGrupo = models.ForeignKey( Grupo,on_delete=models.CASCADE, null=False)
     codProfesor = models.ForeignKey(to='profesores.Profesor', on_delete=models.CASCADE, null=False)
-    cod_lista = models.ForeignKey(to='profesores.Lista',on_delete=models.CASCADE, null=False)
+    codLista = models.ForeignKey(to='profesores.Lista',on_delete=models.CASCADE, null=False)
     fecha = models.DateField(null=False)
+
+    class Meta:
+        unique_together = (("codGrupo","codProfesor","codLista"))
 
     def __str__(self):
         return self.dept_id
