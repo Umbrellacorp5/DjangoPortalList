@@ -2,23 +2,41 @@ import email
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from alumnos.models import Alumno
 from profesores.models import Materia
 from profesores.models import Profesor
+from administracion.models import Estan, Tienen, Pasan, Usuario, Grupo
 from django.forms import ModelForm, widgets
 from django.contrib.auth.models import User
 
-'''
-class RegistroAlumno(forms.Form):
-    nombre = forms.CharField(max_length=255, null=False)
-    apellido = forms.CharField(max_length=255, null=False)
-    cedula = forms.NumberInput(null=False)
-    numeroPadre = forms.NumberInput(null=False)
-    Contraseña = forms.CharField(max_length=255, null=False)
-    fotoAlumno = forms.ImageField(null=False)
-    emailRegistroAlumno = forms.EmailField(null=False)
-    usuarioRegistroAlumno = forms.CharField(max_length=255, null=False)
-    contraRegistroAlumno = forms.CharField(widget = forms.PasswordInput(), null=False) 
-'''
+
+class RegistroAlumno(ModelForm):
+    nombreRegistroAlumno= forms.CharField(label="Nombre", max_length=255, min_length=3, required=True)
+    apellidoRegistroAlumno= forms.CharField(label="Apellido", max_length=255, min_length=3, required=True)
+    ciRegistroAlumno= forms.NumberInput()
+    emailRegistroAlumno= forms.EmailField(label="Email", max_length=255, min_length=3, required=True)
+    usuarioRegistroAlumno= forms.CharField(max_length=255, required=True)
+    contraRegistroAlumno= forms.CharField(max_length=255, required=True)
+
+    class Meta:
+        model = Usuario
+        fields = '__all__'
+
+class RegistroAlumno2(ModelForm):
+    fotoAlumno =forms.ImageField(max_length=255)
+    nPadre = forms.NumberInput()
+
+    class Meta:
+        model = Alumno
+        fields = '__all__'
+
+class RegistroAlumno3(ModelForm):
+    Grupo = forms.CharField(max_length=255, required=True)
+
+    class Meta:
+        model = Grupo
+        fields = '__all__'
+
 '''
 class registroProfesor(forms.form):
     nombreProfesor = forms.CharField(max_length=255, null=False)
@@ -42,6 +60,7 @@ class contactUs(forms.form):
     ciudad = forms.ChoiceField(choices=ciudad_list)
     tema = forms.Textarea(max_length=500, null=False)
 '''
+'''
 class CrearUsuario(UserCreationForm):
     class Meta:
         model = User
@@ -55,7 +74,8 @@ class CrearUsuario(UserCreationForm):
         self.fields['email'].widget.attrs['placeholder'] = 'Email'
         self.fields['password1'].widget.attrs['class'] = 'form-control'
         self.fields['password1'].widget.attrs['placeholder'] = 'Password'
-
+'''
+'''
 class CrearProfesor(ModelForm):
     def __init__(self, *args, **kwargs):
         super(CrearProfesor, self).__init__(*args, **kwargs)
@@ -71,8 +91,8 @@ class CrearProfesor(ModelForm):
         self.fields['materias'].widget.attrs['placeholder'] = "Materias"
         self.fields['grupos'].widget.attrs['class'] = 'form-control'
         self.fields['grupos'].widget.attrs['placeholder'] = "Grupos"
-        
-        
+        '''
+'''
 #Mirar lo de materias y grupo en models
     class Meta:
         model = Profesor
@@ -81,3 +101,4 @@ class CrearProfesor(ModelForm):
     class Meta:
         model = Materia
         fields = ['codMateria','nombre','horario','cod_profesor']
+'''

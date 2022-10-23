@@ -3,6 +3,7 @@ from django.shortcuts import render
 #from administracion.forms import RegistroAlumno
 #from administracion.urls import ingresarAdministracion
 #error circular
+from administracion.forms import RegistroAlumno, RegistroAlumno2, RegistroAlumno3
 from django.contrib.auth.forms import UserChangeForm
 from django.http import HttpResponse
 import json
@@ -34,20 +35,16 @@ from django.db import connections
 import os
 from django.db.models import Avg
 from administracion.decorators import allowed_users, allowed_users_home
-from administracion.forms import CrearUsuario
-from administracion.forms import CrearProfesor
+
 
 # Create your views here.
 #Definir ue ejecutar y que enviar al cliente, enviar html
 #request handler, toma una solicitud del front y la contesta
-
+'''
 def admin(request):
     return render(request, admin.html)
 
 def contactUs(request):
-    return render(request, 'admin.html')
-
-def registroAlumno(request):
     return render(request, 'admin.html')
 
 def seleccionarRegistro(request):
@@ -55,62 +52,19 @@ def seleccionarRegistro(request):
 
 def index(request):
     return render(request, 'admin.html')
+'''
 
+def registroAlumno(request):
+    RA1 = RegistroAlumno(request.POST)
+   # RA2 = RegistroAlumno2(request.POST)
+   # RA3 = RegistroAlumno3(request.POST)
+    #RA = {'RA1': RA1, 'RA2': RA2, 'RA3': RA3}
+    if request.method == "POST":
+        if RA1.is_valid():
+            # & RA2.is_valid() & RA3.is_valid()
+            RA1.save()
+           # RA2.save()
+           # RA3.save()
 
-
-    #-------------------------------------------------------LogIn Administraciòn---------------------------------------------------
-#@unauthenticated_user
-
-def ingresarAdministracion(request):
-    if request.method == 'POST':
-        cajaEmail = request.POST.get('cajaEmail')
-        cajaContraseña = request.POST.get('cajaContraseña')
-
-        user = authenticate(request, cajaEmail=cajaEmail, cajaContraseña=cajaContraseña)
-
-        if user is not None:
-            login(request, user)
-            return redirect('index')
-        else:
-            messages.info(request, "El usuario o la contraseña no son correctas")
-        
-
-    return render(request, 'ingresarAdministracion/admin.html')
-
-
-#--------------------------------------------Register Profesor---------------------------------
-@login_required(login_url = 'registroProfesor')
-@allowed_users(allowed_roles=['admin'])
-def registroProfesor(request):
-    CrearUsuario = UserCreationForm(request.POST or None) 
-    FormProfesor = CrearProfesor(request.POST or None, request.FILES or None)
-    context = {'teacher_form': FormProfesor,'CrearUsuario':CrearUsuario, 'page_title':'add student'}
-    if request.method == 'POST':
-        if CrearUsuario.is_valid and FormProfesor.is_valid():
-            user = CrearUsuario.save()
-            teacher = FormProfesor.save()
-            teacher.user =user
-            teacher.save()
-            # username = student_form.cleaned_data.get('username')
-            # email = student_form.cleaned_data.get('email')
-            # password1 = student_form.cleaned_data.get('password1')
-            # password2 = student_form.cleaned_data.get('password2')
-            # name = student_form.cleaned_data.get('name')
-            # name = student_form.cleaned_data.get('phone')
-            # passport = request.FILES['profile_pic']
-            # fs = FileSystemStorage()
-            # filename = fs.save(passport.name, passport)
-            # passport_url = fs.url(filename)
-            group = Group.objects.get(name = 'teacher')
-            user.groups.add(group)
-            messages.success(request, "Successfully Teacher Added")
-        else:
-            messages.success(request, "Teacher Couldn't  Added")
-            
-            
-    return render(request, 'registration_template/add_teacher.html',context)
-
-
-
-
+    return render(request, 'registroAlumno.html', {'RA1': RA1})
 

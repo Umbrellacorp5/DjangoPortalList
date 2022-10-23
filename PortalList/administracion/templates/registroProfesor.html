@@ -76,12 +76,12 @@
         <form class="loginFormIP" id="login-formIP" action="" method="POST" autocomplete="off">
           {% csrf_token %}
           <div id="icoUser"> <img class="imgIcoUser" id="imgIUser"src="static_in_env/img/icoUser.png"></div>
-          <input class="form-control" {{ form.nombreProfesor }} id="inputUsuarioIP" type="text" placeholder="Nombre">
-          <input class="form-control" {{ form.apellidoProfesor }} id="inputContraseñaIP" type="password" placeholder="Apellido">
-          <input class="form-control" {{ form. cedulaProfesor }} id="inputCIIP" type="password" placeholder="Cédula">
-          <input class="form-control" {{ form.emailRegistroProfesor }} id="emailRegistroProfesor" type="email" placeholder="Email" required pattern>  
-          <input class="form-control" {{ form.usuarioRegistroProfesor }} id="usuarioRegistroProfesor" type="text" placeholder="Usuario (CI)" required>
-          <input class="form-control" {{ form.contraRegistroProfesor }} id="contraRegistroProfesor" type="password" placeholder="Contraseña" required>
+          <input class="form-control" {{ form.nombreProfesor }} id="inputUsuarioIP" name="inputUsuarioIP" type="text" placeholder="Nombre">
+          <input class="form-control" {{ form.apellidoProfesor }} id="inputContraseñaIP" name="inputContraseñaIP" type="password" placeholder="Apellido">
+          <input class="form-control" {{ form. cedulaProfesor }} id="inputCIIP" name="inputCIIP" type="text" placeholder="Cédula">
+          <input class="form-control" {{ form.emailRegistroProfesor }} id="emailRegistroProfesor" name="emailRegistroProfesor" type="email" placeholder="Email" required pattern>  
+          <input class="form-control" {{ form.usuarioRegistroProfesor }} id="usuarioRegistroProfesor" name="usuarioRegistroProfesor" type="text" placeholder="Usuario (CI)" required>
+          <input class="form-control" {{ form.contraRegistroProfesor }} id="contraRegistroProfesor" name="contraRegistroProfesor" type="password" placeholder="Contraseña" required>
           <label>Materias</label>
           <select id="selectRP" name="Seleccionar una materia" {{ form.color }}>
              
