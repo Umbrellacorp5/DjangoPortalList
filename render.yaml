@@ -1,0 +1,20 @@
+databases:
+  - name: dpg-ccve2m2rrk04c5t8ufo0-a
+    databaseName: djangoportallist
+    user: djangoportallist_user
+
+services:
+  - type: web
+    name: PortalList
+    env: python
+    buildCommand: "./PortalList/build.sh"
+    startCommand: "gunicorn ./PortalList/PortalList.wsgi"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: dpg-ccve2m2rrk04c5t8ufo0-a
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4

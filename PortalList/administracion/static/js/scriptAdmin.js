@@ -40,3 +40,4 @@ document.getElementById("btnRegistrarAlumno").addEventListener("click", function
     }
 })})
 
+

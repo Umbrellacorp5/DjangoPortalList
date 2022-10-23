@@ -35,7 +35,13 @@ from django.db import connections
 import os
 from django.db.models import Avg
 from administracion.decorators import allowed_users, allowed_users_home
+<<<<<<< HEAD
 
+=======
+from administracion.forms import CrearUsuario
+from administracion.forms import CrearProfesor
+from administracion.decorators import unauthenticated_user
+>>>>>>> e3d5d7b5afa4cefe4baa785bc99ef7cab8a299f2
 
 # Create your views here.
 #Definir ue ejecutar y que enviar al cliente, enviar html
@@ -66,5 +72,100 @@ def registroAlumno(request):
            # RA2.save()
            # RA3.save()
 
+<<<<<<< HEAD
     return render(request, 'registroAlumno.html', {'RA1': RA1})
+=======
+
+    #-------------------------------------------------------LogIn Administraciòn---------------------------------------------------
+@unauthenticated_user
+
+def ingresarAdministracion(request):
+    if request.method == 'POST':
+        cajaEmail = request.POST.get('cajaEmail')
+        cajaContraseña = request.POST.get('cajaContraseña')
+
+        user = authenticate(request, cajaEmail=cajaEmail, cajaContraseña=cajaContraseña)
+
+        if user is not None:
+            login(request, user)
+            return redirect('index')
+        else:
+            messages.info(request, "El usuario o la contraseña no son correctas")
+        
+
+    return render(request, 'ingresarAdministracion/admin.html')
+
+
+#--------------------------------------------Register Profesor---------------------------------
+@login_required(login_url = 'registroProfesor')
+@allowed_users(allowed_roles=['admin'])
+def registroProfesor(request):
+    CrearUsuario = UserCreationForm(request.POST or None) 
+    FormProfesor = CrearProfesor(request.POST or None, request.FILES or None)
+    context = {'teacher_form': FormProfesor,'CrearUsuario':CrearUsuario, 'page_title':'add student'}
+    if request.method == 'POST':
+        if CrearUsuario.is_valid and FormProfesor.is_valid():
+            user = CrearUsuario.save()
+            teacher = FormProfesor.save()
+            teacher.user =user
+            teacher.save()
+            # username = student_form.cleaned_data.get('username')
+            # email = student_form.cleaned_data.get('email')
+            # password1 = student_form.cleaned_data.get('password1')
+            # password2 = student_form.cleaned_data.get('password2')
+            # name = student_form.cleaned_data.get('name')
+            # name = student_form.cleaned_data.get('phone')
+            # passport = request.FILES['profile_pic']
+            # fs = FileSystemStorage()
+            # filename = fs.save(passport.name, passport)
+            # passport_url = fs.url(filename)
+            group = Group.objects.get(name = 'teacher')
+            user.groups.add(group)
+            messages.success(request, "Successfully Teacher Added")
+        else:
+            messages.success(request, "Teacher Couldn't  Added")
+            
+            
+    return render(request, 'registration_template/add_teacher.html',context)
+
+    @login_required(login_url = 'login')
+@allowed_users(allowed_roles=['admin'])
+def registerPage(request):
+    user_form = CreateUserForm(request.POST or None) 
+    admin_form = AdminForm(request.POST or None, request.FILES or None)
+    context = {'admin_form': admin_form,'user_form':user_form, 'page_title':'add student'}
+    if request.method == 'POST':
+        if user_form.is_valid and admin_form.is_valid():
+            user = user_form.save()
+            admin = admin_form.save()
+            admin.user =user
+            admin.save()
+            # username = student_form.cleaned_data.get('username')
+            # email = student_form.cleaned_data.get('email')
+            # password1 = student_form.cleaned_data.get('password1')
+            # password2 = student_form.cleaned_data.get('password2')
+            # name = student_form.cleaned_data.get('name')
+            # name = student_form.cleaned_data.get('phone')
+            # passport = request.FILES['profile_pic']
+            # fs = FileSystemStorage()
+            # filename = fs.save(passport.name, passport)
+            # passport_url = fs.url(filename)
+            group = Group.objects.get(name = 'admin')
+            user.groups.add(group)
+        else:
+            messages.success(request, "Successfully Admin Added")
+    return render(request, 'registration_template/add_admin.html',context)
+
+def logoutPage(request):
+    logout(request)
+    return redirect('login') 
+
+##-----------------------------------------------LOG IN END -------------------------------------------------------###
+
+
+
+
+
+
+>>>>>>> e3d5d7b5afa4cefe4baa785bc99ef7cab8a299f2
 
