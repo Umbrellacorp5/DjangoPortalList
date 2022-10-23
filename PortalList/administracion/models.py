@@ -19,7 +19,7 @@ class Usuario(models.Model):
     contraseña = models.CharField(max_length=255, null=False)
     apellido = models.CharField(max_length=255, null=False)
     email = models.CharField(max_length=255, null=False)
-    codAdministrador = models.ForeignKey(Administrador,on_delete=models.CASCADE, null=False)
+    codAdministrador = models.ForeignKey(Administrador,on_delete=models.CASCADE)
 
 
 
@@ -37,18 +37,15 @@ class Estan(models.Model):
     codGrupo = models.ForeignKey(Grupo, on_delete=models.CASCADE, null=False, primary_key=True)
     codAlumno = models.ForeignKey(to='alumnos.Alumno', on_delete=models.CASCADE, null=False)
 
-<<<<<<< HEAD
+'''
 
-
-=======
     class Meta:
         unique_together = (("codGrupo","codAlumno"))
 
 
     def __str__(self):
         return self.dept_id
->>>>>>> e3d5d7b5afa4cefe4baa785bc99ef7cab8a299f2
-
+'''
 class Tienen(models.Model):
     class Meta:
         unique_together = (('codGrupo', 'codProfesor'),)
@@ -57,17 +54,14 @@ class Tienen(models.Model):
     codProfesor = models.ForeignKey(to='profesores.Profesor', on_delete=models.CASCADE, null=False)
    
 
-
-<<<<<<< HEAD
-=======
+'''
     class Meta:
         unique_together = (("codGrupo","codProfesor"))
 
 
     def __str__(self):
         return self.dept_id
->>>>>>> e3d5d7b5afa4cefe4baa785bc99ef7cab8a299f2
-
+'''
 class Pasan(models.Model):
     class Meta:
         unique_together = (('codGrupo', 'codProfesor','codLista'),)
@@ -76,17 +70,14 @@ class Pasan(models.Model):
     codProfesor = models.ForeignKey(to='profesores.Profesor', on_delete=models.CASCADE, null=False)
     codLista = models.ForeignKey(to='profesores.Lista',on_delete=models.CASCADE, null=False)
     fecha = models.DateField(null=False)
+'''
 
-<<<<<<< HEAD
-
-=======
     class Meta:
         unique_together = (("codGrupo","codProfesor","codLista"))
 
     def __str__(self):
         return self.dept_id
->>>>>>> e3d5d7b5afa4cefe4baa785bc99ef7cab8a299f2
-
+'''
 
 
 '''  <option>Matemáticas</option>

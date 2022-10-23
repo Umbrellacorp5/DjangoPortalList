@@ -62,6 +62,8 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
+
+
 ROOT_URLCONF = 'PortalList.urls'
 
 
