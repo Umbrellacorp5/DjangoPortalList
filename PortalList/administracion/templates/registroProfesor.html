@@ -75,30 +75,25 @@
     <main>
         <div id="containerRP">
         <div id="infoRP">
-          <h1 id="h1RP">Registrar Profesor</h1><span id="spanRP"><a id="aRP" href="/index.html">Portal List</a></span>
-        </div>
-      </div>
-      <div id="formIP">
-        <div id="imagenIP"><img class ="img" id="imgIP" src="/PortalList/administracion/static/img/Logo14.png"/></div>
+          <br>
+<main id="fondoRP">
+          <br>
         <form class="loginFormIP" id="login-formIP" action="" method="POST" autocomplete="off">
-<<<<<<< HEAD
-          {% csrf_token %}
-          <div id="icoUser"> <img class="imgIcoUser" id="imgIUser"src="static_in_env/img/icoUser.png"></div>
-          <input class="form-control" {{ form.nombreProfesor }} id="inputUsuarioIP" name="inputUsuarioIP" type="text" placeholder="Nombre">
+          <br>
+          <h1>Registrar Profesor</h1>
+          <br>
+          <input class="form-control" {{ form.nombreProfesor }} id="inputUsuarioIP" name="inputUsuarioIP" type="text" placeholder="Nombre" >
+          <br>
           <input class="form-control" {{ form.apellidoProfesor }} id="inputContraseñaIP" name="inputContraseñaIP" type="password" placeholder="Apellido">
+          <br>
           <input class="form-control" {{ form. cedulaProfesor }} id="inputCIIP" name="inputCIIP" type="text" placeholder="Cédula">
+          <br>
           <input class="form-control" {{ form.emailRegistroProfesor }} id="emailRegistroProfesor" name="emailRegistroProfesor" type="email" placeholder="Email" required pattern>  
+          <br>
           <input class="form-control" {{ form.usuarioRegistroProfesor }} id="usuarioRegistroProfesor" name="usuarioRegistroProfesor" type="text" placeholder="Usuario (CI)" required>
+          <br>
           <input class="form-control" {{ form.contraRegistroProfesor }} id="contraRegistroProfesor" name="contraRegistroProfesor" type="password" placeholder="Contraseña" required>
-=======
-          <div id="icoUser"> <img class="imgIcoUser" id="imgIUser"src="/PortalList/administracion/static/img/icoUserAdmin.png"></div>
-          <input class="form-control" {{ form.nombreProfesor }} id="inputUsuarioIP" type="text" placeholder="Nombre">
-          <input class="form-control" {{ form.apellidoProfesor }} id="inputContraseñaIP" type="password" placeholder="Apellido">
-          <input class="form-control" {{ form. cedulaProfesor }} id="inputCIIP" type="password" placeholder="Cédula">
-          <input class="form-control" {{ form.emailRegistroProfesor }} id="emailRegistroProfesor" type="email" placeholder="Email" required pattern>  
-          <input class="form-control" {{ form.usuarioRegistroProfesor }} id="usuarioRegistroProfesor" type="text" placeholder="Usuario (CI)" required>
-          <input class="form-control" {{ form.contraRegistroProfesor }} id="contraRegistroProfesor" type="password" placeholder="Contraseña" required>
->>>>>>> e3d5d7b5afa4cefe4baa785bc99ef7cab8a299f2
+          <br>
           <label>Materias</label>
           <select id="selectRP" name="Seleccionar una materia" {{ form.color }}>
              
@@ -134,9 +129,10 @@
                 </select><br><br>
           
           <button type="submit" class="btn btn-primary" id="btnRegistrarRP">Registrar</button>
-        </form>
-      </div>
+        </form><br>
       </main>
+      </div>
+      </main><br>
 
  <!--   <main>
 
@@ -167,7 +163,7 @@
             </form>
     </main> -->
     <footer>
-        <p id="contactUs"> <a href="contactUs.html">Contáctanos</a></p>
+        <p id="contactUs"> <a href="contactUs.html" id="botonCU">Contáctanos</a></p>
         <p id="copyR">© 2022 Portal List, Inc.</p>
     </footer>
 </body>

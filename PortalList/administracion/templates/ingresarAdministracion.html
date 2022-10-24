@@ -27,14 +27,13 @@
         <main id="mainInAdmin">
             <br>
             <form id="formIA" action="" method="POST">
-                {% csrf_token %}
                 <h1 id= "iniciarSesiónTitle" >Iniciar Sesión</h1>
                 <br> 
                 <h2 id= "ingresarAdminTitle">Ingrese su usuario administrador </h2><br><br>
                 <!--action=verifica los datos y redirecciona-->
                 <input id="emailAdmin" type="email" name="email" required placeholder="Email"><br><br>
                 <input id="contraAdmin" type="password" name="contraseña" placeholder="Contraseña"><br><br><br>
-                <button id="btnIniciarSesiónAdmin" class="btn btn-primary" type="sumbit">Iniciar Sesión</button> <br><br><br>
+                <a id="btnIniciarSesiónAdmin" class="btn btn-primary" href="elegirAdmin.html" type="sumbit">Iniciar Sesión</a> <br><br><br>
                 <a>Haz olvidado tu contraseña? <br> Ve a contactanos y dinos de tu problema</a>
             </form>
             <br>
