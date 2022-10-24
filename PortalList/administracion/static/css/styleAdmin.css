@@ -458,113 +458,29 @@ background-size: 120%;
 
 }
 
-#copyRAdmin{
-
-}
 
 
 /*-------------------------------------------------------------Registrar Profesor------------------------------------------------------------------*/
 /* El formIP(es el formulario de ingresarProfesor.html )*/
-#formRP {
+#login-formIP {
   position: relative;
-  z-index: 1;
-  background: #FFFFFF;
-  max-width: 700px;
-  margin: 0 auto 100px;
-  padding: 30px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-width: 400px;
   text-align: center;
+  background-color: white;
+  max-width: 1500px;
+  max-height: 1500px;
+  width: 900px;
+  height: 700px;
+  margin-left: 12%;
+  margin-right: 12%;
+  border-radius: 5%;
 }
 
-#formRegAlu {
-  position: relative;
-  z-index: 1;
-  background: #d3d3d3;
-  max-width: 300px;
-  margin: 0 auto 100px;
-  padding: 30px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  text-align: center;
-}
-
-/*Esto es para que el logo no se deforme*/
-.img {
-  max-width: 100%;
-  max-height: 100%;
-  
-}
-
-/*El tamaño y posicionamiento del logo */
-#imgIP {
-  position: relative;
-  margin: auto;
-  height: 350px;
-  width: 350px;
-  object-fit: none;
-  padding-top: 10px;
-}
-
-#imgRA {
-  position: relative;
-  margin: auto;
-  height: 270px;
-  width: 250px;
-  object-fit: none;
-  padding-top: 10px;
-}
-
-/*Contenedor de h1 */
-#containerRP {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-#containerRA {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-#containerRP #infoRP {
-  margin: 50px auto;
-  text-align: center;
-}
-
-#containerRA #infoRA {
-  margin: 50px auto;
-  text-align: center;
-}
-
-/*Modifica forma/color/tamaño de h1 */
-#containerRP #infoRP #h1RP {
-  margin: auto;
-  padding: 0;
-  font-size: 36px;
-  font-weight: 300;
-  color: #1a1a1a;
-}
-
-#containerRA #infoRA #h1RA {
-  margin: auto;
-  padding: 0;
-  font-size: 36px;
-  font-weight: 300;
-  color: #1a1a1a;
-}
-
-/*Tamaño a PortalList */
-#containerRP #infoRP #spanRP {
-  font-size: 12px;
+#fondoRP{
+    background-image: url(https://marketplace.canva.com/EAE9oAp-Byc/1/0/1600w/canva-fondo-de-pantalla-escritorio-pc-abstracto-moderno-degradado-negro-PriNvkfDEzU.jpg);
+  background-size: 150%;
+  margin-left: 2%;
+  margin-right: 2%;
+  border-radius: 5%;
 }
 
 #containerRA #infoRA #spanRA {
@@ -624,7 +540,15 @@ width: 400px;
 }
 
 #btnRegistrarRP{
-  margin-top: 20px;
+  position: relative;
+  display:inline;
+    text-decoration: none;
+    padding: 4px 20px;
+    font-size: 20px;
+    color: #ffffff;
+    background:#000000a2;
+    border-radius: 1px;
+    border: 2px solid rgba(255, 255, 255, 0);
 }
 
 #btnbtnRegistroAlumno{
@@ -707,7 +631,7 @@ height: 95%;
 
 #fondoIndex{
   margin-top: 2%;
-background-image: url(https://th.bing.com/th/id/R.42b219eb09310fbc11c36e8289b16eb6?rik=NfvjER604y97vA&pid=ImgRaw&r=0);
+background-image: url(https://th.bing.com/th/id/R.42b219eb09310fbc11c36e8289b16eb6?rik=NfvjER604y97vA&pid=ImgRaw&r=0) ;
 color: #FFFFFF;
 height: 600px;
 width: 90%;
