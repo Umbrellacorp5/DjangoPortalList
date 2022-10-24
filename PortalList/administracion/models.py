@@ -19,7 +19,7 @@ class Usuario(models.Model):
     contraseña = models.CharField(max_length=255, null=False)
     apellido = models.CharField(max_length=255, null=False)
     email = models.CharField(max_length=255, null=False)
-    codAdministrador = models.ForeignKey(Administrador,on_delete=models.CASCADE)
+    #codAdministrador = models.ForeignKey(Administrador,on_delete=models.CASCADE)
 
 
 

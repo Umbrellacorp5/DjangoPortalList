@@ -28,6 +28,7 @@ class RegistroAlumno(ModelForm):
     class Meta:
         model = Usuario
         fields = ['nombre','apellido','cedula','email','usuario','contraseña']
+        exclude = ['codAdministrador']
 
 '''
 class RegistroAlumno2(ModelForm):
