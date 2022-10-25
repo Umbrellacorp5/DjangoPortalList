@@ -19,7 +19,7 @@ class Profesor(models.Model):
 
 
     def __str__(self):
-        return self.codProfesor
+        return str(self.codProfesor)
 
 
 
