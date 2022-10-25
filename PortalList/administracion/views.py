@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from administracion.forms import IngresarAdminsitracion
 #from administracion.forms import RegistroAlumno
 #from administracion.urls import ingresarAdministracion
@@ -52,8 +52,7 @@ def admin(request):
 def contactUs(request):
     return render(request, 'admin.html')
 
-def seleccionarRegistro(request):
-    return render(request, 'admin.html')
+
 
 def index(request):
     return render(request, 'admin.html')
@@ -69,15 +68,19 @@ def ingresarAdministracion(request):
         IA.contraseña = request.POST.get('contraseña')
         if IA.email == a.email and IA.contraseña == a.contraseña:
             print("buenazo")   
+            return redirect(elegirAdmin)
     return render(request, 'ingresarAdministracion.html', {'IA': IA})
 
+def elegirAdmin(request):
+    return render(request, 'elegirAdmin.html')
+
+    
 def registroAlumno(request):
     RA1 = RegistroAlumno(request.POST)
    # RA2 = RegistroAlumno2(request.POST)
    # RA3 = RegistroAlumno3(request.POST)
     #RA = {'RA1': RA1, 'RA2': RA2, 'RA3': RA3}
     if request.method == "POST":
-        print("buenazo1")
         if RA1.is_valid(): 
             FKUser = RA1.get('codAdministrador')
             # & RA2.is_valid() & RA3.is_valid()
@@ -85,6 +88,12 @@ def registroAlumno(request):
            # RA2.save()
            # RA3.save()
     return render(request, 'registroAlumno.html', {'RA1': RA1})
+
+def registroProfesor(request):
+    return render(request,'registroProfesor.html')
+
+def seleccionarRegistro(request):
+    return render(request, 'seleccionarRegistro.html')
 
 
 
