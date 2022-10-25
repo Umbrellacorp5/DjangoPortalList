@@ -12,7 +12,7 @@ class Alumno(models.Model):
     mac = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.codAlumno
+        return str(self.codAlumno)
 '''
 class AlumnoForm(ModelForm):
     class Meta:

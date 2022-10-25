@@ -6,7 +6,7 @@ from django.forms import ModelForm
 #Saca datros de la BD y se los presenta al usuario
 
 class Administrador(models.Model):
-    codAdministrador = models.IntegerField( primary_key=True, null=False)
+    codAdministrador = models.IntegerField(primary_key=True, null=False, default=1)
     email = models.CharField(max_length=255, null=False)
     contraseña = models.CharField(max_length=255, null=False)
 
@@ -19,7 +19,7 @@ class Usuario(models.Model):
     contraseña = models.CharField(max_length=255, null=False)
     apellido = models.CharField(max_length=255, null=False)
     email = models.CharField(max_length=255, null=False)
-    #codAdministrador = models.ForeignKey(Administrador,on_delete=models.CASCADE)
+    codAdministrador = models.ForeignKey(Administrador,on_delete=models.CASCADE)
 
 
 

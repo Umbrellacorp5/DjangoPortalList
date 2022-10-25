@@ -17,18 +17,23 @@ class IngresarAdminsitracion(ModelForm):
     class Meta:
         model = Administrador
         fields=['email','contraseña']
+
 class RegistroAlumno(ModelForm):
     nombre= forms.CharField(label="Nombre", max_length=255, required=True)
     apellido= forms.CharField(label="Apellido", max_length=255, required=True)
-    cedula= forms.CharField(label="Apellido", max_length=255, required=True)
-    email= forms.CharField(label="Apellido", max_length=255, required=True)
+    cedula= forms.CharField(label="cedula", max_length=255, required=True)
+    email= forms.CharField(label="email", max_length=255, required=True)
     usuario= forms.CharField(max_length=255, required=True)
     contraseña= forms.CharField(max_length=255, required=True)
 
     class Meta:
         model = Usuario
         fields = ['nombre','apellido','cedula','email','usuario','contraseña']
-        exclude = ['codAdministrador']
+
+    def __init__(self, *args, **kwargs):
+        codAdministradorPK = kwargs.pop('codAdministrador', 1)
+        super(RegistroAlumno, self).__init__(*args, **kwargs)
+        self.fields['codAdministrador']=forms.ModelChoiceField(queryset=Administrador.objects.filter(codAdministrador=codAdministradorPK))
 
 '''
 class RegistroAlumno2(ModelForm):

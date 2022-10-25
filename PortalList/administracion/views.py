@@ -78,7 +78,8 @@ def registroAlumno(request):
    # RA3 = RegistroAlumno3(request.POST)
     #RA = {'RA1': RA1, 'RA2': RA2, 'RA3': RA3}
     if request.method == "POST":
-        if RA1.is_valid():
+        if RA1.is_valid(): 
+            FKUser = RA1.get('codAdministrador')
             # & RA2.is_valid() & RA3.is_valid()
             RA1.save()
            # RA2.save()
