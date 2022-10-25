@@ -60,16 +60,23 @@ def index(request):
 '''
 
 def ingresarAdministracion(request):
-    IA = IngresarAdminsitracion(request)
+    print("buenazotop")
+    IA = IngresarAdminsitracion(request.POST)
+    print("buenazoia")
     if request.method == "POST":
-        admin = Administrador.objects.all()
+        print("buenazo1")
+        '''
+        if IA.is_valid(): 
+            admin = Administrador.objects.all()
         for a in admin:
+            print("buenazo2")
             print('{0} - {1}'.format(a.email, a.contraseña))
-        IA.email = request.POST.get('emailAdmin')
-        IA.contraseña = request.POST.get('contraAdmin')
+        IA.email = request.POST.get('email')
+        print("buenazo3")
+        IA.contraseña = request.POST.get('contraseña')
         if IA.email == a.email:
             print("buenazo")
-
+            '''     
     return render(request, 'ingresarAdministracion.html', {'IA': IA})
 
 def registroAlumno(request):
@@ -78,6 +85,7 @@ def registroAlumno(request):
    # RA3 = RegistroAlumno3(request.POST)
     #RA = {'RA1': RA1, 'RA2': RA2, 'RA3': RA3}
     if request.method == "POST":
+        print("buenazo1")
         if RA1.is_valid(): 
             FKUser = RA1.get('codAdministrador')
             # & RA2.is_valid() & RA3.is_valid()
