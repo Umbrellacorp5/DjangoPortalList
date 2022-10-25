@@ -60,23 +60,15 @@ def index(request):
 '''
 
 def ingresarAdministracion(request):
-    print("buenazotop")
     IA = IngresarAdminsitracion(request.POST)
-    print("buenazoia")
     if request.method == "POST":
-        print("buenazo1")
-        '''
-        if IA.is_valid(): 
-            admin = Administrador.objects.all()
+        admin = Administrador.objects.all()
         for a in admin:
-            print("buenazo2")
             print('{0} - {1}'.format(a.email, a.contraseña))
         IA.email = request.POST.get('email')
-        print("buenazo3")
         IA.contraseña = request.POST.get('contraseña')
-        if IA.email == a.email:
-            print("buenazo")
-            '''     
+        if IA.email == a.email and IA.contraseña == a.contraseña:
+            print("buenazo")   
     return render(request, 'ingresarAdministracion.html', {'IA': IA})
 
 def registroAlumno(request):
