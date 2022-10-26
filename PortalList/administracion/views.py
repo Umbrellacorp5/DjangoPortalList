@@ -71,6 +71,7 @@ def elegirAdmin(request):
 
 def ingresarAdministracion(request):
     IA = IngresarAdminsitracion(request.POST)
+    print(IA)
     if request.method == "POST":
         admin = Administrador.objects.all()
         List = []
