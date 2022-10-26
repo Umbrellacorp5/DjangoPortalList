@@ -73,6 +73,7 @@ def elegirAdmin(request):
 
 def ingresarAdministracion(request):
     IA = IngresarAdminsitracion(request.POST)
+    print(IA)
     if request.method == "POST":
         admin = Administrador.objects.all()
         admin2= Administrador.objects.raw('SELECT email, contraseña FROM administracion_administrador')
