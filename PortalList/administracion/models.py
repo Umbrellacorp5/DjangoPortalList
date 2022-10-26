@@ -36,7 +36,7 @@ class Estan(models.Model):
     class Meta:
         unique_together = (('codGrupo', 'codAlumno'),)
 
-    codGrupo = models.ForeignKey(Grupo, on_delete=models.CASCADE, null=False, primary_key=True)
+    codGrupo = models.ForeignKey(Grupo, on_delete=models.CASCADE)
     codAlumno = models.ForeignKey(to='alumnos.Alumno', on_delete=models.CASCADE, null=False)
 
 '''
@@ -52,7 +52,7 @@ class Tienen(models.Model):
     class Meta:
         unique_together = (('codGrupo', 'codProfesor'),)
 
-    codGrupo = models.ForeignKey(Grupo, on_delete=models.CASCADE, null=False, primary_key=True)
+    codGrupo = models.ForeignKey(Grupo, on_delete=models.CASCADE)
     codProfesor = models.ForeignKey(to='profesores.Profesor', on_delete=models.CASCADE, null=False)
    
 
@@ -68,7 +68,7 @@ class Pasan(models.Model):
     class Meta:
         unique_together = (('codGrupo', 'codProfesor','codLista'),)
 
-    codGrupo = models.ForeignKey(Grupo, on_delete=models.CASCADE, null=False, primary_key=True)
+    codGrupo = models.ForeignKey(Grupo, on_delete=models.CASCADE)
     codProfesor = models.ForeignKey(to='profesores.Profesor', on_delete=models.CASCADE, null=False)
     codLista = models.ForeignKey(to='profesores.Lista',on_delete=models.CASCADE, null=False)
     fecha = models.DateField(null=False)

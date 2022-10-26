@@ -3,10 +3,13 @@ from django.shortcuts import render
 
 
 def asistencia(request):
-    return render(request, 'admin.html')
+    if request.method == 'GET':
+        return render(request, 'asistencia.html')
 
 def elegirUsuario(request):
-    return render(request, 'admin.html')
+    if request.method == 'GET':
+        return render(request, 'elegirUsuario.html')
 
 def ingresarAlumno(request):
-    return render(request, 'admin.html')
+    if request.method == 'GET':
+        return render(request, 'ingresarAlumno.html')

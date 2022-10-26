@@ -2,10 +2,13 @@ from django.shortcuts import render
 
 # Create your views here.
 def ingresarProfesor(request):
-    return render(request, 'admin.html')
+    if request.method == 'GET':
+        return render(request, 'ingresarProfesor.html')
 
 def seleccionLista(request):
-    return render(request, 'admin.html')
+    if request.method == 'GET':
+        return render(request, 'seleccionLista.html')
 
 def lista(request):
-    return render(request, 'admin.html')
+    if request.method == 'GET':
+        return render(request, 'lista.html')

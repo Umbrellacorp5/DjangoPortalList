@@ -46,18 +46,28 @@ from administracion.decorators import unauthenticated_user
 # Create your views here.
 #Definir ue ejecutar y que enviar al cliente, enviar html
 #request handler, toma una solicitud del front y la contesta
-'''
-def admin(request):
-    return render(request, admin.html)
+
 
 def contactUs(request):
-    return render(request, 'admin.html')
+    return render(request, 'contactUs.html')
 
 
 
 def index(request):
-    return render(request, 'admin.html')
-'''
+    if request.method == 'GET':
+        return render(request, 'index.html')
+
+
+
+def seleccionarRegistro(request):
+    if request.method == 'GET':
+        return render(request, 'seleccionarRegistro.html')
+
+def elegirAdmin(request):
+    if request.method == 'GET':
+        return render(request, 'elegirAdmin.html')
+
+
 
 def ingresarAdministracion(request):
     IA = IngresarAdminsitracion(request.POST)
@@ -93,8 +103,7 @@ def ingresarAdministracion(request):
             return redirect(elegirAdmin)
     return render(request, 'ingresarAdministracion.html', {'IA': IA})
 
-def elegirAdmin(request):
-    return render(request, 'elegirAdmin.html')
+
 
     
 def registroAlumno(request):
@@ -111,12 +120,10 @@ def registroAlumno(request):
            # RA3.save()
     return render(request, 'registroAlumno.html', {'RA1': RA1})
 
+
 def registroProfesor(request):
-    return render(request,'registroProfesor.html')
-
-def seleccionarRegistro(request):
-    return render(request, 'seleccionarRegistro.html')
-
+    if request.method == 'GET':
+        return render(request,'registroProfesor.html')
 
 
 
