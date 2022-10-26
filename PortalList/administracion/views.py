@@ -1,7 +1,9 @@
 from ast import ListComp
+import email
 from django.forms import ModelForm
 from django.shortcuts import render, redirect
 from administracion.forms import IngresarAdminsitracion
+from django.db import connection
 #from administracion.forms import RegistroAlumno
 #from administracion.urls import ingresarAdministracion
 #error circular
@@ -63,32 +65,41 @@ def ingresarAdministracion(request):
     IA = IngresarAdminsitracion(request.POST)
     if request.method == "POST":
         admin = Administrador.objects.all()
+        admin2= Administrador.objects.raw('SELECT email, contraseña FROM administracion_administrador')
+        with connection.cursor() as cursor:
+           cursor.execute('SELECT email, contraseña FROM administracion_administrador')
+           l=cursor.fetchall()
+        IA.email = request.POST.get('email')
+        IA.contraseña = request.POST.get('contraseña')
+        print(l[0])
+        '''
         List = []
         List1 = []
         List2 = []
         List3 = []
         for a in admin:
             i=1
+            global x
 
             List.clear()  
+            List1.append('{0}')
             List.append('{0}'.format(a.email, a.contraseña, a.codAdministrador))
             List.append('{1}'.format(a.email, a.contraseña, a.codAdministrador))
             List.append('{2}'.format(a.email, a.contraseña, a.codAdministrador))
             if i==1:
                 i+=1
-                List1.append(List)
+                g=List
         else:
             if i==2:
                     i+=1
-                    List2.append(List)
+                    b=List
             else:
                 if i==3:
-                       List3.append(List)
-        print(List1)
-        print(i)
-        IA.email = request.POST.get('email')
-        IA.contraseña = request.POST.get('contraseña')
-        if IA.email in List and IA.contraseña in List:
+                        i+=1
+                        x=List
+        print(admin)
+        '''
+        if IA.email == l[0] and IA.contraseña in l[1]:
             print("buenazo")   
             return redirect(elegirAdmin)
     return render(request, 'ingresarAdministracion.html', {'IA': IA})
