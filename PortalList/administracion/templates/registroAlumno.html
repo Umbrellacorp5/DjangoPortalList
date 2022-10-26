@@ -77,12 +77,12 @@
                         <form id="formRegAlu" action="" method="POST">
                                 {% csrf_token %}
                                 <h2 id="registrarAlumnoTitle">Registrar Alumno</h2> <br>
-                                <input class="form-control" {{ form.nombre }} id="nombreRegistroAlumno" name="nombre" type="text" placeholder="Nombre" required pattern="[A-Za-z]{1,50}"> <br><br>
-                                <input class="form-control" {{ form.apellido }} id="apellidoRegistroAlumno" name="apellido" type="text" placeholder="Apellido" required pattern="[A-Za-z]{1,50}"><br><br>
-                                <input class="form-control" {{ form.cedula }} id="ciRegistroAlumno"  name="cedula" type="number" placeholder="Cédula" required><br><br>
-                                <input class="form-control" {{ form.emailRegistroAlumno }} id="emailRegistroAlumno" name="email" type="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br><br>                                     
-                                <input class="form-control" {{ form.usuarioRegistroAlumno }} id="usuarioRegistroAlumno" name="usuario" type="text" placeholder="Usuario (CI)" required><br><br>
-                                <input class="form-control" {{ form.contraRegistroAlumno }} id="contraRegistroAlumno" name="contraseña" type="password" placeholder="Contraseña (CI)" required><br><br>
+                                <input class="form-control" id="nombreRegistroAlumno" name="nombre" type="text" placeholder="Nombre" required pattern="[A-Za-z]{1,50}"> <br><br>
+                                <input class="form-control" id="apellidoRegistroAlumno" name="apellido" type="text" placeholder="Apellido" required pattern="[A-Za-z]{1,50}"><br><br>
+                                <input class="form-control" id="ciRegistroAlumno"  name="cedula" type="number" placeholder="Cédula" required><br><br>
+                                <input class="form-control" id="emailRegistroAlumno" name="email" type="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br><br>                                     
+                                <input class="form-control" id="usuarioRegistroAlumno" name="usuario" type="text" placeholder="Usuario (CI)" required><br><br>
+                                <input class="form-control" id="contraRegistroAlumno" name="contraseña" type="password" placeholder="Contraseña (CI)" required><br><br>
                                        
                                 <button id="btnRegistroAlumno" class="btn btn-primary" type="sumbit">Registrar Alumno</button>
                                         

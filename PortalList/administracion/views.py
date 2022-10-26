@@ -1,3 +1,4 @@
+from ast import ListComp
 from django.forms import ModelForm
 from django.shortcuts import render, redirect
 from administracion.forms import IngresarAdminsitracion
@@ -62,11 +63,32 @@ def ingresarAdministracion(request):
     IA = IngresarAdminsitracion(request.POST)
     if request.method == "POST":
         admin = Administrador.objects.all()
+        List = []
+        List1 = []
+        List2 = []
+        List3 = []
         for a in admin:
-            print('{0} - {1}'.format(a.email, a.contraseña))
+            i=1
+
+            List.clear()  
+            List.append('{0}'.format(a.email, a.contraseña, a.codAdministrador))
+            List.append('{1}'.format(a.email, a.contraseña, a.codAdministrador))
+            List.append('{2}'.format(a.email, a.contraseña, a.codAdministrador))
+            if i==1:
+                i+=1
+                List1.append(List)
+        else:
+            if i==2:
+                    i+=1
+                    List2.append(List)
+            else:
+                if i==3:
+                       List3.append(List)
+        print(List1)
+        print(i)
         IA.email = request.POST.get('email')
         IA.contraseña = request.POST.get('contraseña')
-        if IA.email == a.email and IA.contraseña == a.contraseña:
+        if IA.email in List and IA.contraseña in List:
             print("buenazo")   
             return redirect(elegirAdmin)
     return render(request, 'ingresarAdministracion.html', {'IA': IA})
@@ -80,9 +102,9 @@ def registroAlumno(request):
    # RA2 = RegistroAlumno2(request.POST)
    # RA3 = RegistroAlumno3(request.POST)
     #RA = {'RA1': RA1, 'RA2': RA2, 'RA3': RA3}
-    if request.method == "POST":
+    if request.method == "POST": 
         if RA1.is_valid(): 
-            FKUser = RA1.get('codAdministrador')
+            #FKUser = RA1.get('codAdministrador')
             # & RA2.is_valid() & RA3.is_valid()
             RA1.save()
            # RA2.save()
