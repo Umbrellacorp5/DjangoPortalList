@@ -4,6 +4,6 @@ from alumnos import views
 
 urlpatterns = [
     path('asistencia/', views.asistencia, name='asistencia'),
-    path('elegirUsuario/', views.elegirUsuario),
+    path('elegirUsuario/', views.elegirUsuario, name='elegirUsuario'),
     path('ingresarAlumno/', views.ingresarAlumno, name='ingresarAlumno'),
 ]
