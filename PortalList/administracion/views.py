@@ -73,16 +73,16 @@ def elegirAdmin(request):
 
 def ingresarAdministracion(request):
     IA = IngresarAdminsitracion(request.POST)
-    print(IA)
     if request.method == "POST":
-        admin = Administrador.objects.all()
-        admin2= Administrador.objects.raw('SELECT email, contraseña FROM administracion_administrador')
-        with connection.cursor() as cursor:
-           cursor.execute('SELECT email, contraseña FROM administracion_administrador')
-           l=cursor.fetchall()
         IA.email = request.POST.get('email')
         IA.contraseña = request.POST.get('contraseña')
-        print(l[0])
+        with connection.cursor() as cursor:
+           cursor.execute("SELECT email FROM administracion_administrador WHERE email = '%s' and contraseña = '%s'"% ((IA.email), (IA.contraseña)))
+           select_email= cursor.fetchone()
+           email = ' '.join(str(e) for e in select_email)
+           cursor.execute("SELECT contraseña FROM administracion_administrador WHERE email = '%s' and contraseña = '%s'" % ((IA.email), (IA.contraseña)))
+           select_contraseña= cursor.fetchone()
+           contraseña = ' '.join(str(c) for c in select_contraseña)
         '''
         List = []
         List1 = []
@@ -110,7 +110,7 @@ def ingresarAdministracion(request):
                         x=List
         print(admin)
         '''
-        if IA.email == l[0] and IA.contraseña in l[1]:
+        if IA.email == email and IA.contraseña == contraseña:
             print("buenazo")   
             return redirect(elegirAdmin)
     return render(request, 'ingresarAdministracion.html', {'IA': IA})
