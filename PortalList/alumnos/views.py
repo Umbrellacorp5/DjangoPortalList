@@ -2,9 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.db import connection
 from django.db import connections
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from alumnos.forms import IngresarAlumno
-from django.contrib.auth import login, logout, authenticate
 
 
 def asistencia(request):
@@ -20,35 +19,12 @@ def ingresarAlumno(request):
         return render(request, 'ingresarAlumno.html')
     else:
         user = (request.POST['inputUsuarioIA'])
+        password = (request.POST['inputContraseñaIA'])
         with connection.cursor() as cursor:
-            cursor.execute("SELECT usuario FROM administracion_usuario")
+            cursor.execute("SELECT usuario, contraseña FROM administracion_usuario WHERE usuario='%s' and contraseña=%s"%(user,password))
             usuario = cursor.fetchone()
-            cursor.execute("SELECT contraseña FROM administracion_usuario")
-            contraseña = cursor.fetchone()
-            print(contraseña[0])
-            if usuario[0] == user:
+            if usuario[0] == user and usuario[1] == password:
                 return render(request, 'asistencia.html')
             else:
-                if user is None:
-                    print('None')
+                if usuario[0] != user and usuario[1] != password:
                     return render(request, 'ingresarAlumno.html')
-
-'''
-def ingresarAlumno(request):
-    IA = ingresarAlumno(request.POST)
-    print(IA)
-    if request.method == "POST":
-        IA.inputUsuarioIA = request.POST.get('inputUsuarioIA')
-        IA.inputContraseñaIA = request.POST.get('inputContraseñaIA')
-        with connection.cursor() as cursor:
-           cursor.execute("SELECT email FROM alumnos_alumno WHERE usuario = '%s' and contraseña = '%s'"% ((IA.inputUsuarioIA), (IA.inputContraseñaIA)))
-           select_email= cursor.fetchone()
-           email = ' '.join(str(e) for e in select_email)
-           cursor.execute("SELECT contraseña FROM alumnos_alumno WHERE usuario = '%s' and contraseña = '%s'" % ((IA.inputUsuarioIA), (IA.inputContraseñaIA)))
-           select_contraseña= cursor.fetchone()
-           contraseña = ' '.join(str(c) for c in select_contraseña)
-
-        if IA.email == email and IA.contraseña == contraseña:
-            return redirect(elegirUsuario)
-    return render(request, 'ingresarAlumno.html', {'IA': IA})
-    '''
