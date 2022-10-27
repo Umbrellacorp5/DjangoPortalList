@@ -107,9 +107,7 @@ def registroAlumno(request):
         RA1.usuario = request.POST.get('usuario')
         RA1.contraseña = request.POST.get('contraseña')
         with connection.cursor() as cursor:
-           cursor.execute("INSERT INTO administracion_usuario (cedula, email, nombre, usuario, apellido, contraseña)")
-           select_email= cursor.fetchone()
-           email = ' '.join(str(e) for e in select_email)
+           cursor.execute("INSERT INTO administracion_usuario (cedula, email, nombre, usuario, apellido, contraseña, codAdministrador_id) VALUES ('%s', '%s', '%s', '%s', '%s', '%s','%s');"%((RA1.cedula),(RA1.email),(RA1.nombre),(RA1.usuario),(RA1.apellido),(RA1.contraseña),(codAdmin)))
         if RA1.is_valid():
             #FKUser = RA1.get('codAdministrador')
             # & RA2.is_valid() & RA3.is_valid()
