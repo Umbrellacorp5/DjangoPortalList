@@ -23,8 +23,9 @@ def ingresarAlumno(request):
         with connection.cursor() as cursor:
             cursor.execute("SELECT usuario, contraseña FROM administracion_usuario WHERE usuario='%s' and contraseña=%s"%(user,password))
             usuario = cursor.fetchone()
-            if usuario[0] == user and usuario[1] == password:
-                return render(request, 'asistencia.html')
+            print(usuario)
+            if usuario == None:
+                return render(request, 'ingresarAlumno.html')
             else:
-                if usuario[0] != user and usuario[1] != password:
-                    return render(request, 'ingresarAlumno.html')
+                if usuario[0] == user and usuario[1] == password:
+                    return render(request, 'asistencia.html')
