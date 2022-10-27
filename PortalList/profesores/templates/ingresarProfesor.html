@@ -72,7 +72,8 @@
 </div>
 <div id="formIP">
   <div id="imagenIP"><img class ="img" id="imgIP" src="static_in_env/img/LogoPL.png"/></div>
-  <form class="loginFormIP" id="login-formIP" autocomplete="off">
+  <form class="loginFormIP" id="login-formIP" autocomplete="off" method="POST">
+    {% csrf_token %}
     <div id="icoUser"> <img class="imgIcoUser" id="imgIUser"src="static_in_env/img/icoUser.png"></div>
     <input class="form-control" id="inputUsuarioIP" type="text" placeholder="Usuario" name="inputUsuarioIP">
     <input class="form-control" id="inputContraseñaIP" type="password" placeholder="Contraseña" name="inputContraseñaIP">

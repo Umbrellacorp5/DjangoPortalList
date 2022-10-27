@@ -8,14 +8,6 @@ class Profesor(models.Model):
     usuarioci = models.ForeignKey( to='administracion.Usuario',on_delete=models.CASCADE, null=False)
     cargo = models.CharField(max_length=255, null=False)
     antiguedad = models.CharField(max_length=255, null=False)
-    cedula = models.IntegerField(null=False, unique=True)
-    nombre = models.CharField(max_length=255, null=False)
-    usuario = models.CharField(max_length=255, null=False)
-    #contrasenia, lo maneja django (?)
-    apellido = models.CharField(max_length=255, null=False)
-    nombre = models.CharField(max_length=255, null=False)
-    email  = models.EmailField(max_length=70,blank=True,unique=True)
-    codadministrador = models.ForeignKey(to='administracion.Administrador',on_delete=models.CASCADE, null=False)
 
 
     def __str__(self):

@@ -1,9 +1,7 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 from django.db import connection
 from django.db import connections
-from django.shortcuts import render
-from alumnos.forms import IngresarAlumno
+
 
 
 def asistencia(request):
@@ -23,7 +21,6 @@ def ingresarAlumno(request):
         with connection.cursor() as cursor:
             cursor.execute("SELECT usuario, contraseña FROM administracion_usuario WHERE usuario='%s' and contraseña=%s"%(user,password))
             usuario = cursor.fetchone()
-            print(usuario)
             if usuario == None:
                 return render(request, 'ingresarAlumno.html')
             else:
