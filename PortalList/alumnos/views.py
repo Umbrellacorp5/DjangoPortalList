@@ -4,6 +4,7 @@ from django.db import connection
 from django.db import connections
 from django.shortcuts import render, redirect
 from alumnos.forms import IngresarAlumno
+from django.contrib.auth import login, logout, authenticate
 
 
 def asistencia(request):
@@ -17,8 +18,22 @@ def elegirUsuario(request):
 def ingresarAlumno(request):
     if request.method == 'GET':
         return render(request, 'ingresarAlumno.html')
+    else:
+        user = (request.POST['inputUsuarioIA'])
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT usuario FROM administracion_usuario")
+            usuario = cursor.fetchone()
+            cursor.execute("SELECT contraseña FROM administracion_usuario")
+            contraseña = cursor.fetchone()
+            print(contraseña[0])
+            if usuario[0] == user:
+                return render(request, 'asistencia.html')
+            else:
+                if user is None:
+                    print('None')
+                    return render(request, 'ingresarAlumno.html')
 
-
+'''
 def ingresarAlumno(request):
     IA = ingresarAlumno(request.POST)
     print(IA)
@@ -36,3 +51,4 @@ def ingresarAlumno(request):
         if IA.email == email and IA.contraseña == contraseña:
             return redirect(elegirUsuario)
     return render(request, 'ingresarAlumno.html', {'IA': IA})
+    '''
