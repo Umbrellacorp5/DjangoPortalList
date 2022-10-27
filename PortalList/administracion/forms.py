@@ -26,26 +26,18 @@ class RegistroAlumno(ModelForm):
     email= forms.CharField(label="email", max_length=255, required=True)
     usuario= forms.CharField(label="usuario", max_length=255, required=True)
     contraseña= forms.CharField(label="contraseña", max_length=255, required=True)
-    
 
     class Meta:
         model = Usuario
         fields = ['nombre','apellido','cedula','email','usuario','contraseña']
 
-            
-    def __init__(self, *args, **kwargs):
-            codAdministradorPK = kwargs.pop('codAdministrador', 1)
-            super(RegistroAlumno, self).__init__(*args, **kwargs)
-            self.fields['codAdministrador']=forms.ModelChoiceField(queryset=Administrador.objects.filter(codAdministrador=codAdministradorPK))
-
-'''
 class RegistroAlumno2(ModelForm):
     fotoAlumno =forms.ImageField(max_length=255)
     nPadre = forms.NumberInput()
 
     class Meta:
         model = Alumno
-        fields = '__all__'
+        fields = ['fotoAlumno','numPadre']
 
 class RegistroAlumno3(ModelForm):
     Grupo = forms.CharField(max_length=255, required=True)
@@ -53,7 +45,16 @@ class RegistroAlumno3(ModelForm):
     class Meta:
         model = Grupo
         fields = '__all__'
-'''
+    
+            
+    def __init__(self, *args, **kwargs):
+            codAdministradorPK = kwargs.pop('codAdministrador', 1)
+            super(RegistroAlumno, self).__init__(*args, **kwargs)
+            self.fields['codAdministrador']=forms.ModelChoiceField(queryset=Administrador.objects.filter(codAdministrador=codAdministradorPK))
+
+
+
+
 
 '''
 class registroProfesor(forms.form):

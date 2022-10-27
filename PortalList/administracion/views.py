@@ -7,7 +7,7 @@ from django.db import connection
 #from administracion.forms import RegistroAlumno
 #from administracion.urls import ingresarAdministracion
 #error circular
-from administracion.forms import RegistroAlumno
+from administracion.forms import RegistroAlumno, RegistroAlumno2, RegistroAlumno3
 from django.contrib.auth.forms import UserChangeForm
 from django.http import HttpResponse
 import json
@@ -96,8 +96,8 @@ def ingresarAdministracion(request):
     
 def registroAlumno(request):
     RA1 = RegistroAlumno(request.POST)
-   # RA2 = RegistroAlumno2(request.POST)
-   # RA3 = RegistroAlumno3(request.POST)
+    RA2 = RegistroAlumno2(request.POST)
+    #RA3 = RegistroAlumno3(request.POST)
     #RA = {'RA1': RA1, 'RA2': RA2, 'RA3': RA3}
     if request.method == "POST":
         RA1.nombre = request.POST.get('nombre')
@@ -106,16 +106,21 @@ def registroAlumno(request):
         RA1.email = request.POST.get('email')
         RA1.usuario = request.POST.get('usuario')
         RA1.contraseña = request.POST.get('contraseña')
+        RA2.nPadre = request.POST.get('nPadre')
+        RA2.fotoAlumno = request.POST.get('fotoAlumno')
+        mac=22
+        
+        #RA3.Grupo = request.POST.get('Grupo')
         with connection.cursor() as cursor:
-           cursor.execute("INSERT INTO administracion_usuario (cedula, email, nombre, usuario, apellido, contraseña, codAdministrador_id) VALUES ('%s', '%s', '%s', '%s', '%s', '%s','%s');"%((RA1.cedula),(RA1.email),(RA1.nombre),(RA1.usuario),(RA1.apellido),(RA1.contraseña),(codAdmin)))
-        if RA1.is_valid():
+           cursor.execute("INSERT INTO administracion_usuario (cedula, email, nombre, usuario, apellido, contraseña, codAdministrador_id) VALUES (%s, '%s', '%s', '%s', '%s', '%s','%s');"%((RA1.cedula),(RA1.email),(RA1.nombre),(RA1.usuario),(RA1.apellido),(RA1.contraseña),(codAdmin)))
+           #cursor.execute("INSERT INTO alumnos_alumno (numPadre, fotoAlumno, usuarioci_id, mac) VALUES (%s, '%s', %s, '%s');"%((RA2.nPadre),(RA2.fotoAlumno),(RA1.cedula),(mac)))
+        #with connection.cursor() as cursor:
+        #   cursor.execute("INSERT INTO administracion_usuario (cedula, email, nombre, usuario, apellido, contraseña, codAdministrador_id) VALUES ('%s', '%s', '%s', '%s', '%s', '%s','%s');"%((RA1.cedula),(RA1.email),(RA1.nombre),(RA1.usuario),(RA1.apellido),(RA1.contraseña),(codAdmin)))
+           
             #FKUser = RA1.get('codAdministrador')
             # & RA2.is_valid() & RA3.is_valid()
-            RA1.save()
            # RA2.save()
            # RA3.save()
-        else:
-            print('malazo')
     return render(request, 'registroAlumno.html', {'RA1': RA1})
 
 

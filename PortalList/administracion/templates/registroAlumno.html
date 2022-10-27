@@ -74,7 +74,7 @@
 <br>
         <main id="mainFondoRA">
                 <br>
-                        <form id="formRegAlu" action="" method="POST">
+                        <form id="formRegAlu" name="formRA1" action="" method="POST">
                                 {% csrf_token %}
                                 <h2 id="registrarAlumnoTitle">Registrar Alumno</h2> <br>
                                 <input class="form-control" id="nombreRegistroAlumno" name="nombre" type="text" placeholder="Nombre" required pattern="[A-Za-z]{1,50}"> <br><br>
@@ -83,11 +83,26 @@
                                 <input class="form-control" id="emailRegistroAlumno" name="email" type="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br><br>                                     
                                 <input class="form-control" id="usuarioRegistroAlumno" name="usuario" type="text" placeholder="Usuario (CI)" required><br><br>
                                 <input class="form-control" id="contraRegistroAlumno" name="contraseña" type="password" placeholder="Contraseña (CI)" required><br><br>
-                                       
-                                <button id="btnRegistroAlumno" class="btn btn-primary" type="sumbit">Registrar Alumno</button>
-                                        
-                        </form> <br>
-        </main><br>
+                        </form>
+                        <form id= "formRegAlu" action="" method="POST">
+                                {% csrf_token %}
+                                <input class="form-control" id="nPadre" name="nPadre" type="number" placeholder="Número del padre" required><br><br>
+                                <input class="form-control" id="fotoAlumno" name="fotoAlumno" type="file" placeholder="Foto" required><br><br>
+                               
+                        </form>
+
+                        <form id= "formRegAlu" name="formRA2" action="" method="POST">
+                                {% csrf_token %}
+                                <input class="form-control" id="Grupo" name="Grupo" type="text" placeholder="Grupo" required> <br><br>      
+                        </form>
+
+                        <button id="btnRegistroAlumno" name="formRA3" class="btn btn-primary" type="submit"  onclick="submitForms()">Registrar Alumno</button>
+                        <script>submitForms = function(){
+                                document.forms["formRA1"].submit();
+                                document.forms["formRA2"].submit();
+                                document.forms["formRA3"].submit();
+                            }</script>
+                        </main><br>
         <footer>
                 <p id="contactUs"> <a href="contactUs.html" id="botonCU">Contáctanos</a></p>
                 <p id="copyR">© 2022 Portal List, Inc.</p>
