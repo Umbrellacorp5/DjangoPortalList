@@ -83,35 +83,8 @@ def ingresarAdministracion(request):
            cursor.execute("SELECT contraseña FROM administracion_administrador WHERE email = '%s' and contraseña = '%s'" % ((IA.email), (IA.contraseña)))
            select_contraseña= cursor.fetchone()
            contraseña = ' '.join(str(c) for c in select_contraseña)
-        '''
-        List = []
-        List1 = []
-        List2 = []
-        List3 = []
-        for a in admin:
-            i=1
-            global x
 
-            List.clear()  
-            List1.append('{0}')
-            List.append('{0}'.format(a.email, a.contraseña, a.codAdministrador))
-            List.append('{1}'.format(a.email, a.contraseña, a.codAdministrador))
-            List.append('{2}'.format(a.email, a.contraseña, a.codAdministrador))
-            if i==1:
-                i+=1
-                g=List
-        else:
-            if i==2:
-                    i+=1
-                    b=List
-            else:
-                if i==3:
-                        i+=1
-                        x=List
-        print(admin)
-        '''
         if IA.email == email and IA.contraseña == contraseña:
-            print("buenazo")   
             return redirect(elegirAdmin)
     return render(request, 'ingresarAdministracion.html', {'IA': IA})
 
