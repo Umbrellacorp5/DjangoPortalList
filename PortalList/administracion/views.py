@@ -32,7 +32,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.views.generic import View
-from administracion.models import Administrador
+from administracion.models import Administrador, Usuario
 from django.http import FileResponse 
 import io
 from django.db import connections
@@ -83,12 +83,15 @@ def ingresarAdministracion(request):
            cursor.execute("SELECT contraseña FROM administracion_administrador WHERE email = '%s' and contraseña = '%s'" % ((IA.email), (IA.contraseña)))
            select_contraseña= cursor.fetchone()
            contraseña = ' '.join(str(c) for c in select_contraseña)
+           cursor.execute("SELECT codAdministrador FROM administracion_administrador WHERE email = '%s' and contraseña = '%s'"% ((IA.email), (IA.contraseña)))
+           select_cod= cursor.fetchone()
+           global codAdmin
+           codAdmin = ' '.join(str(o) for o in select_cod)
+           
 
         if IA.email == email and IA.contraseña == contraseña:
             return redirect(elegirAdmin)
     return render(request, 'ingresarAdministracion.html', {'IA': IA})
-
-
 
     
 def registroAlumno(request):
@@ -96,13 +99,25 @@ def registroAlumno(request):
    # RA2 = RegistroAlumno2(request.POST)
    # RA3 = RegistroAlumno3(request.POST)
     #RA = {'RA1': RA1, 'RA2': RA2, 'RA3': RA3}
-    if request.method == "POST": 
-        if RA1.is_valid(): 
+    if request.method == "POST":
+        RA1.nombre = request.POST.get('nombre')
+        RA1.apellido = request.POST.get('apellido')
+        RA1.cedula = request.POST.get('cedula')
+        RA1.email = request.POST.get('email')
+        RA1.usuario = request.POST.get('usuario')
+        RA1.contraseña = request.POST.get('contraseña')
+        with connection.cursor() as cursor:
+           cursor.execute("INSERT INTO administracion_usuario (cedula, email, nombre, usuario, apellido, contraseña)")
+           select_email= cursor.fetchone()
+           email = ' '.join(str(e) for e in select_email)
+        if RA1.is_valid():
             #FKUser = RA1.get('codAdministrador')
             # & RA2.is_valid() & RA3.is_valid()
             RA1.save()
            # RA2.save()
            # RA3.save()
+        else:
+            print('malazo')
     return render(request, 'registroAlumno.html', {'RA1': RA1})
 
 
