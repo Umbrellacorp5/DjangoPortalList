@@ -1,4 +1,6 @@
 -- SQLite
+
+
 DELETE FROM administracion_administrador WHERE codAdministrador = 1;
 
 INSERT INTO administracion_administrador (codAdministrador, email, contraseña)
