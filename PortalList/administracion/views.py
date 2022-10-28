@@ -95,30 +95,25 @@ def ingresarAdministracion(request):
 '''
 
 def ingresarAdministracion(request):
-    if request.method == 'GET':
-        return render(request, 'ingresarAdministracion.html')
-    else:
+    if request.method == 'POST':
+
         email = (request.POST['email'])
         password = (request.POST['contraseña'])
         with connection.cursor() as cursor:
             cursor.execute(
-                "SELECT email, contraseña FROM administracion_administrador WHERE email='%s' and contraseña='%s' "%(email,password))
-            usuario = cursor.fetchone()
-            print(usuario[1]) #usuario[0] para email y [1] para pass
-            cursor.execute(
-                "SELECT codAdministrador FROM administracion_administrador WHERE email='%s' and contraseña='%s'"%(email,password))
-            global codAdmin # global, prueba en registroAlumno
-            codAdmin = cursor.fetchone()
-            print(codAdmin[0])#cod de admin
+                "SELECT * FROM administracion_administrador WHERE email='%s' and contraseña='%s' "%(email,password))
+            global usuarioAdmin
+            usuarioAdmin = cursor.fetchone()
+            print(usuarioAdmin[2]) #usuarioAdmin[0] para email, [1] para pass y [2] codAdministrador
             
-            if usuario == None:
+            if usuarioAdmin == None:
                 return render(request, 'ingresarAdministracion.html')
             else:
-                if usuario[0] == email and usuario[1] == password:
+                if usuarioAdmin[0] == email and usuarioAdmin[1] == password:
                     return render(request, 'elegirAdmin.html')
+    return render(request, 'ingresarAdministracion.html')
     
 def registroAlumno(request):
-    print(codAdmin[0])
     RA1 = RegistroAlumno(request.POST)
     RA2 = RegistroAlumno2(request.POST)
     #RA3 = RegistroAlumno3(request.POST)
@@ -136,7 +131,7 @@ def registroAlumno(request):
         
         #RA3.Grupo = request.POST.get('Grupo')
         with connection.cursor() as cursor:
-           cursor.execute("INSERT INTO administracion_usuario (cedula, email, nombre, usuario, apellido, contraseña, codAdministrador_id) VALUES (%s, '%s', '%s', '%s', '%s', '%s','%s');"%((RA1.cedula),(RA1.email),(RA1.nombre),(RA1.usuario),(RA1.apellido),(RA1.contraseña),(codAdmin)))
+           cursor.execute("INSERT INTO administracion_usuario (cedula, email, nombre, usuario, apellido, contraseña, codAdministrador_id) VALUES (%s, '%s', '%s', '%s', '%s', '%s','%s');"%((RA1.cedula),(RA1.email),(RA1.nombre),(RA1.usuario),(RA1.apellido),(RA1.contraseña),(usuarioAdmin[2])))
            #cursor.execute("INSERT INTO alumnos_alumno (numPadre, fotoAlumno, usuarioci_id, mac) VALUES (%s, '%s', %s, '%s');"%((RA2.nPadre),(RA2.fotoAlumno),(RA1.cedula),(mac)))
         #with connection.cursor() as cursor:
         #   cursor.execute("INSERT INTO administracion_usuario (cedula, email, nombre, usuario, apellido, contraseña, codAdministrador_id) VALUES ('%s', '%s', '%s', '%s', '%s', '%s','%s');"%((RA1.cedula),(RA1.email),(RA1.nombre),(RA1.usuario),(RA1.apellido),(RA1.contraseña),(codAdmin)))
