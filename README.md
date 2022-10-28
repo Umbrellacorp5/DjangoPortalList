@@ -8,9 +8,6 @@ pip3 freeze > requirements.txt / si se instala otra libreria
 
 chmod a+x build.sh /ace ejecutable build.sh
 
-
-
-
 Documentation
 
 Part 1: Requests and responses https://docs.djangoproject.com/en/4.1/intro/tutorial01/
@@ -31,6 +28,14 @@ python manage.py makemigrations app
 python manage.py sqlmigrate app 0001
 python manage.py check /chequea por problemas
 python manage.py migrate /migra
+
+SQLite
+para manejar SQLlite desde VScode descarguen la extension SQLite 
+control + T para que les aparezca la barra
+borran lo que haya y escriban >SQL
+le dan a OPEN SQL... y seleccionan mydatabase.db
+se les abrira abajo a la izquierda, debajo de los archivos
+Para hacer una Query pueden escribir en el archivo --SQLite.sql o click derecho en la DB nueva query
 
 API
 python manage.py shell
