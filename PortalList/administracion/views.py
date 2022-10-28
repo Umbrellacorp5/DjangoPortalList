@@ -70,7 +70,7 @@ def elegirAdmin(request):
         return render(request, 'elegirAdmin.html')
 
 
-
+'''
 def ingresarAdministracion(request):
     IA = IngresarAdminsitracion(request.POST)
     if request.method == "POST":
@@ -92,7 +92,29 @@ def ingresarAdministracion(request):
         if IA.email == email and IA.contraseña == contraseña:
             return redirect(elegirAdmin)
     return render(request, 'ingresarAdministracion.html', {'IA': IA})
+'''
 
+def ingresarAdministracion(request):
+    if request.method == 'GET':
+        return render(request, 'ingresarAdministracion.html')
+    else:
+        email = (request.POST['email'])
+        password = (request.POST['contraseña'])
+        with connection.cursor() as cursor:
+            cursor.execute(
+                "SELECT email, contraseña FROM administracion_administrador WHERE email='%s' and contraseña='%s' "%(email,password))
+            usuario = cursor.fetchone()
+            print(usuario[1]) #usuario[0] para email y [1] para pass
+            cursor.execute(
+                "SELECT codAdministrador FROM administracion_administrador WHERE email='%s' and contraseña='%s'"%(email,password))
+            codAdmin = cursor.fetchone()
+            print(codAdmin[0])#cod de admin, no se lo de global
+            
+            if usuario == None:
+                return render(request, 'ingresarAdministracion.html')
+            else:
+                if usuario[0] == email and usuario[1] == password:
+                    return render(request, 'elegirAdmin.html')
     
 def registroAlumno(request):
     RA1 = RegistroAlumno(request.POST)
