@@ -107,8 +107,9 @@ def ingresarAdministracion(request):
             print(usuario[1]) #usuario[0] para email y [1] para pass
             cursor.execute(
                 "SELECT codAdministrador FROM administracion_administrador WHERE email='%s' and contraseña='%s'"%(email,password))
+            global codAdmin # global, prueba en registroAlumno
             codAdmin = cursor.fetchone()
-            print(codAdmin[0])#cod de admin, no se lo de global
+            print(codAdmin[0])#cod de admin
             
             if usuario == None:
                 return render(request, 'ingresarAdministracion.html')
@@ -117,6 +118,7 @@ def ingresarAdministracion(request):
                     return render(request, 'elegirAdmin.html')
     
 def registroAlumno(request):
+    print(codAdmin[0])
     RA1 = RegistroAlumno(request.POST)
     RA2 = RegistroAlumno2(request.POST)
     #RA3 = RegistroAlumno3(request.POST)
