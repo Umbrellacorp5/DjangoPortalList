@@ -83,25 +83,18 @@
                                 <input class="form-control" id="emailRegistroAlumno" name="email" type="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br><br>                                     
                                 <input class="form-control" id="usuarioRegistroAlumno" name="usuario" type="text" placeholder="Usuario (CI)" required><br><br>
                                 <input class="form-control" id="contraRegistroAlumno" name="contraseña" type="password" placeholder="Contraseña (CI)" required><br><br>
-                        </form>
-                        <form id= "formRegAlu" action="" method="POST">
-                                {% csrf_token %}
                                 <input class="form-control" id="nPadre" name="nPadre" type="number" placeholder="Número del padre" required><br><br>
                                 <input class="form-control" id="fotoAlumno" name="fotoAlumno" type="file" placeholder="Foto" required><br><br>
-                               
-                        </form>
-
-                        <form id= "formRegAlu" name="formRA2" action="" method="POST">
-                                {% csrf_token %}
                                 <input class="form-control" id="Grupo" name="Grupo" type="text" placeholder="Grupo" required> <br><br>      
                         </form>
-
-                        <button id="btnRegistroAlumno" name="formRA3" class="btn btn-primary" type="submit"  onclick="submitForms()">Registrar Alumno</button>
                         <script>submitForms = function(){
                                 document.forms["formRA1"].submit();
                                 document.forms["formRA2"].submit();
                                 document.forms["formRA3"].submit();
                             }</script>
+
+                        <button id="btnRegistroAlumno" name="formRA3" class="btn btn-primary" type="submit"  onclick="submitForms()">Registrar Alumno</button>
+                       
                         </main><br>
         <footer>
                 <p id="contactUs"> <a href="contactUs.html" id="botonCU">Contáctanos</a></p>

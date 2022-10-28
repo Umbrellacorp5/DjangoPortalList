@@ -96,7 +96,6 @@ def ingresarAdministracion(request):
 
 def ingresarAdministracion(request):
     if request.method == 'POST':
-
         email = (request.POST['email'])
         password = (request.POST['contraseña'])
         with connection.cursor() as cursor:
@@ -104,8 +103,7 @@ def ingresarAdministracion(request):
                 "SELECT * FROM administracion_administrador WHERE email='%s' and contraseña='%s' "%(email,password))
             global usuarioAdmin
             usuarioAdmin = cursor.fetchone()
-            print(usuarioAdmin[2]) #usuarioAdmin[0] para email, [1] para pass y [2] codAdministrador
-            
+            #print(usuarioAdmin[2]) #usuarioAdmin[0] para email, [1] para pass y [2] codAdministrador
             if usuarioAdmin == None:
                 return render(request, 'ingresarAdministracion.html')
             else:
@@ -114,33 +112,24 @@ def ingresarAdministracion(request):
     return render(request, 'ingresarAdministracion.html')
     
 def registroAlumno(request):
-    RA1 = RegistroAlumno(request.POST)
-    RA2 = RegistroAlumno2(request.POST)
     #RA3 = RegistroAlumno3(request.POST)
     #RA = {'RA1': RA1, 'RA2': RA2, 'RA3': RA3}
     if request.method == "POST":
-        RA1.nombre = request.POST.get('nombre')
-        RA1.apellido = request.POST.get('apellido')
-        RA1.cedula = request.POST.get('cedula')
-        RA1.email = request.POST.get('email')
-        RA1.usuario = request.POST.get('usuario')
-        RA1.contraseña = request.POST.get('contraseña')
-        RA2.nPadre = request.POST.get('nPadre')
-        RA2.fotoAlumno = request.POST.get('fotoAlumno')
+        nombre = request.POST.get('nombre')
+        apellido = request.POST.get('apellido')
+        cedula = request.POST.get('cedula')
+        email = request.POST.get('email')
+        usuario = request.POST.get('usuario')
+        contraseña = request.POST.get('contraseña')
+        nPadre = request.POST.get('nPadre')
+        fotoAlumno = request.POST.get('fotoAlumno')
         mac=22
         
         #RA3.Grupo = request.POST.get('Grupo')
         with connection.cursor() as cursor:
-           cursor.execute("INSERT INTO administracion_usuario (cedula, email, nombre, usuario, apellido, contraseña, codAdministrador_id) VALUES (%s, '%s', '%s', '%s', '%s', '%s','%s');"%((RA1.cedula),(RA1.email),(RA1.nombre),(RA1.usuario),(RA1.apellido),(RA1.contraseña),(usuarioAdmin[2])))
-           #cursor.execute("INSERT INTO alumnos_alumno (numPadre, fotoAlumno, usuarioci_id, mac) VALUES (%s, '%s', %s, '%s');"%((RA2.nPadre),(RA2.fotoAlumno),(RA1.cedula),(mac)))
-        #with connection.cursor() as cursor:
-        #   cursor.execute("INSERT INTO administracion_usuario (cedula, email, nombre, usuario, apellido, contraseña, codAdministrador_id) VALUES ('%s', '%s', '%s', '%s', '%s', '%s','%s');"%((RA1.cedula),(RA1.email),(RA1.nombre),(RA1.usuario),(RA1.apellido),(RA1.contraseña),(codAdmin)))
-           
-            #FKUser = RA1.get('codAdministrador')
-            # & RA2.is_valid() & RA3.is_valid()
-           # RA2.save()
-           # RA3.save()
-    return render(request, 'registroAlumno.html', {'RA1': RA1})
+           cursor.execute("INSERT INTO administracion_usuario VALUES (%s, '%s', '%s', '%s', '%s', '%s','%s');"%(cedula,email,nombre,usuario,apellido,contraseña,usuarioAdmin[2]))
+           cursor.execute("INSERT INTO alumnos_alumno (numPadre, mac, usuarioci_id, fotoAlumno) VALUES (%s, '%s', %s ,'%s');"%((nPadre),(mac),(cedula),(fotoAlumno)))
+    return render(request, 'registroAlumno.html')
 
 
 def registroProfesor(request):
