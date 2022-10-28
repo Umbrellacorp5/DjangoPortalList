@@ -27,7 +27,7 @@ class Lista(models.Model):
 class Materia(models.Model):
     codMateria = models.IntegerField(primary_key=True, null=False)
     nombre = models.CharField(max_length=255, null=False)
-    horario = models.IntegerField()
+    horario = models.DateTimeField()
     cod_profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE, null=False)
 
     def __str__(self):
