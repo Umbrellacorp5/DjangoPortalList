@@ -1,26 +1,23 @@
 from django.shortcuts import render
 from django.db import connection
 from django.db import connections
+from alumnos.forms import IngresarAlumno
+from administracion.models import Usuario
 
 def asistencia(request):
-    if request.method == 'GET':
         return render(request, 'asistencia.html')
 
 def elegirUsuario(request):
-    if request.method == 'GET':
         return render(request, 'elegirUsuario.html')
 
 def ingresarAlumno(request):
-    if request.method == 'GET':
-        return render(request, 'ingresarAlumno.html')
-    else:
-        user = (request.POST['inputUsuarioIA'])
-        password = (request.POST['inputContraseñaIA'])
-        with connection.cursor() as cursor:
-            cursor.execute("SELECT usuario, contraseña FROM administracion_usuario WHERE usuario='%s' and contraseña=%s"%(user,password))
-            usuario = cursor.fetchone()
-            if usuario == None:
-                return render(request, 'ingresarAlumno.html')
-            else:
-                if usuario[0] == user and usuario[1] == password:
-                    return render(request, 'asistencia.html')
+   IA = IngresarAlumno(request.POST)
+   if request.method == "POST":
+        IA.inputUsuarioIA = request.POST.get('inputUsuarioIA')
+        IA.inputContraseñaIA = request.POST.get('inputContraseñaIA')
+        for u in Usuario.objects.raw('SELECT usuario, cedula, contraseña FROM administracion_usuario WHERE usuario = %s and contraseña = %s',[IA.inputUsuarioIA, IA.inputContraseñaIA]):
+            usuario= u.usuario
+            contraseña = u.contraseña
+        if IA.inputUsuarioIA == usuario and  IA.inputContraseñaIA == contraseña:
+                return render(request, 'asistencia.html')
+   return render(request, 'ingresarAlumno.html')

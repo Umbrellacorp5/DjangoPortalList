@@ -4,9 +4,7 @@ from alumnos import views
 from administracion import views as AdminViews
 
 urlpatterns = [
-    path('asistencia.html', views.asistencia, name='asistencia'),
-    path('elegirUsuario.html', views.elegirUsuario, name='elegirUsuario'),
-    path('', views.ingresarAlumno, name='ingresarAlumno'),
-    path('contactUs.html', AdminViews.contactUs, name='contactUs'),
-    path('index.html',AdminViews.index, name='index'),
+    path("ingresarAlumno/", views.ingresarAlumno, name='ingresarAlumno'),
+    path("elegirUsuario/", views.elegirUsuario, name='elegirUsuario'), 
+    path("asistencia/", views.asistencia, name='asistencia'), 
 ]

@@ -127,7 +127,6 @@ def registroAlumno(request):
            cursor.execute("INSERT INTO alumnos_alumno (numPadre, mac, usuarioci_id, fotoAlumno) VALUES (%s, '%s', %s ,'%s');"%((nPadre),(mac),(cedula),(fotoAlumno)))
     return render(request, 'registroAlumno.html')
 
-
 def registroProfesor(request):
     if request.method == 'GET':
         return render(request,'registroProfesor.html')
