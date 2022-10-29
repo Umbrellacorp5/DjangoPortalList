@@ -65,6 +65,32 @@ def elegirAdmin(request):
         return render(request, 'elegirAdmin.html')
 
 def ingresarAdministracion(request):
+    IA = IngresarAdminsitracion(request.POST)
+    if request.method == "POST":
+        IA.email = request.POST.get('email')
+        IA.contraseña = request.POST.get('contraseña')
+        global codAdmin
+        for a in Administrador.objects.raw('SELECT email, codAdministrador, contraseña FROM administracion_administrador WHERE email = %s and contraseña = %s',[IA.email, IA.contraseña]):
+            email= a.email
+            contraseña = a.contraseña
+            codAdmin = a.codAdministrador
+        if IA.email == email and  IA.contraseña == contraseña:
+                    return render(request, 'elegirAdmin.html')
+    return render(request, 'ingresarAdministracion.html')
+    '''
+     with connection.cursor() as cursor:
+           cursor.execute("SELECT email FROM administracion_administrador WHERE email = '%s' and contraseña = '%s'"% ((IA.email), (IA.contraseña)))
+           select_email= cursor.fetchone()
+           email = ' '.join(str(e) for e in select_email)
+           cursor.execute("SELECT contraseña FROM administracion_administrador WHERE email = '%s' and contraseña = '%s'" % ((IA.email), (IA.contraseña)))
+           select_contraseña= cursor.fetchone()
+           contraseña = ' '.join(str(c) for c in select_contraseña)
+           cursor.execute("SELECT codAdministrador FROM administracion_administrador WHERE email = '%s' and contraseña = '%s'"% ((IA.email), (IA.contraseña)))
+           select_cod= cursor.fetchone()
+           global codAdmin
+           codAdmin = ' '.join(str(o) for o in select_cod)
+    '''
+    '''
     if request.method == 'POST':
         email = (request.POST['email'])
         password = (request.POST['contraseña'])
@@ -80,7 +106,7 @@ def ingresarAdministracion(request):
                 if usuarioAdmin[0] == email and usuarioAdmin[1] == password:
                     return render(request, 'elegirAdmin.html')
     return render(request, 'ingresarAdministracion.html')
-    
+    '''
 def registroAlumno(request):
     #RA3 = RegistroAlumno3(request.POST)
     #RA = {'RA1': RA1, 'RA2': RA2, 'RA3': RA3}
@@ -97,7 +123,7 @@ def registroAlumno(request):
         
         #RA3.Grupo = request.POST.get('Grupo')
         with connection.cursor() as cursor:
-           cursor.execute("INSERT INTO administracion_usuario VALUES (%s, '%s', '%s', '%s', '%s', '%s','%s');"%(cedula,email,nombre,usuario,apellido,contraseña,usuarioAdmin[2]))
+           cursor.execute("INSERT INTO administracion_usuario VALUES (%s, '%s', '%s', '%s', '%s', '%s','%s');"%(cedula,email,nombre,usuario,apellido,contraseña,codAdmin))
            cursor.execute("INSERT INTO alumnos_alumno (numPadre, mac, usuarioci_id, fotoAlumno) VALUES (%s, '%s', %s ,'%s');"%((nPadre),(mac),(cedula),(fotoAlumno)))
     return render(request, 'registroAlumno.html')
 
