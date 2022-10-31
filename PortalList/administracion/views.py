@@ -77,36 +77,8 @@ def ingresarAdministracion(request):
         if IA.email == email and  IA.contraseña == contraseña:
                     return render(request, 'elegirAdmin.html')
     return render(request, 'ingresarAdministracion.html')
-    '''
-     with connection.cursor() as cursor:
-           cursor.execute("SELECT email FROM administracion_administrador WHERE email = '%s' and contraseña = '%s'"% ((IA.email), (IA.contraseña)))
-           select_email= cursor.fetchone()
-           email = ' '.join(str(e) for e in select_email)
-           cursor.execute("SELECT contraseña FROM administracion_administrador WHERE email = '%s' and contraseña = '%s'" % ((IA.email), (IA.contraseña)))
-           select_contraseña= cursor.fetchone()
-           contraseña = ' '.join(str(c) for c in select_contraseña)
-           cursor.execute("SELECT codAdministrador FROM administracion_administrador WHERE email = '%s' and contraseña = '%s'"% ((IA.email), (IA.contraseña)))
-           select_cod= cursor.fetchone()
-           global codAdmin
-           codAdmin = ' '.join(str(o) for o in select_cod)
-    '''
-    '''
-    if request.method == 'POST':
-        email = (request.POST['email'])
-        password = (request.POST['contraseña'])
-        with connection.cursor() as cursor:
-            cursor.execute(
-                "SELECT * FROM administracion_administrador WHERE email='%s' and contraseña='%s' "%(email,password))
-            global usuarioAdmin
-            usuarioAdmin = cursor.fetchone()
-            #print(usuarioAdmin[2]) #usuarioAdmin[0] para email, [1] para pass y [2] codAdministrador
-            if usuarioAdmin == None:
-                return render(request, 'ingresarAdministracion.html')
-            else:
-                if usuarioAdmin[0] == email and usuarioAdmin[1] == password:
-                    return render(request, 'elegirAdmin.html')
-    return render(request, 'ingresarAdministracion.html')
-    '''
+    
+    
 def registroAlumno(request):
     #RA3 = RegistroAlumno3(request.POST)
     #RA = {'RA1': RA1, 'RA2': RA2, 'RA3': RA3}

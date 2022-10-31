@@ -75,7 +75,7 @@
         <main id="mainFondoRA">
                 <br>
                         <form id="formRegAlu" name="formRA1" action="" method="POST">
-                                {% csrf_token %}
+                                        {% csrf_token %}
                                 <h2 id="registrarAlumnoTitle">Registrar Alumno</h2> <br>
                                 <input class="form-control" id="nombreRegistroAlumno" name="nombre" type="text" placeholder="Nombre" required pattern="[A-Za-z]{1,50}"> <br><br>
                                 <input class="form-control" id="apellidoRegistroAlumno" name="apellido" type="text" placeholder="Apellido" required pattern="[A-Za-z]{1,50}"><br><br>
@@ -87,11 +87,6 @@
                                 <input class="form-control" id="fotoAlumno" name="fotoAlumno" type="file" placeholder="Foto" required><br><br>
                                 <input class="form-control" id="Grupo" name="Grupo" type="text" placeholder="Grupo" required> <br><br>      
                         </form>
-                        <script>submitForms = function(){
-                                document.forms["formRA1"].submit();
-                                document.forms["formRA2"].submit();
-                                document.forms["formRA3"].submit();
-                            }</script>
 
                         <button id="btnRegistroAlumno" name="formRA3" class="btn btn-primary" type="submit"  onclick="submitForms()">Registrar Alumno</button>
                        
