@@ -16,7 +16,7 @@ def asistencia(request):
         if checkbox:
                 #agregar la asistencia en el sql
         
-      return render(request, 'asistencia.html')
+                return render(request, 'asistencia.html')
 
 def elegirUsuario(request):
         return render(request, 'elegirUsuario.html')

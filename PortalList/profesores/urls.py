@@ -8,4 +8,6 @@ urlpatterns = [
     path('seleccionLista/', views.seleccionLista, name='seleccionLista'),
     path('lista/', views.lista, name='lista'),
     path("ingresarProfesor/", views.ingresarProfesor, name='ingresarProfesor'),
+    #path('seleccionLista/<dict:profesorCI>', views.getLista, name='getLista'),
+
 ]
