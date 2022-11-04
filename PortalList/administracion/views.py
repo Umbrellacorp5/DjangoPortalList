@@ -51,17 +51,17 @@ def contactUs(request):
 
 
 def index(request):
-    if request.method == 'GET':
-        return render(request, 'index.html')
+    
+    return render(request, 'index.html')
 
 
 
 def seleccionarRegistro(request):
+    
     if request.method == 'GET':
         return render(request, 'seleccionarRegistro.html')
 
 def elegirAdmin(request):
-    if request.method == 'GET':
         return render(request, 'elegirAdmin.html')
 
 def ingresarAdministracion(request):
