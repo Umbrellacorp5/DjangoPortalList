@@ -139,13 +139,15 @@
 }
 
 #btnAsisti{
-  display: block;
-  text-align: center;
-  justify-content: center;
-  margin-left:auto;
-  margin-right: auto;
-  margin-bottom: auto;
-  margin-top: 40px;
+  position: relative;
+  display:inline;
+    text-decoration: none;
+    padding: 4px 20px;
+    font-size: 20px;
+    color: #ffffff;
+    background:#000000d0;
+    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0);
 }
 
 #plImgAsistencia{
@@ -161,571 +163,55 @@
   padding-top: 10px;
 }
 
-/*-------------------------------------------------------------Ingresar Profesor------------------------------------------------------------------*/
-/* El formIP(es el formulario de ingresarProfesor.html )*/
-#formIP {
-  position: relative;
-  z-index: 1;
-  background: #d3d3d3;
-  max-width: 300px;
-  margin: 0 auto 100px;
-  padding: 30px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
+#mainAsistencia{
   text-align: center;
+  background-color:#73c0ff;
+  height: 650px; ;
 }
 
-#formIA {
-  position: relative;
-  z-index: 1;
-  background: #d3d3d3;
-  max-width: 300px;
-  margin: 0 auto 100px;
-  padding: 30px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
+
+#tituloIngAlu{
   text-align: center;
-}
-
-/*Esto es para que el logo no se deforme*/
-.img {
-  max-width: 100%;
-  max-height: 100%;
-  
-}
-
-/*El tamaño y posicionamiento del logo */
-#imgIP {
-  position: relative;
-  margin: auto;
-  height: 270px;
-  width: 250px;
-  object-fit: none;
-  padding-top: 10px;
-}
-
-#imgIA {
-  position: relative;
-  margin: auto;
-  height: 270px;
-  width: 250px;
-  object-fit: none;
-  padding-top: 10px;
-}
-
-/*Contenedor de h1 */
-#containerIP {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-#containerIA {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-#containerIP #infoIP {
-  margin: 50px auto;
-  text-align: center;
-}
-
-#containerIA #infoIA {
-  margin: 50px auto;
-  text-align: center;
-}
-
-/*Modifica forma/color/tamaño de h1 */
-#containerIP #infoIP #h1IP {
-  margin: auto;
-  padding: 0;
-  font-size: 36px;
-  font-weight: 300;
-  color: #1a1a1a;
-}
-
-#containerIA #infoIA #h1IA {
-  margin: auto;
-  padding: 0;
-  font-size: 36px;
-  font-weight: 300;
-  color: #1a1a1a;
-}
-
-/*Tamaño a PortalList */
-#containerIP #infoIP #spanIP {
-  font-size: 12px;
-}
-
-#containerIA #infoIA #spanIA {
-  font-size: 12px;
-}
-
-/*Le saca el color al texto (linkeado) */
-#containerIP #infoIP #spanIP #aIP {
-  color: #000000;
-  text-decoration: none;
-}
-
-#containerIA #infoIA #spanIA #aIA {
-  color: #000000;
-  text-decoration: none;
-}
-
-
-#contactUsIP {
-  margin: 0 0 0px;
-  font-size: 18px;
-  text-align: center;
-}
-
-#contactUsIA {
-  margin: 0 0 0px;
-  font-size: 18px;
-  text-align: center;
-}
-
-.aCU {
-  color: #1a1a1a;
-  text-decoration: none;
-}
-
-.copyR {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-#inputUsuarioIP{
-  margin-bottom: 10px;
- 
-}
-
-#inputUsuarioIA{
-  margin-bottom: 10px;
-}
-
- #imgIUser {
-  height: 20px;
-  width: 20px;
-  object-fit: cover;
-  margin-left:84px ;
-  margin-top: 8px;
-  position:absolute;
-}
-
-#btnLoginIP{
-  margin-top: 20px;
-}
-
-#btnLoginIA{
-  margin-top: 20px;
-}
-
-#bodyIP {
-  overflow-x: hidden;
-}
-
-#bodyIA {
-  overflow-x: hidden;
-}
-
-#correctoIP{
-  color: rgb(10, 184, 10);
-}
-
-#incorrectoIP{
-  color: red;
-}
-
-/*-------------------------------------------------------------Admin------------------------------------------------------------------*/
-#portalList  {
-  position: relative;
-  top: -450px;
-  padding: 20px 0;
-  font-size: 50px;
-  font-weight: 600px;
-  text-align: center;
-}/*# sourceMappingURL=style.css.map */
-
-#footerAdmin{
-  margin: 0 0 0px;
-  font-size: 18px;
-  text-align: center;
-  position: relative;
-  top:-30px;
-  height: 0px;
-}
-
-#btnCrearAlumno{
-  text-align: center;
-  position: relative;
-  width:auto;
-  top:-150px;
-  left: 635px;
-}
-
-#btnCrearProfesor{
-  text-align: center;
-  position: relative;
-  width:auto;
-  top:-150px;
-  left: 635px;
-}
-
-#btnVerRegistros{
-  text-align: center;
-  position: relative;
-  width:auto;
-  top:-150px;
-  left: 635px;
-}
-
-#plImgAdmin{
-  position: relative;
-  left: 475px;
-  height: 450px;
-  width: 400px;
-  bottom: 70px;
-}
-
-
-
-
-
-/*-------------------------------------------------------------Registrar Profesor------------------------------------------------------------------*/
-/* El formIP(es el formulario de ingresarProfesor.html )*/
-#formRP {
-  position: relative;
-  z-index: 1;
-  background: #d3d3d3;
-  max-width: 300px;
-  margin: 0 auto 100px;
-  padding: 30px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  text-align: center;
-}
-
-#formRegAlu {
-  position: relative;
-  z-index: 1;
-  background: #d3d3d3;
-  max-width: 300px;
-  margin: 0 auto 100px;
-  padding: 30px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  text-align: center;
-}
-
-/*Esto es para que el logo no se deforme*/
-.img {
-  max-width: 100%;
-  max-height: 100%;
-  
-}
-
-/*El tamaño y posicionamiento del logo */
-#imgRP {
-  position: relative;
-  margin: auto;
-  height: 270px;
-  width: 250px;
-  object-fit: none;
-  padding-top: 10px;
-}
-
-#imgRA {
-  position: relative;
-  margin: auto;
-  height: 270px;
-  width: 250px;
-  object-fit: none;
-  padding-top: 10px;
-}
-
-/*Contenedor de h1 */
-#containerRP {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-#containerRA {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-#containerRP #infoRP {
-  margin: 50px auto;
-  text-align: center;
-}
-
-#containerRA #infoRA {
-  margin: 50px auto;
-  text-align: center;
-}
-
-/*Modifica forma/color/tamaño de h1 */
-#containerRP #infoRP #h1RP {
-  margin: auto;
-  padding: 0;
-  font-size: 36px;
-  font-weight: 300;
-  color: #1a1a1a;
-}
-
-#containerRA #infoRA #h1RA {
-  margin: auto;
-  padding: 0;
-  font-size: 36px;
-  font-weight: 300;
-  color: #1a1a1a;
-}
-
-/*Tamaño a PortalList */
-#containerRP #infoRP #spanRP {
-  font-size: 12px;
-}
-
-#containerRA #infoRA #spanRA {
-  font-size: 12px;
-}
-
-/*Le saca el color al texto (linkeado) */
-#containerRP #infoRP #spanRP #aRP {
-  color: #000000;
-  text-decoration: none;
-}
-
-#containerRA #infoRA #spanRA #aRA {
-  color: #000000;
-  text-decoration: none;
-}
-
-
-#contactUs {
-  margin: 0 0 0px;
-  font-size: 18px;
-  text-align: center;
-}
-
-#contactUs {
-  margin: 0 0 0px;
-  font-size: 18px;
-  text-align: center;
-}
-
-.aCU {
-  color: #1a1a1a;
-  text-decoration: none;
-}
-
-.copyR {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-#inputsuarioRegistroProfesor{
-  margin-bottom: 10px;
- 
-}
-
-#inputemailRegistroAlumno{
-  margin-bottom: 10px;
-}
-
- #imgIUser {
-  height: 20px;
-  width: 20px;
-  object-fit: cover;
-  margin-left:84px ;
-  margin-top: 8px;
-  position:absolute;
-}
-
-#btnRegistrarRP{
-  margin-top: 20px;
-}
-
-#btnbtnRegistroAlumno{
-  margin-top: 20px;
-}
-
-#bodyRP {
-  overflow-x: hidden;
-}
-
-#bodyRA {
-  overflow-x: hidden;
-}
-/*------------------------------------------------------------Lista-----------------------------------------------------------------------*/
-#portalListLista {
-  padding: 20px 0;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-right: auto;
-  text-align: center;
-  font-size: 36px;
-  font-weight: 300px;
-  color: #1a1a1a;
-}/*# sourceMappingURL=style.css.map */
-#footerLista{
- margin: 0 0 0px;
-  font-size: 18px;
-  text-align: center;
-  position: relative;
-  top:-30px;
-  height: 0px;
-}
-
-#plImgLista{
-  display: block;
-  width: 300px;
-  height: 300px;
-  position: relative;
-  top: -150px;
-  left: -60px;
-}
-
-#mainLista{
-position: relative;
-top: 	-200px;
-text-align: center;
-}
-
-#btnAbrirLista{
- position: static;
- text-align: center;
-}
-/*----------------------------------------Index--------------------------------------------*/
-
-#textoVenta {
-  position: relative;
-  top: auto;
-  text-align: center;
-}
-
-#iniciarSesion {
-  position: relative;
-  top: auto;
-  text-align: center;
-}
-
-
-#tituloIndex{
   display: inline;
-  margin-left: 2% ;
-  color: white;
+  color: rgb(0, 0, 0);
+  text-decoration-color: rgb(0, 0, 0);
   width: 100px;
   height: 100px;
   margin-top: 0%;
 }
 
-#btnIniciarSesiónIndex{
-  display:inline;
-    text-decoration: none;
-    padding: 4px 20px;
-    font-size: 20px;
-    color: #ffffff;
-    background:#000000;
-    border-radius: 6px;
-    border: 2px solid #000;
-   margin-left: 85%;
-   margin-top: 15px;
-   
-  }
+#plImgAlu{
+  display: inline;
+height: 95%;
+margin-top: 0%;
+height: 95%;
 
-  #plImg{
-   
-    display: inline;
-    margin-bottom: 0%;
-    margin-left: 32%;
-    margin-right:32%;
-  }
+}
 
-  #headerIndex{
-    background-color:#238ce1;
-    height: 100px; ;
-  }
-
-  #contactUsA{
-    text-decoration: none;
-      padding: 4px 20px;
-      font-size: 20px;
-      color: #ffffff;
-      background:#000000;
-      border-radius: 6px;
-      border: 2px solid #000;
-      text-align: center;
-      margin-left: 90%;
-  }
-
-  #copyR{
-    margin-left: 2%;
-  }
-/*----------------------------------------IngresarAdministracion--------------------------------------------*/
-
-#portalList{
+#headerIngAlu{
   text-align: center;
-  display: block;
-  margin-left: 37%;
-  margin-right:37%;
-}
-
-#headerInAdmin{
-  background-color:#238ce1;
+  background-color:#ffffff;
   height: 100px; ;
 }
 
-#tituloInAdmin{
-  margin-left: 2% ;
-  color: white;
-  width: 100px;
-  height: 100px;
+#logoBlancoAsist{
+  height: 30%;
+  width: 30%;
 }
 
-#mainInAdmin{
-margin-left: 2%;
+#formAsist{
+  text-align: center;
+  position: relative;
+  margin-left: 19%;
+  background-color: white;
+  max-width: 1500px;
+  max-height: 1500px;
+  width: 250px;
+  height: 200px;
+  border-radius: 10%;
 }
 
-#btnIniciarSesiónAdmin{
-  text-decoration: none;
-  padding: 4px 20px;
-  font-size: 20px;
-  color: #ffffff;
-  background:#000000;
-  border-radius: 6px;
-  border: 2px solid #000;
-
-}
-
-
-/*----------------------------------------ContactUs--------------------------------------------*/
-
-#headerContactUs{
-  background-color:#238ce1;
-  height: 100px; ;
-}
-
-
-#tituloContactUs{
-  margin-left: 2% ;
-  color: white;
-  width: 100px;
-  height: 100px;
+#objCerrar{
+ text-decoration: solid;
+  color: #000;
 }

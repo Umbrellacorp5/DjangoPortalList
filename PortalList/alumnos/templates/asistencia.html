@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static_in_env/css/style.css"/>
-    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="/PortalList/alumnos/static/css/bootstrapAlumno.css"/>
+    <link rel="stylesheet" href="/PortalList/alumnos/static/css/styleAlumno.css">
     <title>Asistencia</title>
     <style>
         .row::after {
@@ -57,19 +57,33 @@
         </style>
 </head>
 <body id="bodyAsist">
-        <a href="index.html">
-            <h1 id="portalListAsisti">Portal List</h1>
-        </a>
-       <img id= "plImgAsistencia" src="/PortalList/administracion/static/img/Logo14.png" alt="Portal List">
-    <main id="mainAsistencia">
-      <div>
-        <p id="materiaAsisti"></p>
-        <button id="btnAsisti" type="sumbit" class="btn btn-primary btn-lg">Asistí</button> <!--falta terminar-->
-    </div>
-    </main>
+  <header id="headerIngAlu">
+<br>
+ <h1 id="tituloIngAlu">Portal List</h1>
 
+  </header>
+
+    <main id="mainAsistencia">
+
+      <div><br><br><br><br><br><br>
+<form id="formAsist">
+        <p id="materiaAsisti"></p>
+
+        <br><br><br><br>
+
+        <a id="btnAsisti" class="btn btn-primary btn-lg">Marcar Asistencia</a> <!--falta terminar-->
+        <br><br>
+        <a id="objCerrar" href="/PortalList/alumnos/templates/ingresarAlumno.html">Cerrar Sesion?</a>
+        <br><br><br><br>
+      </form><br><br><br>
+        <a> <img id="logoBlancoAsist" src="/PortalList/alumnos/static/img/LogoBlanco.png" alt="Portal List">  </a>
+
+    </div>
+
+    </main>
+<br>
     <footer id="footerAsistencia">
-        <p id="contactUs"> <a href="contactUs.html">Contáctanos</a></p>
+        <p id="contactUs"> <a href="/PortalList/administracion/templates/contactUs.html">Contáctanos</a></p>
         <p id="copyR">© 2022 Portal List, Inc.</p>
     </footer>
 </body>
