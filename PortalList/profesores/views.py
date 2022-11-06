@@ -30,7 +30,7 @@ def seleccionLista(request):
             grupo = g.codGrupo
             profesor = profesorCI
             print(g, grupo, profesor)
-            for grupos in Tienen.objects.raw('SELECT codGrupo, codProfesor FROM administracion_tienen WHERE codGrupo = %s and codProfesor = %s',[grupo, profesor]):
+            for grupos in Tienen.objects.raw('SELECT * FROM administracion_tienen WHERE codGrupo_id = %s and codProfesor_id = %s',[grupo, profesor]):
                 gruposProfesor = grupos[1]
                 return print(gruposProfesor) 
         
