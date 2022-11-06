@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.db import connection
 from django.db import connections
 from alumnos.forms import IngresarAlumno
@@ -7,7 +7,8 @@ import tkinter as tk
 from tkinter import ttk
 
 def asistencia(request):
-      if request.method == 'POST':
+        
+   if request.method == 'POST':
         #hacer check en el checkbox con el name de la cedula del usuario ingresado
         #if (name en html) == cedula 
         checked = "checked"
@@ -15,8 +16,9 @@ def asistencia(request):
         
         if checkbox:
                 #agregar la asistencia en el sql
-        
-                return render(request, 'asistencia.html')
+                return
+   return render(request, 'asistencia.html')
+               
 
 def elegirUsuario(request):
         return render(request, 'elegirUsuario.html')
@@ -34,5 +36,5 @@ def ingresarAlumno(request):
             
 
         if IA.inputUsuarioIA == usuario and  IA.inputContraseñaIA == contraseña:
-                return render(request, 'asistencia.html')
+                return redirect('../asistencia/')
    return render(request, 'ingresarAlumno.html')
