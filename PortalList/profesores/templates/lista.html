@@ -58,27 +58,67 @@
       </style>
 </head>
 
+<script>
+  alumnosData = [
+  {
+      "name": "nombre",
+      "apellido": "apellido",
+      "falta": 'True'
+  },
+  {
+    "name": "nombre",
+    "apellido": "apellido",
+    "falta": 'False'
+  }
+]
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function (e) {
+  showGrupos(alumnosData);
+  console.log(alumnosData)
+});
+
+
+function showGrupos(data){
+  console.log('funcion')
+  let htmlContentToAppend = "";
+  for(let i = 0; i < data.length; i++){
+      let alumnos = data[i];
+
+      htmlContentToAppend += `
+        <div class="col-md-4">
+          <a href="product-info.html" class="card mb-4 shadow-sm custom-card">
+            <!-- <img class="bd-placeholder-img card-img-top" src="${alumnos.name}" alt="${alumnos.apellido}"> -->
+            <h3 class="m-3">${alumnos.falta}</h3>
+            <div class="card-body">
+              <p class="card-text">${alumnos.falta}</p>
+            </div>
+      
+          </a>
+        </div>
+          `
+
+      document.getElementById("alumnos-list-container").innerHTML = htmlContentToAppend;
+  }
+}
+</script>
+
 <body id="bodyLista">
         <a href="index.html">
             <h1 id="portalListLista">Portal List</h1>
         </a>
         <img id= "plImgLista" src="static_in_env/img/LogoPL.png" alt="Portal List">
-    <main id="mainLista">
-            <TABLE class="table table-hover">
-              <TR class="table-primary">
-                <TH scope="row">Nro</TH> <TH>1..n</TH> <TH></TH> <TH></TH>
-              </TR>
-              <TR class="table-primary">
-                <TH>Foto</TH> <TH>Nombre</TH> <TH>CI</TH> <TH>Asistencia</TH>
-              </TR>
-              <TR class="table-primary">
-                <TD>(Foto)</TD> <TD>(Nombre)</TD> <TD>(CI)</TD> <TD><input checked={{checked}} name={{cedula}} type="checkbox"></TD>
-              </TR>
-              <TR class="table-primary">
-                <TD>(Foto)</TD> <TD>(Nombre)</TD> <TD>(CI)</TD> <TD><input type="checkbox"></TD>
-              </TR>
-            </TABLE>	
-                        <button id="btnAbrirLista" type="sumbit" class="btn btn-primary btn-lg">Abrir Lista</button>
+    <main>
+      <div class="flex-container">
+        <div class="row">
+          <div class="col">
+            <div class="list-group" id="alumnos-list-container"></div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer id="footerLista">
         <p id="contactUs"> <a href="contactUs.html">Contáctanos</a></p>

@@ -7,6 +7,20 @@ from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from django.http import JsonResponse
 
+'''
+Funcionalidades: 
+
+    -LogIn, nombreUsuario + contraseña
+    -LogOut
+
+    -Elegir Grupo
+        -nombre Grupo + Materia
+
+    -Ver Lista
+        -Lista de alumnos
+'''
+
+
 def ingresarProfesor(request):
    IP = IngresarProfesor(request.POST)
    if request.method == "POST":

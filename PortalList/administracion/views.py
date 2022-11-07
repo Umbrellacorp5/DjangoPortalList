@@ -44,6 +44,27 @@ from administracion.decorators import allowed_users, allowed_users_home
 #Definir ue ejecutar y que enviar al cliente, enviar html
 #request handler, toma una solicitud del front y la contesta
 
+'''
+Funcionalidades:
+
+    -LogIn, nombreUsuario + contraseña
+    -LogOut
+
+    -Crear, Leer, Actualizar y Borrar Profesores
+    -Crear, Leer, Actualizar y Borrar Alumnos
+    -Crear, Leer, Actualizar y Borrar Grupos
+    -Crear, Leer, Actualizar y Borrar Listas
+
+Flow:
+    -Admin
+        Login
+        crear usuario
+        crear lista
+        crear grupo, asignar lista
+        asignar usuario a profesor/alumno
+
+'''
+
 
 def contactUs(request):
     return render(request, 'contactUs.html')
