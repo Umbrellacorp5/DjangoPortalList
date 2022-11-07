@@ -69,21 +69,23 @@
 }
 
 #btnElegirAlumno {
-  display: block;
-  text-align: center;
-  justify-content: center;
-  margin-left:auto;
-  margin-right: auto;
-  margin-bottom: auto;
-  margin-top: 80px;
+  text-decoration: none;
+  padding: 4px 20px;
+  font-size: 20px;
+  color: #ffffff;
+  background:#000000bd;
+  border-radius: 1px;
+  border: 2px solid rgba(0, 0, 0, 0);
 }
 
 #btnElegirProfesor {
-  display: inline-block;
-  position: relative;
-  bottom: 140px;
-  width: 100px;
-  margin: auto;
+  text-decoration: none;
+  padding: 4px 20px;
+  font-size: 20px;
+  color: #ffffff;
+  background:#000000bd;
+  border-radius: 1px;
+  border: 2px solid rgba(0, 0, 0, 0);
 }
 
 #contactUsElegirUsuario{
@@ -108,18 +110,28 @@
   text-align: center;
 }
 
-#plImgEligirAlumno{
-  display: block;
-  position: block;
-  height: 300px;
-  width: 300px;
-  margin-left:auto;
-  margin-right: auto;
-  margin-bottom: auto;
-  margin-top: auto;
-  object-fit: none;
-  padding-top: 10px;
+#tituloElegirUsuario{
+  display: inline;
+  margin-left: 2% ;
+  color: white;
+  text-decoration-color: white;
+  width: 100px;
+  height: 100px;
+  margin-top: 0%;
 }
+
+#plImgElegirAlumno{
+  display: inline;
+height: 95%;
+margin-top: 0%;
+height: 95%;
+
+}
+
+#headerElegirAlumno{
+  background-color:#238ce1;
+  height: 130px; ;}
+
 /*-------------------------------------------------------------Asistencia-----------------------------------------------------------------------------*/
 #portalListAsisti {
   padding: 20px 0;

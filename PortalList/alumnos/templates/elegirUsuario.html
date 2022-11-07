@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static_in_env/css/style.css"/>
-    <link rel="stylesheet" href="static_in_env/css/bootstrap.css">
+    <link rel="stylesheet" href="/PortalList/alumnos/static/css/styleAlumno.css"/>
+    <link rel="stylesheet" href="/PortalList/alumnos/static/css/bootstrapAlumno.css">
     <title id="tituloElegirUsuario">Elije su Usuario</title>
     <style>
         .row::after {
@@ -58,13 +58,19 @@
         </style>
 </head> 
 <body id="bodyElegirUsuario">
+  <header id="headerElegirAlumno">
+
+    <h1 id="tituloElegirUsuario">Portal List</h1>
+   <a>      <img id= "plImgElegirAlumno" src="/PortalList/administracion/static/img/logo13.png" alt="Portal List"></a>
+    
+</header> 
+
     <main>
         <h1 id="elegirUsuarioTitle">Elije su Usuario</h1>
         <form id="formElegirAlumno" action="" method="POST">
-            <img id= "plImgEligirAlumno" src="/PortalList/administracion/static/img/logo13.png">
         <a id="btnElegirAlumno" href="{% url 'ingresarAlumno' %}">Alumno</a>
         <form id="fromElegirProfesor" action="ingresarProfesor.html" method="POST">
-            <button id="btnElegirProfesor" type="button" class="btn btn-primary btn-lg">Profesor</button>
+            <a id="btnElegirProfesor" type="button" class="btn btn-primary btn-lg">Profesor</a>
         </form>
     </main>
     <footer id="footerElegirUsuario">
