@@ -6,6 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seleccionar Lista</title>
 </head>
+
+<script>
+    GruposData = [
+    {
+        "name": "3bk",
+        "materia": "math"
+    },
+    {
+        "name": "3bk",
+        "materia": "programacion"
+    }
+]
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function (e) {
+    showGrupos(GruposData);
+    console.log(GruposData)
+});
+
+
+function showGrupos(data){
+    console.log('funcion')
+    let htmlContentToAppend = "";
+    for(let i = 0; i < data.length; i++){
+        let grupos = data[i];
+
+        htmlContentToAppend += `
+          <div class="col-md-4">
+            <a href="product-info.html" class="card mb-4 shadow-sm custom-card">
+              <img class="bd-placeholder-img card-img-top" src="${grupos.name}" alt="${grupos.materia}">
+              <h3 class="m-3">${grupos.name}</h3>
+              <div class="card-body">
+                <p class="card-text">${grupos.materia}</p>
+              </div>
+        
+            </a>
+          </div>
+            `
+
+        document.getElementById("group-list-container").innerHTML = htmlContentToAppend;
+    }
+}
+</script>
+
 <body>
     <header>
         <a href="index.html">
@@ -15,7 +62,13 @@
     </header>
 
     <main>
-
+        <div class="flex-container">
+            <div class="row">
+              <div class="col">
+                <div class="list-group" id="group-list-container"></div>
+              </div>
+            </div>
+          </div>
     </main>
 
     <footer>
@@ -27,5 +80,4 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-<script src="templates/script/script.js"></script>
 </html>
