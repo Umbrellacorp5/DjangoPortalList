@@ -49,7 +49,9 @@ def seleccionarRegistro(request):
         return render(request, 'seleccionarRegistro.html')
 
 def elegirAdmin(request):
-        return render(request, 'elegirAdmin.html')
+    if request.method == 'POST':
+            return redirect('../elegirAdmin/')
+    return render(request, 'elegirAdmin.html')
 
 def ingresarAdministracion(request):
     IA = IngresarAdminsitracion(request.POST)
@@ -62,7 +64,7 @@ def ingresarAdministracion(request):
             contraseña = a.contraseña
             codAdmin = a.codAdministrador
         if IA.email == email and  IA.contraseña == contraseña:
-                    return render(request, 'elegirAdmin.html')
+                    return redirect('../elegirAdmin/')
     return render(request, 'ingresarAdministracion.html')
     
     
