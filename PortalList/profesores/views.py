@@ -56,5 +56,22 @@ def seleccionLista(request):
 
 
 def lista(request):
-    if request.method == 'GET':
+    if request.method == 'POST':
+        '''
+        Checkboxes work a little bit different from other form inputs, so if you examine a post 
+        sent from a form that includes a checkbox, there are two possibilities...
+
+        <input type="checkbox" name="cb1"/>
+        if the checlbox is checked, your queryset will look like:
+            queryset = {'cb1' : 'on'}
+        if it is not checked:
+            queryset = {}
+        So, you have to check the existence of the related form element name:
+        if 'cb1' in queryset:
+            "item is selected"
+        else:
+            "item is not selected"
+        '''
+        #if 'cedula' in queryset:
+        #
         return render(request, 'lista.html')
