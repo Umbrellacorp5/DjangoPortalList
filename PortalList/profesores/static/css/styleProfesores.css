@@ -176,6 +176,18 @@
   border-bottom-right-radius: 3px;
   text-align: center;
 }
+#headerIP{
+  position: relative;
+  background-color:#000;
+  height: 130px; 
+}
+
+#plImgIP{
+  display: inline;
+  height: 95%;
+  margin-top: 0%;
+  height: 95%;
+}
 
 #formIA {
   position: relative;
@@ -193,8 +205,8 @@
 
 /*Esto es para que el logo no se deforme*/
 .img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 30%;
+  max-height: 30%;
   
 }
 
@@ -202,7 +214,7 @@
 #imgIP {
   position: relative;
   margin: auto;
-  height: 270px;
+  height: 250px;
   width: 250px;
   object-fit: none;
   padding-top: 10px;
@@ -215,6 +227,17 @@
   width: 250px;
   object-fit: none;
   padding-top: 10px;
+}
+
+#tituloIP{
+  padding-left: 2%;
+  text-align: center;
+  display: inline;
+  color: rgb(255, 255, 255);
+  text-decoration-color: rgb(255, 255, 255);
+  width: 100px;
+  height: 100px;
+  margin-top: 0%;
 }
 
 /*Contenedor de h1 */
@@ -319,9 +342,38 @@
   margin-top: 8px;
   position:absolute;
 }
+#fondoBlancoIP{
+  text-align: center;
+  margin-left: 15%;
+  background-color: white;
+  border-radius: 10%;
+  height: auto;
+  width: 70%;
+}
+#fondoIP{
+  margin-top: 2%;
+  background-image: url(https://img.pikbest.com/backgrounds/20190312/black-and-white-modern-minimalist-style-geometric-line-banner-background_2751856.jpg!c1024wm1024) ;
+  color: #FFFFFF;
+  height: 600px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+  margin-left: 5%;
+  border-radius: 5%;
+  background-size: 120%;
+}
 
 #btnLoginIP{
   margin-top: 20px;
+  position: relative;
+  display:inline;
+    text-decoration: none;
+    padding: 4px 20px;
+    font-size: 20px;
+    color: #ffffff;
+    background:#000000d0;
+    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0);
 }
 
 #btnLoginIA{
