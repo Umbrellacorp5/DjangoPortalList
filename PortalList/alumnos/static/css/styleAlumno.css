@@ -69,21 +69,23 @@
 }
 
 #btnElegirAlumno {
-  display: block;
-  text-align: center;
-  justify-content: center;
-  margin-left:auto;
-  margin-right: auto;
-  margin-bottom: auto;
-  margin-top: 80px;
+  text-decoration: none;
+  padding: 10px 60px;
+  font-size: 20px;
+  color: #ffffff;
+  background:#000000bd;
+  border-radius: 1px;
+  border: 2px solid rgba(0, 0, 0, 0);
 }
 
 #btnElegirProfesor {
-  display: inline-block;
-  position: relative;
-  bottom: 140px;
-  width: 100px;
-  margin: auto;
+  text-decoration: none;
+  padding: 10px 60px;
+  font-size: 20px;
+  color: #ffffff;
+  background:#000000bd;
+  border-radius: 1px;
+  border: 2px solid rgba(0, 0, 0, 0);
 }
 
 #contactUsElegirUsuario{
@@ -108,18 +110,42 @@
   text-align: center;
 }
 
-#plImgEligirAlumno{
-  display: block;
-  position: block;
-  height: 300px;
-  width: 300px;
-  margin-left:auto;
-  margin-right: auto;
-  margin-bottom: auto;
-  margin-top: auto;
-  object-fit: none;
-  padding-top: 10px;
+#tituloElegirUsuario{
+  display: inline;
+  color: white;
+  text-decoration-color: white;
+  width: 100px;
+  height: 100px;
+  margin-top: 0%;
 }
+
+#plImgElegirAlumno{
+  display: inline;
+height: 95%;
+margin-top: 0%;
+height: 95%;
+
+}
+
+#headerElegirAlumno{
+  background-color:#238ce1;
+  height: 130px; ;}
+
+
+  #mainElegirAlumno{
+    margin-top: 2%;
+    background-image: url(https://lh6.googleusercontent.com/proxy/s0IF_MvDmv1jdlladqZnMNDEC50BEiVew9Puccn58_MPm4X6POC2qSoVEEzfgBjqt2Dzs4pDIs_g54LWi1On4ohScjt4KByyEdCC5v5EN5wV843g6VL0iPjtRGm4sSbn0thxYMgZBbib3kF9QzavklSwKWifEOgHbq-Q2g=w1200-h630-p-k-no-nu) ;
+    color: #FFFFFF;
+    height: 600px;
+    width: 90%;
+    position: relative;
+    text-align: center;
+    margin-left: 5%;
+    border-radius: 5%;
+    background-size: 120%;
+
+  }
+
 /*-------------------------------------------------------------Asistencia-----------------------------------------------------------------------------*/
 #portalListAsisti {
   padding: 20px 0;
@@ -213,4 +239,29 @@ height: 95%;
 #objCerrar{
  text-decoration: solid;
   color: #000;
+}
+
+
+/*--------------------------------------Ingresar Alumno---------------------------------------------*/
+
+
+#headerIngresarAlumno{
+  position: relative;
+  background-color:#000;
+  height: 130px; ;}
+
+
+#tituloIngresarAlumno{
+  display: inline;
+  color: white;
+  margin-left: 2%;
+  text-decoration-color: white;
+  width: 100px;
+  height: 100px;
+  margin-top: 0%;
+}
+
+#imgIUser{
+  height: 5%;
+  width: 5%;
 }
