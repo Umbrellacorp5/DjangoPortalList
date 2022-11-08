@@ -7,6 +7,26 @@
     <title>Seleccionar Lista</title>
 </head>
 
+<style>
+  .card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 20%;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 10px;
+}
+</style >
+
+
 <script>
     GruposData = [
     {
@@ -23,34 +43,38 @@
 
 
 
+var datajs = JSON.parse("{{datajs|escapejs}}");
+
 document.addEventListener("DOMContentLoaded", function (e) {
-    showGrupos(GruposData);
-    console.log(GruposData)
+  
+  //console.log(datajs);
+  //console.log(datajs[0]);
+  showGrupos(datajs)
 });
 
 
-function showGrupos(data){
-    console.log('funcion')
-    let htmlContentToAppend = "";
-    for(let i = 0; i < data.length; i++){
-        let grupos = data[i];
 
+
+//llega el js
+//directamente se accede data.indice
+//falta: recorrer la data e ir sacando los datos
+function showGrupos(datajs){
+  console.log(datajs.hello);
+    let htmlContentToAppend = "";
+    for(var x in datajs){
         htmlContentToAppend += `
-          <div class="col-md-4">
-            <a href="product-info.html" class="card mb-4 shadow-sm custom-card">
-              <!-- <img class="bd-placeholder-img card-img-top" src="${grupos.name}" alt="${grupos.materia}"> -->
-              <h3 class="m-3">${grupos.name}</h3>
-              <div class="card-body">
-                <p class="card-text">${grupos.materia}</p>
-              </div>
-        
-            </a>
+        <div class="card">
+          <div class="container">
+            <h4><b>"${datajs.hello}"</b></h4>
+            <p>${datajs.geeks}</p> 
           </div>
-            `
+        </div>
+        `
 
         document.getElementById("group-list-container").innerHTML = htmlContentToAppend;
     }
 }
+
 </script>
 
 <body>
@@ -69,6 +93,25 @@ function showGrupos(data){
               </div>
             </div>
           </div>
+
+          <div style="width: 40%;
+    border: 1px solid black;
+    background-color: lightcyan;
+    font-family: Helvetica, sans-serif;">
+        <div style="margin: 5%;">
+            <h1>
+                <u>Dictionary Data</u>
+            </h1>
+            <h2>
+                <u>All Data</u>
+            </h2>
+            <h4 id='alldata'></h4><br>
+            <h2>
+                <u>Neat Data</u>
+            </h2>
+            <h4 id='neatdata'></h4>
+        </div>
+    </div>
     </main>
 
     <footer>
