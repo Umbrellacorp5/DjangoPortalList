@@ -1,44 +1,10 @@
-from ast import ListComp
-import email
-from django.forms import ModelForm
-from django.shortcuts import render, redirect
+
 from administracion.forms import IngresarAdminsitracion
 from django.db import connection
-#from administracion.forms import RegistroAlumno
-#from administracion.urls import ingresarAdministracion
-#error circular
-from administracion.forms import RegistroAlumno, RegistroAlumno2, RegistroAlumno3
-from django.contrib.auth.forms import UserChangeForm
 from django.http import HttpResponse
-import json
-from django.contrib.auth.models import Group
-from django.contrib import messages
-from django.core.files.storage import FileSystemStorage
-from django.http import HttpResponse, JsonResponse
-from django.shortcuts import (HttpResponse, HttpResponseRedirect,
-                              get_object_or_404, redirect, render)
-from django.templatetags.static import static
-from django.urls import reverse
-from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import UpdateView
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.decorators import login_required
-
-from django.core import management
-from django.core.management.commands import loaddata
-
-from django.contrib import messages
-
-from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
-from django.views.generic import View
 from administracion.models import Administrador, Usuario
-from django.http import FileResponse 
-import io
-from django.db import connections
-import os
-from django.db.models import Avg
-from administracion.decorators import allowed_users, allowed_users_home
 
 # Create your views here.
 #Definir ue ejecutar y que enviar al cliente, enviar html
@@ -83,7 +49,9 @@ def seleccionarRegistro(request):
         return render(request, 'seleccionarRegistro.html')
 
 def elegirAdmin(request):
-        return render(request, 'elegirAdmin.html')
+    if request.method == 'POST':
+            return redirect('../elegirAdmin/')
+    return render(request, 'elegirAdmin.html')
 
 def ingresarAdministracion(request):
     IA = IngresarAdminsitracion(request.POST)
@@ -96,7 +64,7 @@ def ingresarAdministracion(request):
             contraseña = a.contraseña
             codAdmin = a.codAdministrador
         if IA.email == email and  IA.contraseña == contraseña:
-                    return render(request, 'elegirAdmin.html')
+                    return redirect('../elegirAdmin/')
     return render(request, 'ingresarAdministracion.html')
     
     

@@ -9,6 +9,7 @@ from tkinter import ttk
 def asistencia(request):
         
    if request.method == 'POST':
+        
         #hacer check en el checkbox con el name de la cedula del usuario ingresado
         #if (name en html) == cedula 
         checked = "checked"

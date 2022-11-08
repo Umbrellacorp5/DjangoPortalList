@@ -80,6 +80,7 @@
 <div id="formIA">
   <div id="imagenIA"></div>
   <form class="loginFormIA" id="login-formIA" autocomplete="off" method="POST">
+    {% csrf_token %}
     <div id="icoUser"> <img class="imgIcoUser" id="imgIUser"src="/PortalList/administracion/static/img/icoUserAdmin.png"></div><br>
     <input  class="form-control" id="inputUsuarioIA" type="text" placeholder="Usuario" name="inputUsuarioIA" ><br>
     <input  class="form-control" id="inputContraseñaIA" type="password" placeholder="Contraseña" name="inputContraseñaIA"><br>

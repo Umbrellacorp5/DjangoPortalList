@@ -55,21 +55,57 @@
         .col-11 {width: 91.66%;}
         .col-12 {width: 100%;}
       }
+      table, th, td {
+        border:1px solid black;
+      }
+
       </style>
 </head>
 
 <script>
   alumnosData = [
   {
-      "name": "nombre",
-      "apellido": "apellido",
-      "falta": 'True'
+      "foto": "123456789.jpg",
+      "nombre": "Jose",
+      "apellido": "Gomez",
+      "CI": "123456789",
+      "falta": "True",
   },
   {
-    "name": "nombre",
-    "apellido": "apellido",
-    "falta": 'False'
-  }
+      "foto": "1223456789.jpg",
+      "nombre": "Franco",
+      "apellido": "Gomez",
+      "CI": "223456789",
+      "falta": "False",
+  },
+  {
+    "foto": "323456789.jpg",
+    "nombre": "Juan",
+    "apellido": "Gomez",
+    "CI": "523456789",
+    "falta": "True",
+  },
+  {
+    "foto": "423456789.jpg",
+    "nombre": "Pedro",
+    "apellido": "Gomez",
+    "CI": "623456789",
+    "falta": "True",
+  },
+  {
+    "foto": "523456789.jpg",
+    "nombre": "Renzo",
+    "apellido": "Gomez",
+    "CI": "823456789",
+    "falta": "True",
+  },
+  {
+    "foto": "123456789.jpg",
+    "nombre": "Julio",
+    "apellido": "Gomez",
+    "CI": "923456789",
+    "falta": "True",
+  },
 ]
 
 
@@ -77,31 +113,31 @@
 
 
 document.addEventListener("DOMContentLoaded", function (e) {
-  showGrupos(alumnosData);
-  console.log(alumnosData)
+  showLista(alumnosData);
 });
 
 
-function showGrupos(data){
-  console.log('funcion')
+function showLista(data){
   let htmlContentToAppend = "";
   for(let i = 0; i < data.length; i++){
       let alumnos = data[i];
 
       htmlContentToAppend += `
-        <div class="col-md-4">
-          <a href="product-info.html" class="card mb-4 shadow-sm custom-card">
-            <!-- <img class="bd-placeholder-img card-img-top" src="${alumnos.name}" alt="${alumnos.apellido}"> -->
-            <h3 class="m-3">${alumnos.falta}</h3>
-            <div class="card-body">
-              <p class="card-text">${alumnos.falta}</p>
-            </div>
-      
-          </a>
-        </div>
+            <tr >
+              <td><img src="${alumnos.foto}" width="50" height="60"> </td>
+              <td>${alumnos.nombre}</td>
+              <td>${alumnos.apellido}</td>
+              <td>${alumnos.CI}</td>
+              <td>
+                <input type="text" id="falta" name="comboboxfalta"/>
+                <select name=" optionlist " onChange="combo(this, 'falta')">
+                <option selected="true">${alumnos.falta}</option>
+                <option>${alumnos.falta}</option>
+                </select></td>
+            </tr>
           `
 
-      document.getElementById("alumnos-list-container").innerHTML = htmlContentToAppend;
+      document.getElementById("AlumnoTable").innerHTML = htmlContentToAppend;
   }
 }
 </script>
@@ -119,6 +155,22 @@ function showGrupos(data){
           </div>
         </div>
       </div>
+
+      <table style="width:100%">
+        <tbody>
+          <tr>
+            <th>Foto</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>CI</th>
+            <th>Falta</th>
+          </tr> 
+        </tbody>
+        <tbody id="AlumnoTable">
+        </tbody>
+        </div>
+      </table>
+
     </main>
     <footer id="footerLista">
         <p id="contactUs"> <a href="contactUs.html">Contáctanos</a></p>
