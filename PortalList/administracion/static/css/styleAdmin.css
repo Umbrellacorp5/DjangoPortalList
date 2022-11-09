@@ -423,7 +423,7 @@ background-size: 120%;
   max-height: 1500px;
   width: 500px;
   height: 500px;
-  margin-left: 28%;
+  margin-left: 37%;
   margin-right:45%;
   border-radius: 10%;
 }
@@ -470,7 +470,7 @@ background-size: 120%;
   max-height: 1500px;
   width: 900px;
   height: 700px;
-  margin-left: 12%;
+  margin-left: 25%;
   margin-right: 12%;
   border-radius: 5%;
 }
@@ -563,11 +563,7 @@ background-size: 120%;
   overflow-x: hidden;
 }
 
-.form-control{
-  
 
-
-}
 /*------------------------------------------------------------Lista-----------------------------------------------------------------------*/
 #portalListLista {
   padding: 20px 0;
@@ -693,6 +689,7 @@ background-size: 150%;
 margin-left: 2%;
 margin-right: 2%;
 border-radius: 5%;
+text-align: ;
 }
 
 #tituloInAdmin{
@@ -712,7 +709,7 @@ border-radius: 5%;
   max-height: 1500px;
   width: 700px;
   height: 570px;
-  margin-left: 21%;
+  margin-left: 30%;
   margin-right: 30%;
   border-radius: 10%;
 }
@@ -790,7 +787,7 @@ border-radius: 5%;
   max-height: 1500px;
   width: 900px;
   height: 700px;
-  margin-left: 10%;
+  margin-left: 15%;
   margin-right:45%;
   border-radius: 10%;
 }
@@ -875,7 +872,7 @@ border-radius: 5%;
     max-height: 1500px;
     width: 900px;
     height: 700px;
-    margin-left: 12.5%;
+    margin-left: 25.5%;
     margin-right:45%;
     border-radius: 5%;
   }
