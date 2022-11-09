@@ -60,7 +60,7 @@ def ingresarProfesor(request):
             global profesorCI
             profesorCI= u.cedula
         if IP.inputUsuarioIP == u.usuario and  IP.inputContraseñaIP == u.contraseña:
-                return render(request,'seleccionLista.html')
+                return redirect('../seleccionLista/')
    return render(request,'ingresarProfesor.html')
 
 

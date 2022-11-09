@@ -17,6 +17,11 @@ def asistencia(request):
         
         if checkbox:
                 #agregar la asistencia en el sql
+                '''
+                        UPDATE profesores_lista
+                        SET falta = false
+                        WHERE CustomerID = 1;
+                '''
                 return
    return render(request, 'asistencia.html')
                
