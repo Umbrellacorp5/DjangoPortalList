@@ -1,110 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/PortalList/profesores/static/css/styleProfesores.css"/>
-<link rel="stylesheet" href="/PortalList/profesores/static/css/bootstrapProfesores.css"/>
-<link rel="icon" href="/PortalList/administracion/static/img/LogoNuevoAdmin.ico">
-<title>Iniciar Sesión Profesor</title>
-<style>
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-[class*="col-"] {
-  float: left;
-  padding: 15px;
-}
-
-/* For mobile phones: */
-[class*="col-"] {
-  width: 100%;
-}
-
-@media only screen and (min-width: 600px) {
-  /* For tablets: */
-  .col-s-1 {width: 8.33%;}
-  .col-s-2 {width: 16.66%;}
-  .col-s-3 {width: 25%;}
-  .col-s-4 {width: 33.33%;}
-  .col-s-5 {width: 41.66%;}
-  .col-s-6 {width: 50%;}
-  .col-s-7 {width: 58.33%;}
-  .col-s-8 {width: 66.66%;}
-  .col-s-9 {width: 75%;}
-  .col-s-10 {width: 83.33%;}
-  .col-s-11 {width: 91.66%;}
-  .col-s-12 {width: 100%;}
-}
-@media only screen and (min-width: 768px) {
-  /* For desktop: */
-  .col-1 {width: 8.33%;}
-  .col-2 {width: 16.66%;}
-  .col-3 {width: 25%;}
-  .col-4 {width: 33.33%;}
-  .col-5 {width: 41.66%;}
-  .col-6 {width: 50%;}
-  .col-7 {width: 58.33%;}
-  .col-8 {width: 66.66%;}
-  .col-9 {width: 75%;}
-  .col-10 {width: 83.33%;}
-  .col-11 {width: 91.66%;}
-  .col-12 {width: 100%;}
-}
-</style>
-</head>
-<body id="bodyIP">
-  <header id="headerIP"> 
-    <h1 id="tituloIP">Portal List</h1>
-    <a href="/PortalList/administracion/templates/index.html"><img id= "plImgIP" src="/PortalList/administracion/static/img/Logo14.png" alt="Portal List"></a>
-
-    </a>
-</header> 
-
-<div class="row">
-  <div class="col-3 col-s-3 menu">
-  </div>
-
-  <div class="col-6 col-s-9">
-    <main id="fondoIP"><br><br><form id="fondoBlancoIP">
-  <div id="containerIP">
-  <div id="infoIP">
-   
-    <h1 id="h1IP">Iniciar Sesión Profesor</h1><span id="spanIP"><a id="aIP" href="/index.html">Portal List</a></span>
-  </div>
-</div>
-<div id="formIP">
-  <form class="loginFormIP" id="login-formIP" autocomplete="off" method="POST">
-    <div id="icoUser"> <img class="imgIcoUser" id="imgIUser"src="/PortalList/administracion/static/img/icoUserAdmin.png"></div>
-    <input class="form-control" id="inputUsuarioIP" type="text" placeholder="Usuario" name="inputUsuarioIP">
-    <input class="form-control" id="inputContraseñaIP" type="password" placeholder="Contraseña" name="inputContraseñaIP">
-    <p id="correctoIP"></p>
-    <p id="incorrectoIP"></p>
-    <button type="submit" class="btn btn-primary" id="btnLoginIP" onclick="window.location = 'seleccionLista'">Iniciar Sesión</button>
-  </form><br>
-</div>
-</main>
-  </div>
-
-  <div class="col-3 col-s-12">
-    <div class="aside">
-    </div>
-  </div>
-</div>
-</form>
-<footer>
-  <p class="contactUs" id="contactUsIP"> <a class="aCU" href="contactUs.html">Contáctanos</a></p>
-  <p class="copyR" id="copyR">© 2022 Portal List, Inc.</p>
-</footer>
-<script src="static_in_env/js/script.js"></script>
-</body>
-<!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="/PortalList/profesores/static/css/styleProfesores.css"/>
+      <link rel="stylesheet" href="/PortalList/profesores/static/css/bootstrapProfesores.css"/>
+      <link rel="icon" href="/PortalList/administracion/static/img/LogoNuevoAdmin.ico">
+      <title>Iniciar Sesión Profesor</title>
+      <style>
+         .row::after {
+         content: "";
+         clear: both;
+         display: table;
+         }
+         [class*="col-"] {
+         float: left;
+         padding: 15px;
+         }
+         /* For mobile phones: */
+         [class*="col-"] {
+         width: 100%;
+         }
+         @media only screen and (min-width: 600px) {
+         /* For tablets: */
+         .col-s-1 {width: 8.33%;}
+         .col-s-2 {width: 16.66%;}
+         .col-s-3 {width: 25%;}
+         .col-s-4 {width: 33.33%;}
+         .col-s-5 {width: 41.66%;}
+         .col-s-6 {width: 50%;}
+         .col-s-7 {width: 58.33%;}
+         .col-s-8 {width: 66.66%;}
+         .col-s-9 {width: 75%;}
+         .col-s-10 {width: 83.33%;}
+         .col-s-11 {width: 91.66%;}
+         .col-s-12 {width: 100%;}
+         }
+         @media only screen and (min-width: 768px) {
+         /* For desktop: */
+         .col-1 {width: 8.33%;}
+         .col-2 {width: 16.66%;}
+         .col-3 {width: 25%;}
+         .col-4 {width: 33.33%;}
+         .col-5 {width: 41.66%;}
+         .col-6 {width: 50%;}
+         .col-7 {width: 58.33%;}
+         .col-8 {width: 66.66%;}
+         .col-9 {width: 75%;}
+         .col-10 {width: 83.33%;}
+         .col-11 {width: 91.66%;}
+         .col-12 {width: 100%;}
+         }
+      </style>
+   </head>
+   <body id="bodyIP">
+      <header id="headerIP">
+         <h1 id="tituloIP">Portal List</h1>
+         <a href="/PortalList/administracion/templates/index.html"><img id= "plImgIP" src="/PortalList/administracion/static/img/Logo14.png" alt="Portal List"></a>
+         </a>
+      </header>
+      <div class="row">
+         <div class="col-3 col-s-3 menu">
+         </div>
+         <div class="col-6 col-s-9">
+            <main id="fondoIP">
+               <br><br>
+               <div id="fondoBlancoIP">
+                  <div id="containerIP">
+                     <div id="infoIP">
+                        <h1 id="h1IP">Iniciar Sesión Profesor</h1>
+                        <span id="spanIP"><a id="aIP" href="/index.html">Portal List</a></span>
+                     </div>
+                  </div>
+                  <div id="formIP">
+               <form class="loginFormIP" id="login-formIP" action="" method="POST">
+               {% csrf_token %}
+               <div id="icoUser"> <img class="imgIcoUser" id="imgIUser"src="/PortalList/administracion/static/img/icoUserAdmin.png"></div>
+               <input class="form-control" id="inputUsuarioIP" type="text" placeholder="Usuario" name="inputUsuarioIP">
+               <input class="form-control" id="inputContraseñaIP" type="password" placeholder="Contraseña" name="inputContraseñaIP">
+               <p id="correctoIP"></p>
+               <p id="incorrectoIP"></p>
+               <button type="submit" class="btn btn-primary" id="btnLoginIP" >Iniciar Sesión</button>
+               </form><br>
+               </div>
+            </main>
+         </div>
+         <div class="col-3 col-s-12">
+            <div class="aside">
+            </div>
+         </div>
+      </div>
+      <footer>
+         <p class="contactUs" id="contactUsIP"> <a class="aCU" href="contactUs.html">Contáctanos</a></p>
+         <p class="copyR" id="copyR">© 2022 Portal List, Inc.</p>
+      </footer>
+      <script src="static_in_env/js/script.js"></script>
+   </body>
+   <!-- CSS only -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+   <!-- JavaScript Bundle with Popper -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </html>
