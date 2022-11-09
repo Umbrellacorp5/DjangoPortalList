@@ -73,12 +73,16 @@ function showGrupos(data){
       let alumnos = data[i];
 
       htmlContentToAppend += `
-      <div class="card">
-        <div class="container">
-          <h4><b>"${alumnos.name}"</b></h4>
-          <p>${alumnos.materia}</p> 
+      <form method="POST">
+        {% csrf_token %}
+        <div class="card">
+          <div class="container">
+            <h4><b>"${alumnos.name}"</b></h4>
+            <p>${alumnos.materia}</p>
+            <button class="btn btn-primary" type="sumbit">Ingresar a la Lista</button> 
+          </div>
         </div>
-      </div>
+      </form>
       `
 
       document.getElementById("group-list-container").innerHTML = htmlContentToAppend;

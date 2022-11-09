@@ -91,7 +91,7 @@ def seleccionLista(request):
         return render(request, 'seleccionLista.html',{'datajs': dataJSON})
     elif request.method == 'POST':
 
-        return render(request, 'seleccionLista.html')
+        return render(request, 'lista.html')
 
 
 
