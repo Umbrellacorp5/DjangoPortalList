@@ -59,7 +59,7 @@
 
 
 
-var datajs = JSON.parse("{{datajs|escapejs}}");
+//var datajs = JSON.parse("{{datajs|escapejs}}");
 
 document.addEventListener("DOMContentLoaded", function (e) {
   showGrupos(GruposData);
@@ -68,7 +68,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 
 function showGrupos(data){
-  console.log('funcion')
   let htmlContentToAppend = "";
   for(let i = 0; i < data.length; i++){
       let alumnos = data[i];
@@ -76,8 +75,8 @@ function showGrupos(data){
       htmlContentToAppend += `
       <div class="card">
         <div class="container">
-          <h4><b>"${datajs.hello}"</b></h4>
-          <p>${datajs.geeks}</p> 
+          <h4><b>"${alumnos.name}"</b></h4>
+          <p>${alumnos.materia}</p> 
         </div>
       </div>
       `

@@ -69,21 +69,17 @@ def ingresarProfesor(request):
 
 def seleccionLista(request):
     if request.method == 'GET':
+        '''
         for p in Profesor.objects.raw('Select codProfesor FROM profesores_profesor WHERE usuarioci_id=%s', [profesorCI]):
-            for m in Materia.objects.raw('Select codMateria, nombre FROM profesores_materia WHERE cod_profesor_id = %s',[p.codProfesor]):
+            for m in Materia.objects.raw('Select codMateria, nombre FROM profesores_materia WHERE cod_profesor_id = %s',[p.codProfesor])
                 nombreMateria = m.nombre
-                return nombreMateria
-            print(nombreMateria)
 
-        for g in Pasan.objects.raw('SELECT codGrupo, nombre FROM administracion_pasan WHERE codProfesor_id=%s',[p.codProfesor]):
-            grupo = g.codGrupo
+        for g in Pasan.objects.raw('SELECT codGrupo_id, nombre FROM administracion_pasan WHERE codProfesor_id=%s',[p.codProfesor]):
+            print(g)
             for ng in Grupo.objects.raw('SELECT nombre FROM administracion_grupo WHERE codGrupo = %s',[grupo]):
                 gruposProfesor = ng.nombre
-                return gruposProfesor
-            print(gruposProfesor)
+                '''
         
-        
-        print(gruposProfesor)
         dataDictionary = {
             'hello': 'World',
             'geeks': 'forgeeks',
@@ -100,7 +96,7 @@ def seleccionLista(request):
 
 
 def lista(request):
-    if request.method == 'POST':
+    if request.method == 'GET':
         '''
         Checkboxes work a little bit different from other form inputs, so if you examine a post 
         sent from a form that includes a checkbox, there are two possibilities...
