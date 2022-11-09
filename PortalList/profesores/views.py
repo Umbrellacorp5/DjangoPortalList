@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.db import connection
 from django.db import connections
 from profesores.forms import IngresarProfesor
-from administracion.models import Usuario, Grupo, Tienen
+from profesores.models import Materia, Lista, Profesor
+from administracion.models import Usuario, Grupo, Tienen, Pasan
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from django.http import JsonResponse
@@ -30,6 +31,8 @@ Funcionalidades:
     -Ver Lista
         -Lista de alumnos
 '''
+
+#copy and delete
 def send_dictionary(request):
     # create data dictionary
     dataDictionary = {
@@ -45,29 +48,42 @@ def send_dictionary(request):
     dataJSON = dumps(dataDictionary)
     return render(request, 'landing.html', {'data': dataJSON})
 
+
+
+
 def ingresarProfesor(request):
    IP = IngresarProfesor(request.POST)
    if request.method == "POST":
         IP.inputUsuarioIP = request.POST.get('inputUsuarioIP')
         IP.inputContraseñaIP = request.POST.get('inputContraseñaIP')
         for u in Usuario.objects.raw('SELECT usuario, cedula, contraseña FROM administracion_usuario WHERE usuario = %s and contraseña = %s',[IP.inputUsuarioIP, IP.inputContraseñaIP]):
-            usuario= u.usuario
-            contraseña = u.contraseña
             global profesorCI
             profesorCI= u.cedula
-        if IP.inputUsuarioIP == usuario and  IP.inputContraseñaIP == contraseña:
-                return redirect('../seleccionLista/')
-   return render(request, 'ingresarProfesor.html')
+        if IP.inputUsuarioIP == u.usuario and  IP.inputContraseñaIP == u.contraseña:
+                return render(request,'seleccionLista.html')
+   return render(request,'ingresarProfesor.html')
+
+
+
 
 
 def seleccionLista(request):
     if request.method == 'GET':
-        for g in Grupo.objects.raw('SELECT codGrupo, nombre FROM administracion_grupo'):
+        for p in Profesor.objects.raw('Select codProfesor FROM profesores_profesor WHERE usuarioci_id=%s', [profesorCI]):
+            for m in Materia.objects.raw('Select codMateria, nombre FROM profesores_materia WHERE cod_profesor_id = %s',[p.codProfesor]):
+                nombreMateria = m.nombre
+                return nombreMateria
+            print(nombreMateria)
+
+        for g in Pasan.objects.raw('SELECT codGrupo, nombre FROM administracion_pasan WHERE codProfesor_id=%s',[p.codProfesor]):
             grupo = g.codGrupo
-            profesor = profesorCI
-            for grupos in Tienen.objects.raw('SELECT * FROM administracion_tienen WHERE codGrupo_id = %s and codProfesor_id = %s',[grupo, profesor]):
-                gruposProfesor = grupos[1]
-                
+            for ng in Grupo.objects.raw('SELECT nombre FROM administracion_grupo WHERE codGrupo = %s',[grupo]):
+                gruposProfesor = ng.nombre
+                return gruposProfesor
+            print(gruposProfesor)
+        
+        
+        print(gruposProfesor)
         dataDictionary = {
             'hello': 'World',
             'geeks': 'forgeeks',
