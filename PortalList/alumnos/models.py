@@ -1,7 +1,5 @@
 from django.db import models
-from django.forms import ModelForm
 
-# Create your models here.
 
 
 class Alumno(models.Model):
@@ -13,9 +11,3 @@ class Alumno(models.Model):
 
     def __int__(self):
         return str(self.codAlumno + ' ' + self.usuarioci)
-'''
-class AlumnoForm(ModelForm):
-    class Meta:
-        model = Alumno
-        fields = ['nombre', 'alumnos']
-'''

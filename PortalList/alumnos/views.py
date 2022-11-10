@@ -3,11 +3,8 @@ from django.db import connection
 from django.db import connections
 from alumnos.forms import IngresarAlumno
 from administracion.models import Usuario, Estan, Pasan
-from profesores.models import Profesor, Lista
+from profesores.models import Lista
 from alumnos.models import Alumno
-#from profesores.views import __all__
-import tkinter as tk
-from tkinter import ttk
 
 def asistencia(request):
         
