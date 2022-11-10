@@ -2,7 +2,10 @@ from django.shortcuts import render, redirect
 from django.db import connection
 from django.db import connections
 from alumnos.forms import IngresarAlumno
-from administracion.models import Usuario
+from administracion.models import Usuario, Estan, Pasan
+from profesores.models import Profesor, Lista
+from alumnos.models import Alumno
+from profesores.views import __all__
 import tkinter as tk
 from tkinter import ttk
 
@@ -16,12 +19,23 @@ def asistencia(request):
         checkbox = request.form.get(cedula) #se supone que devuelve true o false
         
         if checkbox:
-                #agregar la asistencia en el sql
-                '''
+               
+                for p in Profesor.objects.raw('Select codProfesor FROM profesores_profesor WHERE usuarioci_id=%s', [__all__]):
+                        codProfesor = p.codProfesor
+                for e in Estan.objects.raw('Select codGrupo_id, id FROM administracion_estan WHERE codAlumno_id = %s',[codAlumno]):
+                        codGrupo = e.codGrupo_id
+                for pa in Pasan.objects.raw('SELECT codLista_id, id FROM administracion_pasan WHERE codProfesor_id=%s and codGrupo_id=%s',[codProfesor, codGrupo]):
+                        codLista = pa.codLista_id
+                for l in Lista.objects.raw('UPDATE profesores_lista SET falta = false WHERE codLista = %s',[codLista]):
+                
+
+                
+                 #agregar la asistencia en el sql
+                        '''
                         UPDATE profesores_lista
                         SET falta = false
                         WHERE CustomerID = 1;
-                '''
+                        '''
                 return
    return render(request, 'asistencia.html')
                
@@ -35,11 +49,15 @@ def ingresarAlumno(request):
         IA.inputUsuarioIA = request.POST.get('inputUsuarioIA')
         IA.inputContraseñaIA = request.POST.get('inputContraseñaIA')
         global cedula
+        global codAlumno
         for u in Usuario.objects.raw('SELECT usuario, cedula, contraseña FROM administracion_usuario WHERE usuario = %s and contraseña = %s',[IA.inputUsuarioIA, IA.inputContraseñaIA]):
             usuario= u.usuario
             contraseña = u.contraseña
             cedula = u.cedula
-            
+        
+        for a in Alumno.objects.raw('SELECT codAlumno FROM alumnos_alumno WHERE usuarioci_id = %s',[usuario]):
+                
+                codAlumno = a.codAlumno
 
         if IA.inputUsuarioIA == usuario and  IA.inputContraseñaIA == contraseña:
                 return redirect('../asistencia/')

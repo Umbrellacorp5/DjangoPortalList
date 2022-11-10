@@ -59,6 +59,7 @@ def ingresarProfesor(request):
         for u in Usuario.objects.raw('SELECT usuario, cedula, contraseña FROM administracion_usuario WHERE usuario = %s and contraseña = %s',[IP.inputUsuarioIP, IP.inputContraseñaIP]):
             global profesorCI
             profesorCI= u.cedula
+            __all__ = [ '_root_tit']
         if IP.inputUsuarioIP == u.usuario and  IP.inputContraseñaIP == u.contraseña:
                 return redirect('../seleccionLista/')
    return render(request,'ingresarProfesor.html')

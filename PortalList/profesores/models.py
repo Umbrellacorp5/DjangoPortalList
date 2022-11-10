@@ -21,9 +21,6 @@ class Lista(models.Model):
     justificada = models.BooleanField(default=False, null=False)
     llegada_tarde = models.BooleanField(default=False, null=False)
 
-    def __str__(self):
-        return self.codLista
-
 class Materia(models.Model):
     codMateria = models.IntegerField(primary_key=True, null=False)
     nombre = models.CharField(max_length=255, null=False)
