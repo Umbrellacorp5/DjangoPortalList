@@ -10,8 +10,6 @@ class Profesor(models.Model):
     antiguedad = models.CharField(max_length=255, null=False)
 
 
-    def __str__(self):
-        return str(self.codProfesor)
 
 
 
@@ -20,9 +18,6 @@ class Lista(models.Model):
     falta = models.BooleanField(default=False, null=False)
     justificada = models.BooleanField(default=False, null=False)
     llegada_tarde = models.BooleanField(default=False, null=False)
-
-    def __str__(self):
-        return self.codLista
 
 class Materia(models.Model):
     codMateria = models.IntegerField(primary_key=True, null=False)

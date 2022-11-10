@@ -69,26 +69,25 @@ def ingresarProfesor(request):
 
 def seleccionLista(request):
     if request.method == 'GET':
-        '''
+        
         for p in Profesor.objects.raw('Select codProfesor FROM profesores_profesor WHERE usuarioci_id=%s', [profesorCI]):
-            for m in Materia.objects.raw('Select codMateria, nombre FROM profesores_materia WHERE cod_profesor_id = %s',[p.codProfesor])
-                nombreMateria = m.nombre
-
-        for g in Pasan.objects.raw('SELECT codGrupo_id, nombre FROM administracion_pasan WHERE codProfesor_id=%s',[p.codProfesor]):
-            print(g)
-            for ng in Grupo.objects.raw('SELECT nombre FROM administracion_grupo WHERE codGrupo = %s',[grupo]):
-                gruposProfesor = ng.nombre
-                '''
+            codProfesor = p.codProfesor
+        for m in Materia.objects.raw('Select codMateria, nombre FROM profesores_materia WHERE cod_profesor_id = %s',[codProfesor]):
+            nombreMateria = m.nombre
+        for g in Pasan.objects.raw('SELECT codGrupo_id, id FROM administracion_pasan WHERE codProfesor_id = %s',[p.codProfesor]):
+            grupo = g.codGrupo_id
+        for ng in Grupo.objects.raw('SELECT nombre, codGrupo FROM administracion_grupo WHERE codGrupo = %s',[grupo]):
+            gruposProfesor = ng.nombre
+    
         
         dataDictionary = {
-            'hello': 'World',
-            'geeks': 'forgeeks',
-            'hello2': 'World',
-            'geeks2': 'forgeeks'
+            'NombreMateria': nombreMateria,
+            'NombreGrupo': gruposProfesor,
         }
-        dataJSON = dumps(dataDictionary) 
+        dataGrupoJSON = dumps(dataDictionary) 
+        print(dataGrupoJSON)
         
-        return render(request, 'seleccionLista.html',{'datajs': dataJSON})
+        return render(request, 'seleccionLista.html',{'datajs': dataGrupoJSON})
     elif request.method == 'POST':
 
         return render(request, 'lista.html')
