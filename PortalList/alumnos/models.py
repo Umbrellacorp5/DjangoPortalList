@@ -11,8 +11,8 @@ class Alumno(models.Model):
     fotoAlumno = models.ImageField(upload_to="Alumno")
     mac = models.CharField(max_length=255)
 
-    def __str__(self):
-        return str(self.codAlumno)
+    def __int__(self):
+        return str(self.codAlumno + ' ' + self.usuarioci)
 '''
 class AlumnoForm(ModelForm):
     class Meta:

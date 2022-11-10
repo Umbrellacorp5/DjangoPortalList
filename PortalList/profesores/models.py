@@ -10,8 +10,6 @@ class Profesor(models.Model):
     antiguedad = models.CharField(max_length=255, null=False)
 
 
-    def __str__(self):
-        return str(self.codProfesor)
 
 
 
