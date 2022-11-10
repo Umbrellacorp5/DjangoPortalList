@@ -5,7 +5,7 @@ from alumnos.forms import IngresarAlumno
 from administracion.models import Usuario, Estan, Pasan
 from profesores.models import Profesor, Lista
 from alumnos.models import Alumno
-from profesores.views import __all__
+#from profesores.views import __all__
 import tkinter as tk
 from tkinter import ttk
 
@@ -20,8 +20,8 @@ def asistencia(request):
         
         if checkbox:
                
-                for p in Profesor.objects.raw('Select codProfesor FROM profesores_profesor WHERE usuarioci_id=%s', [__all__]):
-                        codProfesor = p.codProfesor
+                #for p in Profesor.objects.raw('Select codProfesor FROM profesores_profesor WHERE usuarioci_id=%s', [__all__]):
+                        #codProfesor = p.codProfesor
                 for e in Estan.objects.raw('Select codGrupo_id, id FROM administracion_estan WHERE codAlumno_id = %s',[codAlumno]):
                         codGrupo = e.codGrupo_id
                 for pa in Pasan.objects.raw('SELECT codLista_id, id FROM administracion_pasan WHERE codProfesor_id=%s and codGrupo_id=%s',[codProfesor, codGrupo]):
