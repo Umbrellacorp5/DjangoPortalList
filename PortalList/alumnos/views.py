@@ -61,4 +61,4 @@ def ingresarAlumno(request):
 
         if IA.inputUsuarioIA == usuario and  IA.inputContraseñaIA == contraseña:
                 return redirect('../asistencia/')
-   return render(request, 'ingresarAlumno.html')
+   return render(request, 'ingresarAlumno.html') 
