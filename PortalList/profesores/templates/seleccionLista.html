@@ -76,9 +76,9 @@ function showGrupos(data){
         {% csrf_token %}
         <div class="card">
           <div class="container">
-            <h4><b>"${data.NombreGrupo}"</b></h4>
+            <h4 ><b>"${data.NombreGrupo}"</b></h4>
             <p>${data.NombreMateria}</p>
-            <button class="btn btn-primary" type="sumbit">Ingresar a la Lista</button> 
+            <button id="${data.NombreGrupo}" class="btn btn-primary" type="sumbit">Ingresar a la Lista</button> 
           </div>
         </div>
       </form>
@@ -89,27 +89,7 @@ function showGrupos(data){
 }
 
 
-/*
-//llega el js
-//directamente se accede data.indice
-//falta: recorrer la data e ir sacando los datos
-function showGrupos(datajs){
-  console.log(datajs.hello);
-    let htmlContentToAppend = "";
-    for(var x in datajs){
-        htmlContentToAppend += `
-        <div class="card">
-          <div class="container">
-            <h4><b>"${datajs.hello}"</b></h4>
-            <p>${datajs.geeks}</p> 
-          </div>
-        </div>
-        `
 
-        document.getElementById("group-list-container").innerHTML = htmlContentToAppend;
-    }
-}
-*/
 </script>
 
 <body>
