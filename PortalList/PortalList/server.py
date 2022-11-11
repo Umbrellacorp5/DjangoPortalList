@@ -1,9 +1,9 @@
 from time import sleep
 import paramiko
 # Inicia un cliente SSH
-dirip = input('ingrese direcciòn ip del dispositivo a configurar')
-usssh = input('ingrese usuario SSH')
-clavessh = input('ingrese password SSH')
+dirip = '192.168.70.14' 
+usssh = 'ubuntu'
+clavessh = 'admin'
 port= 22
 
 ssh= paramiko.SSHClient()
