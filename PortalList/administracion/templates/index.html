@@ -76,11 +76,15 @@
     <br>
     <p id="textoVenta">Portal List es todo lo que necesitas.</p>
     <br><br>
-      <a id="btnIniciarSesiónIndex" href="ingresarAdministracion/">Iniciar Sesion</a>
+      <a id="btnIniciarSesiónIndex" href="{% url 'ingresarAdministracion' %}">Iniciar Sesion Administracion</a>
+      <br>
+      <a id="btnIniciarSesiónIndex" href="{% url 'ingresarProfesor' %}">Iniciar Sesion Profesor</a>
+      <br>
+      <a id="btnIniciarSesiónIndex" href="{% url 'ingresarAlumno' %}">Iniciar Sesion Alumno {{ codadmin }}</a>
   </main>
   <footer>
     <br> <br>  
-      <p id="contactUs"> <a href="contactUs/">Contáctanos</a></p>
+      <p id="contactUs"> <a href="{% url 'contactUs' %}">Contáctanos</a></p>
       <br> <br>  
       <h5 id="copyR">© 2022 Portal List, Inc.</h5>
   </footer>

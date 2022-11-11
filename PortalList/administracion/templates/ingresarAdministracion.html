@@ -18,7 +18,7 @@
     <body id="bodyIadmin">
         <header id="headerInAdmin"> 
             <h1 id="tituloInAdmin">Portal List</h1>
-            <a href="index.html"><img id= "plImgIA" src="/PortalList/administracion/static/img/Logo14.png" alt="Portal List"></a>
+            <a href="{% url 'index' %}"><img id= "plImgIA" src="/PortalList/administracion/static/img/Logo14.png" alt="Portal List"></a>
        
             </a>
         </header> 
@@ -42,7 +42,7 @@
             <br>
         </main><br>
         <footer>
-            <p id="contactUs" text-align="center"> <a id="ContactoIA" href="contactUs.html">Contáctanos</a></p> <br><br>
+            <p id="contactUs" text-align="center"> <a id="ContactoIA" href="{% url 'contactUs' %}">Contáctanos</a></p> <br><br>
             <h5 id="copyR">© 2022 Portal List, Inc.</h5>
         </footer>
 </body>

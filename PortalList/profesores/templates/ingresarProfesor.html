@@ -58,7 +58,7 @@
    <body id="bodyIP">
       <header id="headerIP">
          <h1 id="tituloIP">Portal List</h1>
-         <a href="/PortalList/administracion/templates/index.html"><img id= "plImgIP" src="/PortalList/administracion/static/img/Logo14.png" alt="Portal List"></a>
+         <a href="{% url 'index' %}"><img id= "plImgIP" src="/PortalList/administracion/static/img/Logo14.png" alt="Portal List"></a>
          </a>
       </header>
       <div class="row">
@@ -93,7 +93,7 @@
          </div>
       </div>
       <footer>
-         <p class="contactUs" id="contactUsIP"> <a class="aCU" href="contactUs.html">Contáctanos</a></p>
+         <p class="contactUs" id="contactUsIP"> <a class="aCU" href="{% url 'contactUs' %}">Contáctanos</a></p>
          <p class="copyR" id="copyR">© 2022 Portal List, Inc.</p>
       </footer>
       <script src="static_in_env/js/script.js"></script>

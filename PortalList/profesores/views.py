@@ -39,6 +39,7 @@ def seleccionLista(request):
             'NombreGrupo': gruposProfesor,
         }
         dataGrupoJSON = dumps(dataDictionary) 
+        print(dataGrupoJSON)
         return render(request, 'seleccionLista.html',{'datajs': dataGrupoJSON})
     elif request.method == 'POST':
 

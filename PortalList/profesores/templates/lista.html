@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static_in_env/css/style.css"/>
     <link rel="stylesheet" href="static_in_env/css/bootstrap.css">
-    <script src="..\js\lista.js"></script> 
+    <script src="PortalList\profesores\static\js\lista.js"></script> 
     <title>Lista</title>
     <style>
       .row::after {
@@ -61,10 +61,85 @@
       }
 
       </style>
+<script>
+    
+  document.addEventListener("DOMContentLoaded", function () {
+    showLista(alumnosData);
+  });
+  
+  function showLista(data){
+    let htmlContentToAppend = "";
+    for(let i = 0; i < data.length; i++){
+        let alumnos = data[i];
+  
+        htmlContentToAppend += `
+              <tr >
+                <td><img src="${alumnos.foto}" width="50" height="60"> </td>
+                <td>${alumnos.nombre}</td>
+                <td>${alumnos.apellido}</td>
+                <td>${alumnos.CI}</td>
+                <td>
+                  <select name=" optionlist " onChange="combo(this, 'falta')">
+                  <option selected="true">${alumnos.falta}</option>
+                  <option>${alumnos.falta}</option>
+                  </select></td>
+              </tr>
+            `
+  
+        document.getElementById("AlumnoTable").innerHTML = htmlContentToAppend;
+    }
+  }
+
+
+  alumnosData = [
+    {
+        "foto": "123456789.jpg",
+        "nombre": "Jose",
+        "apellido": "Gomez",
+        "CI": "123456789",
+        "falta": "True",
+    },
+    {
+        "foto": "1223456789.jpg",
+        "nombre": "Franco",
+        "apellido": "Gomez",
+        "CI": "223456789",
+        "falta": "False",
+    },
+    {
+      "foto": "323456789.jpg",
+      "nombre": "Juan",
+      "apellido": "Gomez",
+      "CI": "523456789",
+      "falta": "True",
+    },
+    {
+      "foto": "423456789.jpg",
+      "nombre": "Pedro",
+      "apellido": "Gomez",
+      "CI": "623456789",
+      "falta": "True",
+    },
+    {
+      "foto": "523456789.jpg",
+      "nombre": "Renzo",
+      "apellido": "Gomez",
+      "CI": "823456789",
+      "falta": "True",
+    },
+    {
+      "foto": "123456789.jpg",
+      "nombre": "Julio",
+      "apellido": "Gomez",
+      "CI": "923456789",
+      "falta": "True",
+    },
+  ]
+</script>
 </head>
 
 <body id="bodyLista">
-        <a href="index.html">
+        <a href="{% url 'index' %}">
             <h1 id="portalListLista">Portal List</h1>
         </a>
         <img id= "plImgLista" src="static_in_env/img/LogoPL.png" alt="Portal List">
@@ -87,14 +162,18 @@
             <th>Falta</th>
           </tr> 
         </tbody>
-        <tbody id="AlumnoTable">
-        </tbody>
+        <form method="POST">
+          {% csrf_token %}
+          <tbody id="AlumnoTable">
+          </tbody>
+          <button class="btn btn-primary" type="sumbit">Enviar registro</button><br><br>
+        </form>
         </div>
       </table>
 
     </main>
     <footer id="footerLista">
-        <p id="contactUs"> <a href="contactUs.html">Contáctanos</a></p>
+        <p id="contactUs"> <a href="{% url 'contactUs' %}">Contáctanos</a></p>
         <p id="copyR">© 2022 Portal List, Inc.</p>
     </footer>
 </body>
