@@ -3,6 +3,17 @@ from django.db import connection
 from django.shortcuts import redirect, render
 from administracion.models import Administrador
 
+'''
+Asistencia:
+    -Premisa, no se puede llegar a la lista en la BD con la informacion de alumno
+
+    -Posible solucion:
+        -No llegar desde el alumno a la lista en db sino guardar la CI y tratar de llevarla a la funcion Lista de Profesores
+            -Asistencia Post debe guardar la CI de alumno
+            -La CI de ese alumno debe llegar a view de Lista
+            -Donde este esa CI cambiar el select de falta a False (default True)
+'''
+
 def contactUs(request):
     return render(request, 'contactUs.html')
 
