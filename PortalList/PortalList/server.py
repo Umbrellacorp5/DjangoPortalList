@@ -14,7 +14,16 @@ ssh.connect(hostname=dirip,username=usssh, password=clavessh, port=port, look_fo
 #ssh_client.connect(dirip, 22, usssh, clavessh)
 # Ejecutar un comando de forma remota capturando entrada, salida y error estándar
 
-comando1 = input('ingrese el comando')
+comando1 = 'sudo -u postgres psql'
+comando1 = '\c PortalList'
+comando1 = 'SELECT email, codAdministrador, contraseña FROM administracion_administrador WHERE email = %s and contraseña = %s',[IA.email, IA.contraseña]'
+comando1 = 'sudo -u postgres psql'
+comando1 = 'sudo -u postgres psql'
+comando1 = 'sudo -u postgres psql'
+comando1 = 'sudo -u postgres psql'
+comando1 = 'sudo -u postgres psql'
+comando1 = 'sudo -u postgres psql'
+comando1 = 'sudo -u postgres psql'
 #for i in "ROBOTICA":
 
    # texto= "mkdir "+ i+ ".txt"
