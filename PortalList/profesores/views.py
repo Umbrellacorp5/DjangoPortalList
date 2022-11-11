@@ -4,6 +4,7 @@ from django.db import connections
 from profesores.forms import IngresarProfesor
 from profesores.models import Materia, Profesor
 from administracion.models import Usuario, Grupo, Pasan
+from alumnos.views import asistencia
 from json import dumps
 
 
@@ -38,18 +39,16 @@ def seleccionLista(request):
             'NombreGrupo': gruposProfesor,
         }
         dataGrupoJSON = dumps(dataDictionary) 
-        print(dataGrupoJSON)
-        
         return render(request, 'seleccionLista.html',{'datajs': dataGrupoJSON})
     elif request.method == 'POST':
 
         return render(request, 'lista.html')
 
 
-
+'''
 def lista(request):
     if request.method == 'GET':
-        '''
+        
         Checkboxes work a little bit different from other form inputs, so if you examine a post 
         sent from a form that includes a checkbox, there are two possibilities...
 
@@ -63,7 +62,16 @@ def lista(request):
             "item is selected"
         else:
             "item is not selected"
-        '''
+        
         #if 'cedula' in queryset:
         #
         return render(request, 'lista.html')
+        '''
+def enviarLista(request):
+    if request.method == 'POST':
+        print(request)
+    return print('termino')
+
+def cambiarLista(asistencia):
+    print(asistencia)
+    return print('Llego')

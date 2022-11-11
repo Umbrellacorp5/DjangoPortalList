@@ -10,3 +10,4 @@ class IngresarAlumno(ModelForm):
     class Meta:
         model = Usuario
         fields=['usuario','contraseña']
+

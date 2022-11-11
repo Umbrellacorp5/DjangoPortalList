@@ -31,24 +31,19 @@ def asistencia(request):
    return render(request, 'asistencia.html')
 '''
 
-def asistencia(request):
-        if request.method == 'POST':
-                print(request,'gggg')
-                return render(request, 'asistencia.html')
-        return render(request, 'asistencia.html')
-
-
 
 def elegirUsuario(request):
         return render(request, 'elegirUsuario.html')
 
 def ingresarAlumno(request):
+
    IA = IngresarAlumno(request.POST)
+   global cedula
+   global codAlumno
    if request.method == "POST":
         IA.inputUsuarioIA = request.POST.get('inputUsuarioIA')
         IA.inputContraseñaIA = request.POST.get('inputContraseñaIA')
-        global cedula
-        global codAlumno
+
         for u in Usuario.objects.raw('SELECT usuario, cedula, contraseña FROM administracion_usuario WHERE usuario = %s and contraseña = %s',[IA.inputUsuarioIA, IA.inputContraseñaIA]):
             usuario= u.usuario
             contraseña = u.contraseña
@@ -61,3 +56,9 @@ def ingresarAlumno(request):
         if IA.inputUsuarioIA == usuario and  IA.inputContraseñaIA == contraseña:
                 return redirect('../asistencia/')
    return render(request, 'ingresarAlumno.html') 
+
+
+def asistencia(request):
+        if request.method == 'POST':
+                return render(request, 'asistencia.html', cedula)
+        return render(request, 'asistencia.html')

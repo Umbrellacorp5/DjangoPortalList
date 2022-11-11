@@ -7,6 +7,9 @@ from profesores import views
 
 urlpatterns = [
     path('seleccionLista/', views.seleccionLista, name='seleccionLista'),
-    path('lista/', views.lista, name='lista'),
+    #path('lista/', views.lista, name='lista'),
+    path('lista/', views.enviarLista, name='enviarLista'),
+    path('lista/', views.cambiarLista, name='cambiarLista'),
     path('ingresarProfesor/', views.ingresarProfesor, name='ingresarProfesor'),
+    
 ]
