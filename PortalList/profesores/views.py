@@ -2,53 +2,9 @@ from django.shortcuts import render, redirect
 from django.db import connection
 from django.db import connections
 from profesores.forms import IngresarProfesor
-from profesores.models import Materia, Lista, Profesor
-from administracion.models import Usuario, Grupo, Tienen, Pasan
-from django.http import HttpResponseRedirect
-from django.http import HttpResponse
-from django.http import JsonResponse
+from profesores.models import Materia, Profesor
+from administracion.models import Usuario, Grupo, Pasan
 from json import dumps
-import json
-
-'''
-ingresa profesor:
-    -envia codigo
-    seleccionLista:
-        -muestra los grupos
-            -grupos del profesor:
-            -pasan saca codGrupo usando codProfesor
-            -enviar json con grupos
-            -ve la lista
-
-Funcionalidades: 
-
-    -LogIn, nombreUsuario + contraseña
-    -LogOut
-
-    -Elegir Grupo
-        -nombre Grupo + Materia
-
-    -Ver Lista
-        -Lista de alumnos
-'''
-
-#copy and delete
-def send_dictionary(request):
-    # create data dictionary
-    dataDictionary = {
-        'hello': 'World',
-        'geeks': 'forgeeks',
-        'ABC': 123,
-        456: 'abc',
-        14000605: 1,
-        'list': ['geeks', 4, 'geeks'],
-        'dictionary': {'you': 'can', 'send': 'anything', 3: 1}
-    }
-    # dump data
-    dataJSON = dumps(dataDictionary)
-    return render(request, 'landing.html', {'data': dataJSON})
-
-
 
 
 def ingresarProfesor(request):
@@ -65,9 +21,6 @@ def ingresarProfesor(request):
    return render(request,'ingresarProfesor.html')
 
 
-
-
-
 def seleccionLista(request):
     if request.method == 'GET':
         
@@ -75,12 +28,11 @@ def seleccionLista(request):
             codProfesor = p.codProfesor
         for m in Materia.objects.raw('Select codMateria, nombre FROM profesores_materia WHERE cod_profesor_id = %s',[codProfesor]):
             nombreMateria = m.nombre
-        for g in Pasan.objects.raw('SELECT codGrupo_id, id FROM administracion_pasan WHERE codProfesor_id = %s',[p.codProfesor]):
+        for g in Pasan.objects.raw('SELECT codGrupo_id, id FROM administracion_pasan WHERE codProfesor_id = %s',[codProfesor]):
             grupo = g.codGrupo_id
         for ng in Grupo.objects.raw('SELECT nombre, codGrupo FROM administracion_grupo WHERE codGrupo = %s',[grupo]):
             gruposProfesor = ng.nombre
     
-        
         dataDictionary = {
             'NombreMateria': nombreMateria,
             'NombreGrupo': gruposProfesor,

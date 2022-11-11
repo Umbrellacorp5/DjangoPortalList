@@ -3,23 +3,17 @@ from django.db import connection
 from django.db import connections
 from alumnos.forms import IngresarAlumno
 from administracion.models import Usuario, Estan, Pasan
-from profesores.models import Profesor, Lista
+from profesores.models import Lista
 from alumnos.models import Alumno
-#from profesores.views import __all__
-import tkinter as tk
-from tkinter import ttk
 
+'''
 def asistencia(request):
-        
    if request.method == 'POST':
-        
         #hacer check en el checkbox con el name de la cedula del usuario ingresado
         #if (name en html) == cedula 
         checked = "checked"
         checkbox = request.form.get(cedula) #se supone que devuelve true o false
-        
         if checkbox:
-               
                 #for p in Profesor.objects.raw('Select codProfesor FROM profesores_profesor WHERE usuarioci_id=%s', [__all__]):
                         #codProfesor = p.codProfesor
                 for e in Estan.objects.raw('Select codGrupo_id, id FROM administracion_estan WHERE codAlumno_id = %s',[codAlumno]):
@@ -27,18 +21,23 @@ def asistencia(request):
                 for pa in Pasan.objects.raw('SELECT codLista_id, id FROM administracion_pasan WHERE codProfesor_id=%s and codGrupo_id=%s',[codProfesor, codGrupo]):
                         codLista = pa.codLista_id
                 for l in Lista.objects.raw('UPDATE profesores_lista SET falta = false WHERE codLista = %s',[codLista]):
-                
-
-                
                  #agregar la asistencia en el sql
-                        '''
-                        UPDATE profesores_lista
-                        SET falta = false
-                        WHERE CustomerID = 1;
-                        '''
+                        
+                        #UPDATE profesores_lista
+                        #SET falta = false
+                        #WHERE CustomerID = 1;
+                        
                 return
    return render(request, 'asistencia.html')
-               
+'''
+
+def asistencia(request):
+        if request.method == 'POST':
+                print(request,'gggg')
+                return render(request, 'asistencia.html')
+        return render(request, 'asistencia.html')
+
+
 
 def elegirUsuario(request):
         return render(request, 'elegirUsuario.html')
