@@ -1,7 +1,12 @@
 from time import sleep
 import paramiko
+import sys
+sys.path.append('c:\\Users\\Cristian\\Desktop\\djangoproject\\DjangoPortalList\\PortalList\\administracion')
+print(sys.path)
+from administracion.views import IA
+print(sys.path)
 # Inicia un cliente SSH
-dirip = '192.168.70.14' 
+dirip = '192.168.1.7'
 usssh = 'ubuntu'
 clavessh = 'admin'
 port= 22
@@ -13,22 +18,23 @@ ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh.connect(hostname=dirip,username=usssh, password=clavessh, port=port, look_for_keys=False, allow_agent=False)
 #ssh_client.connect(dirip, 22, usssh, clavessh)
 # Ejecutar un comando de forma remota capturando entrada, salida y error estándar
+commands = ['ls', 'sudo -S -u postgres psql', '\c PortalList', 'SELECT * FROM administrador;']
+comando1 = 'sudo -S -u postgres psql'
+comando2 = '\c PortalList'
+comando3 = 'SELECT * FROM administrador;'
+comando4 = 'ls'
 
-comando1 = 'sudo -u postgres psql'
-comando1 = '\c PortalList'
-comando1 = 'SELECT email, codAdministrador, contraseña FROM administracion_administrador WHERE email = %s and contraseña = %s',[IA.email, IA.contraseña]'
-comando1 = 'sudo -u postgres psql'
-comando1 = 'sudo -u postgres psql'
-comando1 = 'sudo -u postgres psql'
-comando1 = 'sudo -u postgres psql'
-comando1 = 'sudo -u postgres psql'
-comando1 = 'sudo -u postgres psql'
-comando1 = 'sudo -u postgres psql'
 #for i in "ROBOTICA":
 
    # texto= "mkdir "+ i+ ".txt"
    # print(texto)
+for command in commands:
+   stdin, stdout, stderr = ssh.exec_command(command)
+   sleep(1)
+   output = stdout.readlines()
+   error = stderr.readlines()
+   print(' '.join(map(str, output)))
+   print(' '.join(map(str, error)))
 
-stdin, stdout, stderr = ssh.exec_command(comando1)
-output = stdout.readlines()
-print(' '.join(map(str, output)))
+ssh.close()
+

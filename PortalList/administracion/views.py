@@ -35,8 +35,10 @@ def elegirAdmin(request):
 
 
 def ingresarAdministracion(request):
+    global IA
     IA = IngresarAdminsitracion(request.POST)
     if request.method == "POST":
+        
         IA.email = request.POST.get('email')
         IA.contraseña = request.POST.get('contraseña')
         global codAdmin
