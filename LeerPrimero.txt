@@ -5,7 +5,8 @@
 -Instalar Python
     -Entrar a este link https://www.python.org/downloads/
     -Bajar a donde diga "Looking for a specific relase?
-    -Instalar la version 3.10.7"
+    -Click en la version 3.10"
+    -Bajar y dar click en "Windows installer (64-bit)" (o el recommended)
 
 -Click derecho sobre la carpeta "DJANGOPORTALLIST" y abrir con Code
 O abrir VisualStudioCode, darle a file/archivo en la esquina superior derecha, elegir open folder/abrir carpeta y seleccionar "DJANGOPORTALLIST"

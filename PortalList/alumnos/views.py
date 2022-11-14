@@ -3,7 +3,7 @@ from django.db import connection
 from django.db import connections
 from alumnos.forms import IngresarAlumno
 from administracion.models import Usuario, Estan, Pasan
-from profesores.models import Lista
+from profesores.models import Lista, Profesor
 from alumnos.models import Alumno
 
 '''
@@ -14,8 +14,8 @@ def asistencia(request):
         checked = "checked"
         checkbox = request.form.get(cedula) #se supone que devuelve true o false
         if checkbox:
-                #for p in Profesor.objects.raw('Select codProfesor FROM profesores_profesor WHERE usuarioci_id=%s', [__all__]):
-                        #codProfesor = p.codProfesor
+                for p in Profesor.objects.raw('Select codProfesor FROM profesores_profesor WHERE usuarioci_id=%s', [__all__]):
+                        codProfesor = p.codProfesor
                 for e in Estan.objects.raw('Select codGrupo_id, id FROM administracion_estan WHERE codAlumno_id = %s',[codAlumno]):
                         codGrupo = e.codGrupo_id
                 for pa in Pasan.objects.raw('SELECT codLista_id, id FROM administracion_pasan WHERE codProfesor_id=%s and codGrupo_id=%s',[codProfesor, codGrupo]):
@@ -26,8 +26,6 @@ def asistencia(request):
                         #UPDATE profesores_lista
                         #SET falta = false
                         #WHERE CustomerID = 1;
-                        
-                return
    return render(request, 'asistencia.html')
 '''
 
