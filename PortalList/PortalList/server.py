@@ -1,7 +1,7 @@
 from time import sleep
 import paramiko
 import sys
-sys.path.append('c:\\Users\\Cristian\\Desktop\\djangoproject\\DjangoPortalList\\PortalList\\administracion')
+sys.path.append('c:\\Users\\Cristian\\Desktop\\djangoproject\\DjangoPortalList\\PortalList\\administracion')#Cambiar a puntitos, .. una carpeta atras . carpeta en la que estoy
 print(sys.path)
 from administracion.views import IA
 print(sys.path)
