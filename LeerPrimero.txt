@@ -2,12 +2,18 @@
 
 - Instalar VisualStudioCode https://code.visualstudio.com/download
 
--Instalar Python https://www.python.org/downloads/
+-Instalar Python
+    -Entrar a este link https://www.python.org/downloads/
+    -Bajar a donde diga "Looking for a specific relase?
+    -Instalar la version 3.10.7"
 
--Click derecho sobre "DJANGOPORTALLIST" y abrir con Code
+-Click derecho sobre la carpeta "DJANGOPORTALLIST" y abrir con Code
 O abrir VisualStudioCode, darle a file/archivo en la esquina superior derecha, elegir open folder/abrir carpeta y seleccionar "DJANGOPORTALLIST"
 
 -Seleccionar "Terminal" de la barra superior y abrir una nueva terminal
+-Fijarse en la parte superior derecha de la terminal donde dice "Powershell"
+darle a la felcha a la derecha de "Powershell" y seleccionar "Command Prompt"
+
 (Click derecho para pegar en la terminal)
 -Escribir:
     py -m venv venv
