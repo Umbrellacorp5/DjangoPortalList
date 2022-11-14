@@ -645,6 +645,16 @@
   height: 0px;
 }
 
+#tituloLista{
+  padding: 20px 0;
+  font-size: 50px;
+  font-weight: 600px;
+  text-align: center;
+}
+#headerListaPL{
+  background-color:#238ce1;
+  height: 130px; ;}
+
 #plImgLista{
   display: block;
   width: 300px;
