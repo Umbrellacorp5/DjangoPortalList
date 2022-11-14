@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static_in_env/css/style.css"/>
-    <link rel="stylesheet" href="static_in_env/css/bootstrap.css">
+    <link rel="stylesheet" href="/../../css/styleProfesores.css"/>
+    <link rel="stylesheet" href="/../../css/bootstrapProfesores.css">
     <script src="PortalList\profesores\static\js\lista.js"></script> 
     <title>Lista</title>
     <style>
@@ -79,7 +79,7 @@
                 <td>${alumnos.apellido}</td>
                 <td>${alumnos.CI}</td>
                 <td>
-                  <select name=" optionlist " onChange="combo(this, 'falta')">
+                  <select name="${alumnos.CI}" onChange="combo(this, 'falta')">
                   <option selected="true">${alumnos.falta}</option>
                   <option>${alumnos.falta}</option>
                   </select></td>
