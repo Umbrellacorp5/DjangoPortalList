@@ -1,0 +1,96 @@
+# DjangoPortalList
+
+- Instalar VisualStudioCode
+
+-Instalar Python
+
+-Click derecho sobre "DJANGOPORTALLIST" y abrir con Code
+O abrir VisualStudioCode, darle a file/archivo en la esquina superior derecha, elegir open folder/abrir carpeta y seleccionar "DJANGOPORTALLIST"
+
+-Seleccionar "Terminal" de la barra superior y abrir una nueva terminal
+
+-Escribir:
+    py -m venv venv
+    venv\Scripts\activate.bat
+    (si se activo el venv delante de su ruta le aparecera (venv))
+    cd portallist
+    pip install -r requirements.txt
+    (esperar a que vuelva a dejar escribir)
+    python manage.py runserver
+
+    control click en http://127.0.0.1:8000/ o pegarlo en la URL del navegador
+
+Iniciar Sesion Administrador
+admin1@gmail.com
+admin1
+
+    Crear Alumno(Funcional)
+    Crear Profesor(Funcional)
+    Ver registros(No Funcional)
+    Contactanos(No Funcional)
+
+Iniciar Sesion Profesor
+profesor4
+profesor4
+
+    Ver grupos y materia del profesor(Funcional)
+    Click en el boton del grupo para ver la lista(Funcional)
+    Ver la lista(No Funcional)
+
+Iniciar Sesion Alumno
+alumno1
+alumno1
+
+        Marcar Asistencia(No Funcional)
+        Cerrar sesion(No Funcional)
+
+
+
+
+--Codigo Proyecto--
+Proyecto Django
+Se divide en 4 apps:
+    -PortalList
+        Esta app carga con las configuraciones generales del proyecto
+    -administracion
+        Esta aplicacion carga con todo lo relacionado a la administracion
+            -Crear alumnos
+            -Crear profesores
+        Archivos:
+            models-- Aqui se crean los modelos de la base de datos, estos se migran a la base de datos una vez hechos
+            forms-- Usando como modelo las tablas de models toma desde el HTML los datos ingresados en los inputs dentro de los forms
+            urls-- Espacio para configurar las urls de esta app
+            views-- Funciones de la aplicacion
+                -Redirecciones utilizando las urls(Funcional)
+                -Ingresar Administrador(Funcional)
+                -Registro Alumno(Funcional)
+                -Registro Profesor(?)(No Funcional)
+
+
+    -alumnos
+        Esta aplicacion carga con todo lo relacionado a los alumnos
+            -Iniciar sesion
+            -Asistir
+        Archivos:
+            models-- Aqui se crean los modelos de la base de datos, estos se migran a la base de datos una vez hechos
+            forms-- Usando como modelo las tablas de models toma desde el HTML los datos ingresados en los inputs dentro de los forms
+            urls-- Espacio para configurar las urls de esta app
+            views-- Funciones de la aplicacion
+                -Redirecciones utilizando las urls(Funcional)
+                -Ingresar alumno(Funcional)
+                -Asistir(No Funcional)
+
+    -profesores
+        Esta aplicacion carga con todo lo relacionado a los profesores
+            -Iniciar sesion
+            -ver grupos
+            -ver lista
+        Archivos:
+            models-- Aqui se crean los modelos de la base de datos, estos se migran a la base de datos una vez hechos
+            forms-- Usando como modelo las tablas de models toma desde el HTML los datos ingresados en los inputs dentro de los forms
+            urls-- Espacio para configurar las urls de esta app
+            views-- Funciones de la aplicacion
+                -Redirecciones utilizando las urls
+                -Ingresar profesor(Funcional)
+                -Seleccionar lista(Funcional)
+                -Lista(No Funcional)
