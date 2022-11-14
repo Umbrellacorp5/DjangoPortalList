@@ -1,14 +1,14 @@
 # DjangoPortalList
 
-- Instalar VisualStudioCode
+- Instalar VisualStudioCode https://code.visualstudio.com/download
 
--Instalar Python
+-Instalar Python https://www.python.org/downloads/
 
 -Click derecho sobre "DJANGOPORTALLIST" y abrir con Code
 O abrir VisualStudioCode, darle a file/archivo en la esquina superior derecha, elegir open folder/abrir carpeta y seleccionar "DJANGOPORTALLIST"
 
 -Seleccionar "Terminal" de la barra superior y abrir una nueva terminal
-
+(Click derecho para pegar en la terminal)
 -Escribir:
     py -m venv venv
     venv\Scripts\activate.bat
