@@ -50,8 +50,10 @@ alumno1
 --Codigo Proyecto--
 Proyecto Django
 Se divide en 4 apps:
+
     -PortalList
         Esta app carga con las configuraciones generales del proyecto
+
     -administracion
         Esta aplicacion carga con todo lo relacionado a la administracion
             -Crear alumnos
@@ -64,7 +66,7 @@ Se divide en 4 apps:
                 -Redirecciones utilizando las urls(Funcional)
                 -Ingresar Administrador(Funcional)
                 -Registro Alumno(Funcional)
-                -Registro Profesor(?)(No Funcional)
+                -Registro Profesor(No Funcional)
 
 
     -alumnos

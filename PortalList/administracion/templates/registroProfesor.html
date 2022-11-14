@@ -77,6 +77,7 @@
 <main id="fondoRP">
           <br>
         <form class="loginFormIP" id="login-formIP" action="" method="POST" autocomplete="off">
+          {% csrf_token %}
           <br>
           <h1>Registrar Profesor</h1>
           <br>
@@ -86,7 +87,7 @@
           <br>
           <input class="form-control" id="inputCIIP" name="inputCIIP" type="text" placeholder="Cédula">
           <br>
-          <input class="form-control" id="emailRegistroProfesor" name="emailRegistroProfesor" type="email" placeholder="Email" required pattern>  
+          <input class="form-control" id="emailRegistroProfesor" name="emailRegistroProfesor" type="email" placeholder="Email">  
           <br>
           <input class="form-control" id="usuarioRegistroProfesor" name="usuarioRegistroProfesor" type="text" placeholder="Usuario (CI)" required>
           <br>
