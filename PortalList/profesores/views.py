@@ -24,6 +24,7 @@ def ingresarProfesor(request):
 
 def seleccionLista(request):
     if request.method == 'GET':
+        print(asistencia)
         
         for p in Profesor.objects.raw('Select codProfesor FROM profesores_profesor WHERE usuarioci_id=%s', [profesorCI]):
             codProfesor = p.codProfesor
