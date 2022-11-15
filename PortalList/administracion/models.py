@@ -8,7 +8,7 @@ class Administrador(models.Model):
     contraseña = models.CharField(max_length=255, null=False)
 
     def __str__(self):
-        return str(self.codAdministrador)
+        return str(self.codAdministrador) #devuelve el código como un string
 
 
 class Usuario(models.Model):
