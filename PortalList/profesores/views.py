@@ -68,11 +68,14 @@ def lista(request):
         #
         return render(request, 'lista.html')
         '''
+
+
 def enviarLista(request):
     if request.method == 'POST':
         print(request)
     return print('termino')
 
-def cambiarLista(asistencia):
-    print(asistencia)
+def cambiarLista(cialumno):
+    #tomar el registro del html con la id=cialumno
+    #cambiar por false el checkbox
     return print('Llego')

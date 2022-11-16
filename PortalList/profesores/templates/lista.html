@@ -83,6 +83,7 @@
                   <option selected="true">${alumnos.falta}</option>
                   <option>${alumnos.falta}</option>
                   </select></td>
+                  <input type="checkbox" name="is_closed" value="${alumnos.falta}" {% if '${alumnos.falta}' in 'is_closed %} checked {% else %} '' {% endif %}>
               </tr>
             `
   

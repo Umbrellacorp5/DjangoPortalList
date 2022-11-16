@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
-from django.db import connection
-from django.db import connections
 from alumnos.forms import IngresarAlumno
-from administracion.models import Usuario, Estan, Pasan
+from administracion.models import Usuario
 from profesores.models import Lista, Profesor
 from alumnos.models import Alumno
 
@@ -58,5 +56,6 @@ def ingresarAlumno(request):
 
 def asistencia(request):
         if request.method == 'POST':
-                return render(request, 'asistencia.html', cedula)
+
+                return render(request, 'asistencia.html')
         return render(request, 'asistencia.html')
