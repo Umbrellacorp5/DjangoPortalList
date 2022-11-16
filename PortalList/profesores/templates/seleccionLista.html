@@ -77,11 +77,11 @@ function showGrupos(data){
       htmlContentToAppend += `
       <form method="POST">
         {% csrf_token %}
-        <div class="card">
-          <div class="container">
+        <div class="card" id="cardSL">
+          <div class="container" id="containerSL">
             <h4><b>"${data.NombreGrupo}"</b></h4>
             <p>${data.NombreMateria}</p>
-            <button class="btn btn-primary" type="sumbit">Ingresar a la Lista</button> 
+            <button id="botonSL" class="btn btn-primary" type="sumbit">Ingresar a la Lista</button> 
           </div>
         </div>
       </form>
@@ -116,13 +116,13 @@ function showGrupos(datajs){
 </script>
 
 <body>
-    <header>
-        <a href="{% url 'index' %}">
-            <h1 id="portalList" >Portal List</h1>
-        </a>
-        <a href="{% url 'index' %}"><img id= "plImg" src="Imagenes/PL.png" alt="Portal List"></a>
-    </header>
+    <header id="headerSL">
 
+      <h1 id="tituloSL">Portal List</h1>
+      <a>      <img id= "plImgSL" src="/../../static/img/logo13.png" alt="Portal List"></a>
+
+    </header>
+<br>
     <main>
         <div class="flex-container">
             <div class="row">
@@ -133,7 +133,7 @@ function showGrupos(datajs){
           </div>
     </main>
 
-    <footer>
+    <footer id="footerSL">
         <p id="contactUs"> <a href="{% url 'contactUs' %}">Contáctanos</a></p>
         <p id="copyR">© 2022 Portal List, Inc.</p>
     </footer>

@@ -348,3 +348,60 @@ text-align: center;
  text-align: center;
 }
 
+
+
+
+
+
+/*---------------------------------Seleccion Lista------------------------------------*/
+
+#headerSL{
+  background-color:#238ce1;
+  height: 130px;
+}
+
+#tituloSL{
+  display: inline;
+  margin-left: 2% ;
+  color: rgb(255, 255, 255);
+  text-decoration-color: rgb(255, 255, 255);
+  width: 100px;
+  height: 100px;
+  margin-top: 0%;
+}
+
+#plImgSL{
+  display: inline;
+  height: 95%;
+  margin-top: 0%;
+  height: 95%;
+}
+
+#botonSL{
+  text-decoration: none;
+  padding: 4px 20px;
+  font-size: 20px;
+  color: #ffffff;
+  background:#000000bd;
+  border-radius: 1px;
+  border: 2px solid rgba(0, 0, 0, 0);}
+
+  #containerSL{
+    background-color: white;
+    text-align: center;
+  }
+
+  #cardSL{
+    background-color: white;
+    text-align: center;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    width: 250px;
+    height: 150px;
+    margin-left: 2%;
+  }
+
+  #footerSL{
+    margin-left: 2%;
+    margin-top: 5%;
+  }

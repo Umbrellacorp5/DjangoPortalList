@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/../../css/styleProfesores.css"/>
     <link rel="stylesheet" href="/../../css/bootstrapProfesores.css">
-    <script src="PortalList\profesores\static\js\lista.js"></script> 
+    <script src="..\..\static\js\lista.js"></script> 
     <title>Lista</title>
     <style>
       .row::after {
@@ -83,7 +83,7 @@
                   <option selected="true">${alumnos.falta}</option>
                   <option>${alumnos.falta}</option>
                   </select></td>
-                  <input type="checkbox" name="is_closed" value="${alumnos.falta}" {% if '${alumnos.falta}' in 'is_closed %} checked {% else %} '' {% endif %}>
+                  
               </tr>
             `
   
@@ -140,17 +140,12 @@
 </head>
 
 <body id="bodyLista">
-  <header id="headerListPL">
+  <header id="headerListPL"  >
 
     <h1 id="tituloLista">Portal List</h1>
    <a>      <img id= "plImgLista" src="/../../static/img/logo13.png" alt="Portal List"></a>
     
 </header> 
-
-        <a href="{% url 'index' %}">
-            <h1 id="portalListLista">Portal List</h1>
-        </a>
-        <img id= "plImgLista" src="/../../img/LogoPL.png" alt="Portal List">
     <main>
       <div class="flex-container">
         <div class="row">
