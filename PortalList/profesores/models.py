@@ -7,6 +7,9 @@ class Profesor(models.Model):
     usuarioci = models.ForeignKey( to='administracion.Usuario',on_delete=models.CASCADE, null=False)
     cargo = models.CharField(max_length=255, null=False)
     antiguedad = models.CharField(max_length=255, null=False)
+    
+    def __int__(self):
+        return str(self.codProfesor + ' ' + self.usuarioci)
 
 
 class Lista(models.Model):
