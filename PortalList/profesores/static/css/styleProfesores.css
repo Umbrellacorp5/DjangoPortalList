@@ -395,13 +395,23 @@ text-align: center;
     background-color: white;
     text-align: center;
     border-radius: 2px;
-    margin-bottom: 10px;
+    margin-bottom: 2%;
+    margin-right: 2%;
     width: 250px;
     height: 150px;
     margin-left: 2%;
+    margin-top: 2%;
   }
 
   #footerSL{
     margin-left: 2%;
     margin-top: 5%;
   }
+
+ #fondoCard{
+  background-color: #c4cdd6;
+  margin-left: 4%;
+  margin-right: 4%;
+  border-radius: 8px;
+
+ }
