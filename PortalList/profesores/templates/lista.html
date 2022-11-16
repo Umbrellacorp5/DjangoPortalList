@@ -78,12 +78,12 @@
                 <td>${alumnos.nombre}</td>
                 <td>${alumnos.apellido}</td>
                 <td>${alumnos.CI}</td>
+                <td><input type="checkbox" name="falta" value="${alumnos.falta}" {% if '${alumnos.falta}' in 'falta' %} checked {% else %} '' {% endif %}></td>
                 <td>
                   <select name="${alumnos.CI}" onChange="combo(this, 'falta')">
                   <option selected="true">${alumnos.falta}</option>
                   <option>${alumnos.falta}</option>
                   </select></td>
-                  <input type="checkbox" name="is_closed" value="${alumnos.falta}" {% if '${alumnos.falta}' in 'is_closed %} checked {% else %} '' {% endif %}>
               </tr>
             `
   

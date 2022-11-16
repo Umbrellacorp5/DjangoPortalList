@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from alumnos.forms import IngresarAlumno
 from administracion.models import Usuario
 from profesores.models import Lista, Profesor
+from profesores.views import cambiarLista
 from alumnos.models import Alumno
 
 '''
@@ -56,6 +57,6 @@ def ingresarAlumno(request):
 
 def asistencia(request):
         if request.method == 'POST':
-
+                cambiarLista(cedula)
                 return render(request, 'asistencia.html')
         return render(request, 'asistencia.html')
