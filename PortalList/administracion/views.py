@@ -58,9 +58,20 @@ def registroAlumno(request):
     return render(request, 'registroAlumno.html')
 
 def registroProfesor(request):
-    if request.method == 'GET':
-        return render(request,'registroProfesor.html')
-
+    if request.method == 'POST':
+        nombre = request.POST.get('InputUsuarioIP')
+        apellido = request.POST.get('inputContraseñaIP')
+        cedula = request.POST.get('inputCIIP')
+        email = request.POST.get('emailRegistroProfesor')
+        usuario = request.POST.get('usuarioRegistroProfesor')
+        contraseña = request.POST.get('contraRegistroProfesor')
+        cargo =  request.POST.get('cargo')
+        antiguedad =  request.POST.get('Antiguedad')
+         
+        with connection.cursor() as cursor:
+            cursor.execute("INSERT INTO administracion_usuario VALUES (%s, '%s', '%s', '%s', '%s', '%s','%s');"%(cedula,email,nombre,usuario,apellido,contraseña,codAdmin))
+            cursor.execute("INSERT INTO profesores_Profesor (usuarioci_id, cargo, antiguedad) VALUES (%s, '%s', '%s');"%((cedula), (cargo), (antiguedad)))
+    return render(request, 'registroProfesor.html')
 
 
 
