@@ -11,5 +11,6 @@ urlpatterns = [
     path('lista/', views.enviarLista, name='enviarLista'),
     path('lista/', views.cambiarLista, name='cambiarLista'),
     path('ingresarProfesor/', views.ingresarProfesor, name='ingresarProfesor'),
+    path('seleccionLista/', views.cambiarLista, name='cambiarLista'),
     
 ]

@@ -63,8 +63,12 @@
       </style>
 <script>
     
+
+    var ciAlumno = JSON.parse("{{ciAlumno|ciAlumnoJson}}");
+
   document.addEventListener("DOMContentLoaded", function () {
     showLista(alumnosData);
+    checkList(ciAlumno);
   });
   
   function showLista(data){
@@ -78,8 +82,7 @@
                 <td>${alumnos.nombre}</td>
                 <td>${alumnos.apellido}</td>
                 <td>${alumnos.CI}</td>
-                <td><input type="checkbox" name="falta" value="${alumnos.falta}" {% if '${alumnos.falta}' in 'falta' %} checked {% else %} '' {% endif %}></td>
-                <td>
+                <td><input type="checkbox" id="${alumnos.CI}" name="${alumnos.CI}" value="${alumnos.falta}"<td>
                   <select name="${alumnos.CI}" onChange="combo(this, 'falta')">
                   <option selected="true">${alumnos.falta}</option>
                   <option>${alumnos.falta}</option>
@@ -91,6 +94,18 @@
     }
   }
 
+  function checkList(alumno){
+    if (alumno.falta == 1){
+      document.getElementById("data.CI").checked = true;
+    }
+    if (alumno.falta == 2){
+      document.getElementById("data.CI").checked = true;
+    }
+    if (alumno.falta == 3){
+      document.getElementById("data.CI").checked = false;
+    }
+  }
+
 
   alumnosData = [
     {
@@ -98,42 +113,42 @@
         "nombre": "Jose",
         "apellido": "Gomez",
         "CI": "123456789",
-        "falta": "True",
+        "falta": 1,
     },
     {
         "foto": "1223456789.jpg",
         "nombre": "Franco",
         "apellido": "Gomez",
         "CI": "223456789",
-        "falta": "False",
+        "falta": 2,
     },
     {
       "foto": "323456789.jpg",
       "nombre": "Juan",
       "apellido": "Gomez",
       "CI": "523456789",
-      "falta": "True",
+      "falta": 3,
     },
     {
       "foto": "423456789.jpg",
       "nombre": "Pedro",
       "apellido": "Gomez",
       "CI": "623456789",
-      "falta": "True",
+      "falta": 1,
     },
     {
       "foto": "523456789.jpg",
       "nombre": "Renzo",
       "apellido": "Gomez",
       "CI": "823456789",
-      "falta": "True",
+      "falta": 1,
     },
     {
       "foto": "123456789.jpg",
       "nombre": "Julio",
       "apellido": "Gomez",
       "CI": "923456789",
-      "falta": "True",
+      "falta": 2,
     },
   ]
 </script>
