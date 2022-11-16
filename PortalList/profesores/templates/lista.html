@@ -78,6 +78,7 @@
                 <td>${alumnos.nombre}</td>
                 <td>${alumnos.apellido}</td>
                 <td>${alumnos.CI}</td>
+                <td><input type="checkbox" name="falta" value="${alumnos.falta}" {% if '${alumnos.falta}' in 'falta' %} checked {% else %} '' {% endif %}></td>
                 <td>
                   <select name="${alumnos.CI}" onChange="combo(this, 'falta')">
                   <option selected="true">${alumnos.falta}</option>
@@ -166,7 +167,7 @@
           </tr> 
         </tbody>
         <form method="POST">
-          {% csrf_token %}
+       
           <tbody id="AlumnoTable">
           </tbody>
           <button class="btn btn-primary" type="sumbit">Enviar registro</button><br><br>

@@ -4,7 +4,6 @@ from django.db import connections
 from profesores.forms import IngresarProfesor
 from profesores.models import Materia, Profesor
 from administracion.models import Usuario, Grupo, Pasan
-from alumnos.views import asistencia
 from json import dumps
 
 
@@ -23,7 +22,6 @@ def ingresarProfesor(request):
 
 def seleccionLista(request):
     if request.method == 'GET':
-        print(asistencia)
         
         for p in Profesor.objects.raw('Select codProfesor FROM profesores_profesor WHERE usuarioci_id=%s', [profesorCI]):
             codProfesor = p.codProfesor
@@ -78,4 +76,5 @@ def enviarLista(request):
 def cambiarLista(cialumno):
     #tomar el registro del html con la id=cialumno
     #cambiar por false el checkbox
+    print(cialumno)
     return print('Llego')
