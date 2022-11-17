@@ -67,10 +67,14 @@ def registroProfesor(request):
         contraseña = request.POST.get('contraRegistroProfesor')
         cargo =  request.POST.get('cargo')
         antiguedad =  request.POST.get('Antiguedad')
-         
+        nombreMateria = request.POST.get('Materia')
+        nombreGrupo = request.POST.get('grupo')
+
         with connection.cursor() as cursor:
             cursor.execute("INSERT INTO administracion_usuario VALUES (%s, '%s', '%s', '%s', '%s', '%s','%s');"%(cedula,email,nombre,usuario,apellido,contraseña,codAdmin))
             cursor.execute("INSERT INTO profesores_Profesor (usuarioci_id, cargo, antiguedad) VALUES (%s, '%s', '%s');"%((cedula), (cargo), (antiguedad)))
+            cursor.execute("INSERT INTO profesores_Materia (codMateria, nombreMateria, cod_profesor) VALUES (%s, '%s', %s); "%((codMateria), (nombreMateria), (cod_profesor)))
+            cursor.execute("INSERT INTO administracion_Grupo (codGrupo, nombreGrupo, alumnos) VALUES (%s, '%s', %s); "%((codGrupo), (nombreGrupo), (alumnos)))
     return render(request, 'registroProfesor.html')
 
 

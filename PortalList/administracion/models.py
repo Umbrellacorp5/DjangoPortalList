@@ -23,7 +23,7 @@ class Usuario(models.Model):
 
 class Grupo(models.Model):
     codGrupo = models.IntegerField(primary_key=True, null=False)
-    nombre = models.CharField(max_length=255, null=False)
+    nombreGrupo = models.CharField(max_length=255, null=False)
     alumnos = models.ManyToManyField(to='alumnos.Alumno')
 
 
