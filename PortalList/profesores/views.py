@@ -74,8 +74,8 @@ def enviarLista(request):
     return print('termino')
 
 def cambiarLista(request,cialumno):
-    #tomar el registro del html con la id=cialumno
-    #cambiar por false el checkbox
+    #recibe la ci del alumno
+    #cambia 
     alumno = {'CI' : cialumno}
     ciAlumnoJson = dumps(alumno)
     print(cialumno)

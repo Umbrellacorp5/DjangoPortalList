@@ -58,5 +58,6 @@ def ingresarAlumno(request):
 def asistencia(request):
         if request.method == 'POST':
                 cambiarLista(request,cedula)
+                #envia la cedula a profesores
                 return render(request, 'asistencia.html')
         return render(request, 'asistencia.html')
