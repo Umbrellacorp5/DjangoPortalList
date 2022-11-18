@@ -64,9 +64,10 @@
 <script>
     
 
+  var AlumnoJson = JSON.parse("{{AlumnoJson|escapejs}}");
 
   document.addEventListener("DOMContentLoaded", function () {
-    showLista(alumnosData);
+    showLista(AlumnoJson);
   });
   alumno=0
   alumno = {alumno};

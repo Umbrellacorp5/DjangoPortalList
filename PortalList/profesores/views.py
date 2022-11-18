@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render, redirect
 from profesores.forms import IngresarProfesor
 from profesores.models import Materia, Profesor
@@ -40,12 +41,15 @@ def seleccionLista(request):
     if request.method=='POST':
         return redirect('../lista/')
 
-    
+'''  
 def lista(request):
     if request.method == 'GET':
         for al in Estan.objects.raw(' SELECT id, codAlumno_id from administracion_estan WHERE codGrupo_id = %s',[grupo]):
+            print(al[1])
             alumnos = al.codAlumno
-            print(alumnos)
+            print(al.codAlumno)
+            print(al.__dict__)
+            print(alumnos.all)
             print(alumnos.codAlumno)
             for cod in alumnos.codAlumno:
                 for alumnoI in Alumno.objects.raw('SELECT usuarioci_id, fotoAlumno FROM alumnos_alumno WHERE codAlumno = %i', [cod]):
@@ -56,44 +60,49 @@ def lista(request):
                             Alumnosdict = {
                                 'alumCI' : alumnoUsuario.cedula,
                                 'alumNombre' :alumnoUsuario.nombre,
-
+                                'alumApellido' : alumnoUsuario.apellido,
+                                'alumFoto' : alumnoFoto
                             }
-            return render(request,'lista.html')
+                            AlumnoJson = dumps(Alumnosdict)
+            return render(request,'lista.html', {'AlumnoJson': AlumnoJson})
+''' 
 
-
-'''
 def lista(request):
+    #falta recibir la lista de alumnos y enviarla al html
+
+    '''
+    1-conseguir la lista de codAlumnos
+    2-conseguir los usuarios
+    3-hacer una lista con los datos de esos usuarios(ci,nombre,apellido,foto)
+    4-enviar lista al html de lista
+    '''
     if request.method == 'GET':
-        
-        Checkboxes work a little bit different from other form inputs, so if you examine a post 
-        sent from a form that includes a checkbox, there are two possibilities...
-
-        <input type="checkbox" name="cb1"/>
-        if the checlbox is checked, your queryset will look like:
-            queryset = {'cb1' : 'on'}
-        if it is not checked:
-            queryset = {}
-        So, you have to check the existence of the related form element name:
-        if 'cb1' in queryset:
-            "item is selected"
-        else:
-            "item is not selected"
-        
-        #if 'cedula' in queryset:
-        #
-        return render(request, 'lista.html')
-        '''
-
-
-def enviarLista(request):
-    if request.method == 'POST':
-        print(request)
-    return print('termino')
-
+        mydata = Estan.objects.filter(codGrupo_id=grupo).values('codAlumno_id')
+        print(mydata)
+        list_result = [entry for entry in mydata]
+        print(list_result)
+        print(list_result[0]['codAlumno_id'])
+        return render(request,'lista.html')
+    
 
 
 def cambiarLista(cialumno):
-    #recibe la ci del alumno
-    #cambia 
+    #falta cambiar la checkbox del alumno con esta ci
+    '''
+    1-mandar ci del alumno al html lista con la pagina cargada
+    2-escuchar el cambio de la ci por cada alumno
+    2-cambiar el checkbox con id y name ci de False(falta) a True(asistencia)
+    '''
     alumno = cialumno
     return ({alumno})
+
+
+def enviarLista(request):
+    #falta enviar la lista a la BD
+    '''
+    1-recibir los datos de cada alumno en la lista
+    2-cargar cada alumno en la bd lista
+    '''
+    if request.method == 'POST':
+        print(request)
+    return print('termino')
