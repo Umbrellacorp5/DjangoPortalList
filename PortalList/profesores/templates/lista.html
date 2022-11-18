@@ -64,13 +64,14 @@
 <script>
     
 
-    var ciAlumno = JSON.parse("{{ciAlumno|ciAlumnoJson}}");
 
   document.addEventListener("DOMContentLoaded", function () {
     showLista(alumnosData);
-    checkList(ciAlumno);
   });
+  alumno=0
+  alumno = {alumno};
   
+
   function showLista(data){
     let htmlContentToAppend = "";
     for(let i = 0; i < data.length; i++){
@@ -78,6 +79,7 @@
   
         htmlContentToAppend += `
               <tr >
+                <p>{{alumno}}</p>
                 <td><img src="${alumnos.foto}" width="50" height="60"> </td>
                 <td>${alumnos.nombre}</td>
                 <td>${alumnos.apellido}</td>

@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect
-from django.db import connection
-from django.db import connections
 from profesores.forms import IngresarProfesor
 from profesores.models import Materia, Profesor
-from administracion.models import Usuario, Grupo, Pasan
+from administracion.models import Usuario, Grupo, Pasan, Estan
+from alumnos.models import Alumno
 from json import dumps
 
 
@@ -20,28 +19,46 @@ def ingresarProfesor(request):
    return render(request,'ingresarProfesor.html')
 
 
+
 def seleccionLista(request):
     if request.method == 'GET':
-        
         for p in Profesor.objects.raw('Select codProfesor FROM profesores_profesor WHERE usuarioci_id=%s', [profesorCI]):
             codProfesor = p.codProfesor
         for m in Materia.objects.raw('Select codMateria, nombre FROM profesores_materia WHERE cod_profesor_id = %s',[codProfesor]):
             nombreMateria = m.nombre
         for g in Pasan.objects.raw('SELECT codGrupo_id, id FROM administracion_pasan WHERE codProfesor_id = %s',[codProfesor]):
+            global grupo
             grupo = g.codGrupo_id
         for ng in Grupo.objects.raw('SELECT nombre, codGrupo FROM administracion_grupo WHERE codGrupo = %s',[grupo]):
             gruposProfesor = ng.nombre
-    
         dataDictionary = {
             'NombreMateria': nombreMateria,
             'NombreGrupo': gruposProfesor,
         }
         dataGrupoJSON = dumps(dataDictionary) 
-        print(dataGrupoJSON)
         return render(request, 'seleccionLista.html',{'datajs': dataGrupoJSON})
-    elif request.method == 'POST':
+    if request.method=='POST':
+        return redirect('../lista/')
 
-        return render(request, 'lista.html')
+    
+def lista(request):
+    if request.method == 'GET':
+        for al in Estan.objects.raw(' SELECT id, codAlumno_id from administracion_estan WHERE codGrupo_id = %s',[grupo]):
+            alumnos = al.codAlumno
+            print(alumnos)
+            print(alumnos.codAlumno)
+            for cod in alumnos.codAlumno:
+                for alumnoI in Alumno.objects.raw('SELECT usuarioci_id, fotoAlumno FROM alumnos_alumno WHERE codAlumno = %i', [cod]):
+                    alumnoCI = alumnoI.ususarioci_id
+                    alumnoFoto = alumnoI.fotoAlumno
+                    for ci in alumnoCI:
+                        for alumnoUsuario in Usuario.objects.raw('SELECT cedula, nombre, apellido FROM administracion_usuario WHERE cedula = %i',[ci]):
+                            Alumnosdict = {
+                                'alumCI' : alumnoUsuario.cedula,
+                                'alumNombre' :alumnoUsuario.nombre,
+
+                            }
+            return render(request,'lista.html')
 
 
 '''
@@ -73,10 +90,10 @@ def enviarLista(request):
         print(request)
     return print('termino')
 
-def cambiarLista(request,cialumno):
+
+
+def cambiarLista(cialumno):
     #recibe la ci del alumno
     #cambia 
-    alumno = {'CI' : cialumno}
-    ciAlumnoJson = dumps(alumno)
-    print(cialumno)
-    return (request,{'ciAlumno': ciAlumnoJson})
+    alumno = cialumno
+    return ({alumno})
