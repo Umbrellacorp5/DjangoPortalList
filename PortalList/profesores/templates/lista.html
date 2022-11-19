@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/../../css/styleProfesores.css"/>
     <link rel="stylesheet" href="/../../css/bootstrapProfesores.css">
-    <script src="..\..\static\js\lista.js"></script> 
+    <script src="..\..\static\js\listaa.js"></script> 
     <title>Lista</title>
     <style>
       .row::after {
@@ -64,34 +64,33 @@
 <script>
     
 
-  #var AlumnoJdictOfAlumnosson = JSON.parse("{{dictOfAlumnos|escapejs}}");
-
+  var dictAlumnos = JSON.parse("{{dictOfAlumnos|escapejs}}");
+  console.log(dictAlumnos)
   document.addEventListener("DOMContentLoaded", function () {
 
   });
   
 
-  function showLista(dictAlumnos){
+
     console.log(dictAlumnos)
     let htmlContentToAppend = "";
     for(let i = 0; i < dictAlumnos.length; i++){
-        let infoAlumnos = dictAlumnos[i];
+        infoAlumnos += dictAlumnos.alumno1[i];
         console.log(infoAlumnos)
-  
+        console.log(dictAlumnos)
         htmlContentToAppend += `
               <tr >
                 <p>{{alumno}}</p>
                 <td><img src="" width="50" height="60"> </td>
-                <td>${infoAlumnos.i.1}</td>
-                <td>${infoAlumnos.1.2}</td>
-                <td>${infoAlumnos.1.0}</td>
+                <td>${infoAlumnos}</td>
+                <td>${infoAlumnos}</td>
+                <td>${infoAlumnos}</td>
                   
               </tr>
             `
   
         document.getElementById("AlumnoTable").innerHTML = htmlContentToAppend;
     }
-  }
 
 
   
@@ -115,7 +114,7 @@
   <header id="headerListPL"  >
 
     <h1 id="tituloLista">Portal List</h1>
-    <h1 id="tituloLista">{{dictOfAlumnos.1.1}}</h1>
+    <h1 id="tituloLista">{{dataGrupoJSON.1.1}}</h1>
    <a>      <img id= "plImgLista" src="/../../static/img/logo13.png" alt="Portal List"></a>
     
 </header> 
@@ -141,12 +140,12 @@
         <form method="POST">
        
           <tbody id="AlumnoTable">
-            {% for key, value in dictOfAlumnos.items %}
+            {% for key, value in dataGrupoJSON.items %}
             <tr >
               <td><img src="" width="50" height="60"> </td>
-              <td>{{dictOfAlumnos.key.value}}</td>
-              <td>{{dictOfAlumnos.key.value1}}</td>
-              <td>{{dictOfAlumnos.key.value}}</td>
+              <td>{{dataGrupoJSON.key.value}}</td>
+              <td>{{dataGrupoJSON.key.value1}}</td>
+              <td>{{dataGrupoJSON.key.value}}</td>
                 
             </tr>
             {{ key }}: {{ value }}

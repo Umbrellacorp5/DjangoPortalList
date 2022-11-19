@@ -70,7 +70,7 @@ def lista(request):
                 q+=1
                 for ud in Usuario.objects.raw('Select cedula, nombre, apellido FROM administracion_usuario WHERE cedula = %s',[Asx1[q]]):
                 
-                    UsuariosDatos= ud.cedula, ud.nombre, ud.apellido, ua.fotoAlumno
+                    UsuariosDatos= ud.nombre, ud.cedula, ud.apellido
                     Asx2.append(UsuariosDatos)
 
     
@@ -83,11 +83,14 @@ def lista(request):
     print('---')
 
 
-    tups = Asx2
     dictionary = {}
-    dictOfAlumnos = Convert(tups, dictionary)
-        
-    return render(request,'lista.html',{'dictOfAlumnos' : dictOfAlumnos})
+    dictOfAlumnos = Convert(Asx2, dictionary)
+    print('qqqqqqqqqqq')
+    print(dictOfAlumnos)
+    print('qqqqqqqqqqq')
+    dataGrupoJSON = dumps(dictOfAlumnos)
+    print(dataGrupoJSON)
+    return render(request,'lista.html',{'dictOfAlumnos' : dataGrupoJSON})
         
 
     
