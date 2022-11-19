@@ -55,32 +55,32 @@ def lista(request):
     if request.method == 'GET':
         #falta recibir la lista de alumnos y enviarla al html
         Asx = []
-    Asx1 = []
-    Asx2 = []
-    Asx3 = []
-    Asx4 = []
-    Asx5 = []
-    i=-1
-    q=-1
-    for cod in Estan.objects.raw('SELECT * FROM administracion_estan WHERE codGrupo_id = %s',[grupo1]):
-        gruposAlumno = cod.codAlumno_id
-        Asx.append(gruposAlumno)
-        i+=1
-        for ua in Alumno.objects.raw('Select codAlumno, usuarioci_id, fotoAlumno FROM alumnos_alumno WHERE codAlumno = %s',[Asx[i]]):
-            
-            UsuariosAlumno = ua.usuarioci_id
-            Asx1.append(UsuariosAlumno)
-            q+=1
-            for ud in Usuario.objects.raw('Select cedula, nombre, apellido FROM administracion_usuario WHERE cedula = %s',[Asx1[q]]):
-            
-                UsuariosCedula = ud.cedula
-                UsuariosNombre = ud.nombre
-                UsuariosApellido = ud.apellido
-                UsuariosFoto = ua.fotoAlumno
-                Asx2.append(UsuariosCedula)
-                Asx3.append(UsuariosNombre)
-                Asx4.append(UsuariosApellido)
-                Asx5.append(UsuariosFoto)
+        Asx1 = []
+        Asx2 = []
+        Asx3 = []
+        Asx4 = []
+        Asx5 = []
+        i=-1
+        q=-1
+        for cod in Estan.objects.raw('SELECT * FROM administracion_estan WHERE codGrupo_id = %s',[grupo1]):
+            gruposAlumno = cod.codAlumno_id
+            Asx.append(gruposAlumno)
+            i+=1
+            for ua in Alumno.objects.raw('Select codAlumno, usuarioci_id, fotoAlumno FROM alumnos_alumno WHERE codAlumno = %s',[Asx[i]]):
+                
+                UsuariosAlumno = ua.usuarioci_id
+                Asx1.append(UsuariosAlumno)
+                q+=1
+                for ud in Usuario.objects.raw('Select cedula, nombre, apellido FROM administracion_usuario WHERE cedula = %s',[Asx1[q]]):
+                
+                    UsuariosCedula = ud.cedula
+                    UsuariosNombre = ud.nombre
+                    UsuariosApellido = ud.apellido
+                    UsuariosFoto = ua.fotoAlumno
+                    Asx2.append(UsuariosCedula)
+                    Asx3.append(UsuariosNombre)
+                    Asx4.append(UsuariosApellido)
+                    Asx5.append(UsuariosFoto)
     
     print('---')
     print(Asx)
