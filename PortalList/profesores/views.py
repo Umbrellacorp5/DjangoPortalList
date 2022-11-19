@@ -57,9 +57,6 @@ def lista(request):
         Asx = []
         Asx1 = []
         Asx2 = []
-        Asx3 = []
-        Asx4 = []
-        Asx5 = []
         i=-1
         q=-1
         for cod in Estan.objects.raw('SELECT * FROM administracion_estan WHERE codGrupo_id = %s',[grupo1]):
@@ -73,14 +70,9 @@ def lista(request):
                 q+=1
                 for ud in Usuario.objects.raw('Select cedula, nombre, apellido FROM administracion_usuario WHERE cedula = %s',[Asx1[q]]):
                 
-                    UsuariosCedula = ud.cedula
-                    UsuariosNombre = ud.nombre
-                    UsuariosApellido = ud.apellido
-                    UsuariosFoto = ua.fotoAlumno
-                    Asx2.append(UsuariosCedula)
-                    Asx3.append(UsuariosNombre)
-                    Asx4.append(UsuariosApellido)
-                    Asx5.append(UsuariosFoto)
+                    UsuariosDatos= ud.cedula, ud.nombre, ud.apellido, ua.fotoAlumno
+                    Asx2.append(UsuariosDatos)
+
     
     print('---')
     print(Asx)
@@ -89,12 +81,7 @@ def lista(request):
     print('---')
     print(Asx2)
     print('---')
-    print(Asx3)
-    print('---')
-    print(Asx4)
-    print('---')
-    print(Asx5)
-    print('---')
+
 
     tups = Asx2
     dictionary = {}
