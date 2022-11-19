@@ -64,30 +64,27 @@
 <script>
     
 
-  var AlumnoJdictOfAlumnosson = JSON.parse("{{dictOfAlumnos|escapejs}}");
+  #var AlumnoJdictOfAlumnosson = JSON.parse("{{dictOfAlumnos|escapejs}}");
 
   document.addEventListener("DOMContentLoaded", function () {
-    showLista();
+
   });
   
 
-  function showLista(data){
+  function showLista(dictAlumnos){
+    console.log(dictAlumnos)
     let htmlContentToAppend = "";
-    for(let i = 0; i < data.length; i++){
-        let alumnos = data[i];
+    for(let i = 0; i < dictAlumnos.length; i++){
+        let infoAlumnos = dictAlumnos[i];
+        console.log(infoAlumnos)
   
         htmlContentToAppend += `
               <tr >
                 <p>{{alumno}}</p>
-                <td><img src="${alumnos.foto}" width="50" height="60"> </td>
-                <td>${alumnos.nombre}</td>
-                <td>${alumnos.apellido}</td>
-                <td>${alumnos.CI}</td>
-                <td><input type="checkbox" id="${alumnos.CI}" name="${alumnos.CI}" value="${alumnos.falta}"<td>
-                  <select name="${alumnos.CI}" onChange="combo(this, 'falta')">
-                  <option selected="true">${alumnos.falta}</option>
-                  <option>${alumnos.falta}</option>
-                  </select></td>
+                <td><img src="" width="50" height="60"> </td>
+                <td>${infoAlumnos.i.1}</td>
+                <td>${infoAlumnos.1.2}</td>
+                <td>${infoAlumnos.1.0}</td>
                   
               </tr>
             `
@@ -98,7 +95,7 @@
 
 
   
-  function checkList(alumno){
+  {% comment %} function checkList(alumno){
     if (alumno.falta == 1){
       document.getElementById("data.CI").checked = true;
     }
@@ -108,55 +105,9 @@
     if (alumno.falta == 3){
       document.getElementById("data.CI").checked = false;
     }
-  }
+  } {% endcomment %}
 
 
-
-
-  {% comment %} alumnosData = [
-    {
-        "foto": "123456789.jpg",
-        "nombre": "Jose",
-        "apellido": "Gomez",
-        "CI": "123456789",
-        "falta": 1,
-    },
-    {
-        "foto": "1223456789.jpg",
-        "nombre": "Franco",
-        "apellido": "Gomez",
-        "CI": "223456789",
-        "falta": 2,
-    },
-    {
-      "foto": "323456789.jpg",
-      "nombre": "Juan",
-      "apellido": "Gomez",
-      "CI": "523456789",
-      "falta": 3,
-    },
-    {
-      "foto": "423456789.jpg",
-      "nombre": "Pedro",
-      "apellido": "Gomez",
-      "CI": "623456789",
-      "falta": 1,
-    },
-    {
-      "foto": "523456789.jpg",
-      "nombre": "Renzo",
-      "apellido": "Gomez",
-      "CI": "823456789",
-      "falta": 1,
-    },
-    {
-      "foto": "123456789.jpg",
-      "nombre": "Julio",
-      "apellido": "Gomez",
-      "CI": "923456789",
-      "falta": 2,
-    },
-  ] {% endcomment %}
 </script>
 </head>
 
@@ -164,6 +115,7 @@
   <header id="headerListPL"  >
 
     <h1 id="tituloLista">Portal List</h1>
+    <h1 id="tituloLista">{{dictOfAlumnos.1.1}}</h1>
    <a>      <img id= "plImgLista" src="/../../static/img/logo13.png" alt="Portal List"></a>
     
 </header> 
@@ -189,6 +141,16 @@
         <form method="POST">
        
           <tbody id="AlumnoTable">
+            {% for key, value in dictOfAlumnos.items %}
+            <tr >
+              <td><img src="" width="50" height="60"> </td>
+              <td>{{dictOfAlumnos.key.value}}</td>
+              <td>{{dictOfAlumnos.key.value1}}</td>
+              <td>{{dictOfAlumnos.key.value}}</td>
+                
+            </tr>
+            {{ key }}: {{ value }}
+            {% endfor %}
           </tbody>
           <button class="btn btn-primary" type="sumbit">Enviar registro</button><br><br>
         </form>
