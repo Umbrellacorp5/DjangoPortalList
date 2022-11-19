@@ -10,5 +10,4 @@ urlpatterns = [
     path('registroProfesor/', views.registroProfesor, name='registroProfesor'),
     path("seleccionarRegistro/", views.seleccionarRegistro, name='seleccionarRegistro'),
     path('',views.index, name='index'),
-
 ]  

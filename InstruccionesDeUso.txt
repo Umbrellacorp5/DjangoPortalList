@@ -16,6 +16,7 @@ O abrir VisualStudioCode, darle a file/archivo en la esquina superior derecha, e
 darle a la felcha a la derecha de "Powershell" y seleccionar "Command Prompt"
 
 (Click derecho para pegar en la terminal)
+(Si se tiene Win10 escribir python en la consola, si sale la tienda de Microsoft descargar Python)
 -Escribir:
     py -m venv venv
     venv\Scripts\activate.bat

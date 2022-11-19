@@ -1,15 +1,11 @@
 from django.db import models
 
 
-
 class Profesor(models.Model):
     codProfesor = models.IntegerField(primary_key=True, null=False, unique = True)
     usuarioci = models.ForeignKey( to='administracion.Usuario',on_delete=models.CASCADE, null=False)
     cargo = models.CharField(max_length=255, null=False)
     antiguedad = models.CharField(max_length=255, null=False)
-    
-    def __int__(self):
-        return str(self.codProfesor + ' ' + self.usuarioci)
 
 
 class Lista(models.Model):
@@ -23,6 +19,3 @@ class Materia(models.Model):
     codMateria = models.IntegerField(primary_key=True, null=False)
     nombreMateria = models.CharField(max_length=255, null=False)
     cod_profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE, null=False)
-
-    def __str__(self):
-        return self.nombreMateria

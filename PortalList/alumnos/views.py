@@ -4,33 +4,9 @@ from administracion.models import Usuario
 from profesores.views import cambiarLista
 from alumnos.models import Alumno
 
-'''
-def asistencia(request):
-   if request.method == 'POST':
-        #hacer check en el checkbox con el name de la cedula del usuario ingresado
-        #if (name en html) == cedula 
-        checked = "checked"
-        checkbox = request.form.get(cedula) #se supone que devuelve true o false
-        if checkbox:
-                for p in Profesor.objects.raw('Select codProfesor FROM profesores_profesor WHERE usuarioci_id=%s', [__all__]):
-                        codProfesor = p.codProfesor
-                for e in Estan.objects.raw('Select codGrupo_id, id FROM administracion_estan WHERE codAlumno_id = %s',[codAlumno]):
-                        codGrupo = e.codGrupo_id
-                for pa in Pasan.objects.raw('SELECT codLista_id, id FROM administracion_pasan WHERE codProfesor_id=%s and codGrupo_id=%s',[codProfesor, codGrupo]):
-                        codLista = pa.codLista_id
-                for l in Lista.objects.raw('UPDATE profesores_lista SET falta = false WHERE codLista = %s',[codLista]):
-                 #agregar la asistencia en el sql
-                        
-                        #UPDATE profesores_lista
-                        #SET falta = false
-                        #WHERE CustomerID = 1;
-   return render(request, 'asistencia.html')
-'''
-
 
 def elegirUsuario(request):
         return render(request, 'elegirUsuario.html')
-
 
 
 def ingresarAlumno(request):
@@ -51,10 +27,8 @@ def ingresarAlumno(request):
    return render(request, 'ingresarAlumno.html') 
 
 
-
 def asistencia(request):
         if request.method == 'POST':
                 cambiarLista(cedula)
-                #envia la cedula a profesores
                 return render(request, 'asistencia.html')
         return render(request, 'asistencia.html')

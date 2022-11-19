@@ -1,5 +1,3 @@
-import json
-from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from profesores.forms import IngresarProfesor
 from profesores.models import Materia, Profesor
@@ -19,7 +17,6 @@ def ingresarProfesor(request):
         if IP.inputUsuarioIP == u.usuario and  IP.inputContraseñaIP == u.contraseña:
                 return redirect('../seleccionLista/')
    return render(request,'ingresarProfesor.html')
-
 
 
 def seleccionLista(request):
@@ -53,7 +50,6 @@ def lista(request):
     4-enviar lista al html de lista
     '''
     if request.method == 'GET':
-        #falta recibir la lista de alumnos y enviarla al html
         Asx = []
         Asx1 = []
         Asx2 = []
@@ -85,32 +81,22 @@ def lista(request):
 
     dictionary = {}
     dictOfAlumnos = Convert(Asx2, dictionary)
-    print('qqqqqqqqqqq')
-    print(dictOfAlumnos)
-    print('qqqqqqqqqqq')
     dataGrupoJSON = dumps(dictOfAlumnos)
     print(dataGrupoJSON)
     return render(request,'lista.html',{'dictOfAlumnos' : dataGrupoJSON})
         
 
-    
-
-    
-
-
 def cambiarLista(cialumno):
-    #falta cambiar la checkbox del alumno con esta ci
     '''
     1-mandar ci del alumno al html lista con la pagina cargada
     2-escuchar el cambio de la ci por cada alumno
-    2-cambiar el checkbox con id y name ci de False(falta) a True(asistencia)
+    3-cambiar el checkbox con id y name ci de False(falta) a True(asistencia)
     '''
     alumno = cialumno
     return ({alumno})
 
 
 def enviarLista(request):
-    #falta enviar la lista a la BD
     '''
     1-recibir los datos de cada alumno en la lista
     2-cargar cada alumno en la bd lista
@@ -123,5 +109,5 @@ def Convert(tup, di):
     for a, b, c in tup:
         di.setdefault(a, []).append(b)
         di.setdefault(a, []).append(c)
-        #di.setdefault(a, []).append(d)
+        #di.setdefault(a, []).append(d), foto
     return di

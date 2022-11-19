@@ -9,7 +9,6 @@ def contactUs(request):
 
 
 def index(request):
-    
     return render(request, 'index.html')
 
 
@@ -27,7 +26,6 @@ def ingresarAdministracion(request):
     global IA
     IA = IngresarAdminsitracion(request.POST)
     if request.method == "POST":
-        
         IA.email = request.POST.get('email')
         IA.contraseña = request.POST.get('contraseña')
         global codAdmin
@@ -51,11 +49,11 @@ def registroAlumno(request):
         nPadre = request.POST.get('nPadre')
         fotoAlumno = request.POST.get('fotoAlumno')
         mac=22
-        
         with connection.cursor() as cursor:
            cursor.execute("INSERT INTO administracion_usuario VALUES (%s, '%s', '%s', '%s', '%s', '%s','%s');"%(cedula,email,nombre,usuario,apellido,contraseña,codAdmin))
            cursor.execute("INSERT INTO alumnos_alumno (numPadre, mac, usuarioci_id, fotoAlumno) VALUES (%s, '%s', %s ,'%s');"%((nPadre),(mac),(cedula),(fotoAlumno)))
     return render(request, 'registroAlumno.html')
+
 
 def registroProfesor(request):
     if request.method == 'POST':
@@ -73,8 +71,8 @@ def registroProfesor(request):
         with connection.cursor() as cursor:
             cursor.execute("INSERT INTO administracion_usuario VALUES (%s, '%s', '%s', '%s', '%s', '%s','%s');"%(cedula,email,nombre,usuario,apellido,contraseña,codAdmin))
             cursor.execute("INSERT INTO profesores_Profesor (usuarioci_id, cargo, antiguedad) VALUES (%s, '%s', '%s');"%((cedula), (cargo), (antiguedad)))
-            cursor.execute("INSERT INTO profesores_Materia (codMateria, nombreMateria, cod_profesor) VALUES (%s, '%s', %s); "%((codMateria), (nombreMateria), (cod_profesor)))
-            cursor.execute("INSERT INTO administracion_Grupo (codGrupo, nombreGrupo, alumnos) VALUES (%s, '%s', %s); "%((codGrupo), (nombreGrupo), (alumnos)))
+            #cursor.execute("INSERT INTO profesores_Materia (codMateria, nombreMateria, cod_profesor) VALUES (%s, '%s', %s); "%((codMateria), (nombreMateria), (cod_profesor)))
+            #cursor.execute("INSERT INTO administracion_Grupo (codGrupo, nombreGrupo, alumnos) VALUES (%s, '%s', %s); "%((codGrupo), (nombreGrupo), (alumnos)))
     return render(request, 'registroProfesor.html')
 
 

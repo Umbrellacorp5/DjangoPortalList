@@ -1,95 +1,77 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/../../static/css/styleProfesores.css"/>
-    <link rel="stylesheet" href="/../../static/css/bootstrapProfesores.css"/>
-    <script src="PortalList\profesores\static\js\profesorGrupo.js"></script> 
-    <title>Seleccionar Lista</title>
-</head>
-
-<style>
-  .card {
-  /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 20%;
-}
-
-/* On mouse-over, add a deeper shadow */
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-/* Add some padding inside the card container */
-.container {
-  padding: 2px 10px;
-}
-</style >
-
-
-<script>
-
-
-var datajs = JSON.parse("{{datajs|escapejs}}");
-
-
-document.addEventListener("DOMContentLoaded", function (e) {
-  showGrupos(datajs);
-
-});
-
-function showGrupos(data){
-  let htmlContentToAppend = "";
-  for(var x in data){
-
-      htmlContentToAppend += `
-      <form method="POST">
-        {% csrf_token %}
-        <div class="card" id="cardSL">
-          <div class="container" id="containerSL">
-            <h4><b>"${data.NombreGrupo}"</b></h4>
-            <p>${data.NombreMateria}</p>
-            <button id="botonSL" class="btn btn-primary">Ingresar a la Lista</button> 
-          </div>
-        </div>
-      </form>
-      `
-
-      document.getElementById("group-list-container").innerHTML = htmlContentToAppend;
-  }
-}
-
-
-</script>
-
-<body>
-    <header id="headerSL">
-
-      <h1 id="tituloSL">Portal List</h1>
-      <a>      <img id= "plImgSL" src="/../../static/img/logo13.png" alt="Portal List"></a>
-
-    </header>
-<br>
-    <main id="fondoCard"">
-        <div class="flex-container">
-            <div class="row">
-              <div class="col">
-                <div class="list-group" id="group-list-container"></div>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="/../../static/css/styleProfesores.css"/>
+      <link rel="stylesheet" href="/../../static/css/bootstrapProfesores.css"/>
+      <script src="..\..\static\js\profesorGrupo.js"></script> 
+      <title>Seleccionar Lista</title>
+   </head>
+   <style>
+      .card {
+      /* Add shadows to create the "card" effect */
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: 20%;
+      }
+      /* On mouse-over, add a deeper shadow */
+      .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      }
+      /* Add some padding inside the card container */
+      .container {
+      padding: 2px 10px;
+      }
+   </style >
+   <script>
+      var datajs = JSON.parse("{{datajs|escapejs}}");
+      
+      document.addEventListener("DOMContentLoaded", function (e) {
+        showGrupos(datajs);
+      });
+      function showGrupos(data){
+        let htmlContentToAppend = "";
+        for(var x in data){
+            htmlContentToAppend += `
+            <form method="POST">
+              {% csrf_token %}
+              <div class="card" id="cardSL">
+                <div class="container" id="containerSL">
+                  <h4><b>"${data.NombreGrupo}"</b></h4>
+                  <p>${data.NombreMateria}</p>
+                  <button id="botonSL" class="btn btn-primary">Ingresar a la Lista</button> 
+                </div>
               </div>
+            </form>
+            `
+            document.getElementById("group-list-container").innerHTML = htmlContentToAppend;
+        }
+      }
+   </script>
+   <body>
+      <header id="headerSL">
+         <h1 id="tituloSL">Portal List</h1>
+         <a>      <img id= "plImgSL" src="/../../static/img/logo13.png" alt="Portal List"></a>
+      </header>
+      <br>
+      <main id="fondoCard">
+         <div class="flex-container">
+            <div class="row">
+               <div class="col">
+                  <div class="list-group" id="group-list-container"></div>
+               </div>
             </div>
-          </div>
-    </main>
-
-    <footer id="footerSL">
-        <p id="contactUs"> <a href="{% url 'contactUs' %}">Contáctanos</a></p>
-        <p id="copyR">© 2022 Portal List, Inc.</p>
-    </footer>
-</body>
-<!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+         </div>
+      </main>
+      <footer id="footerSL">
+         <p id="contactUs"> <a href="{% url 'contactUs' %}">Contáctanos</a></p>
+         <p id="copyR">© 2022 Portal List, Inc.</p>
+      </footer>
+   </body>
+   <!-- CSS only -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+   <!-- JavaScript Bundle with Popper -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </html>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,17 +14,14 @@
         clear: both;
         display: table;
       }
-      
       [class*="col-"] {
         float: left;
         padding: 15px;
       }
-      
       /* For mobile phones: */
       [class*="col-"] {
         width: 100%;
       }
-      
       @media only screen and (min-width: 600px) {
         /* For tablets: */
         .col-s-1 {width: 8.33%;}
@@ -59,64 +55,15 @@
       table, th, td {
         border:1px solid black;
       }
-
       </style>
-<script>
-    
-
-  var dictAlumnos = JSON.parse("{{dictOfAlumnos|escapejs}}");
-  console.log(dictAlumnos)
-  document.addEventListener("DOMContentLoaded", function () {
-
-  });
-  
 
 
-    console.log(dictAlumnos)
-    let htmlContentToAppend = "";
-    for(let i = 0; i < dictAlumnos.length; i++){
-        infoAlumnos += dictAlumnos.alumno1[i];
-        console.log(infoAlumnos)
-        console.log(dictAlumnos)
-        htmlContentToAppend += `
-              <tr >
-                <p>{{alumno}}</p>
-                <td><img src="" width="50" height="60"> </td>
-                <td>${infoAlumnos}</td>
-                <td>${infoAlumnos}</td>
-                <td>${infoAlumnos}</td>
-                  
-              </tr>
-            `
-  
-        document.getElementById("AlumnoTable").innerHTML = htmlContentToAppend;
-    }
-
-
-  
-  {% comment %} function checkList(alumno){
-    if (alumno.falta == 1){
-      document.getElementById("data.CI").checked = true;
-    }
-    if (alumno.falta == 2){
-      document.getElementById("data.CI").checked = true;
-    }
-    if (alumno.falta == 3){
-      document.getElementById("data.CI").checked = false;
-    }
-  } {% endcomment %}
-
-
-</script>
 </head>
-
 <body id="bodyLista">
   <header id="headerListPL"  >
 
     <h1 id="tituloLista">Portal List</h1>
-    <h1 id="tituloLista">{{dataGrupoJSON.1.1}}</h1>
    <a>      <img id= "plImgLista" src="/../../static/img/logo13.png" alt="Portal List"></a>
-    
 </header> 
     <main>
       <div class="flex-container">
@@ -126,7 +73,6 @@
           </div>
         </div>
       </div>
-
       <table style="width:100%">
         <tbody>
           <tr>
@@ -138,24 +84,12 @@
           </tr> 
         </tbody>
         <form method="POST">
-       
           <tbody id="AlumnoTable">
-            {% for key, value in dataGrupoJSON.items %}
-            <tr >
-              <td><img src="" width="50" height="60"> </td>
-              <td>{{dataGrupoJSON.key.value}}</td>
-              <td>{{dataGrupoJSON.key.value1}}</td>
-              <td>{{dataGrupoJSON.key.value}}</td>
-                
-            </tr>
-            {{ key }}: {{ value }}
-            {% endfor %}
           </tbody>
           <button class="btn btn-primary" type="sumbit">Enviar registro</button><br><br>
         </form>
         </div>
       </table>
-
     </main>
     <footer id="footerLista">
         <p id="contactUs"> <a href="{% url 'contactUs' %}">Contáctanos</a></p>

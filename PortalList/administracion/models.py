@@ -1,4 +1,3 @@
-from enum import unique
 from django.db import models
 
 
@@ -6,9 +5,6 @@ class Administrador(models.Model):
     codAdministrador = models.IntegerField(primary_key=True, null=False, default=1)
     email = models.CharField(max_length=255, null=False)
     contraseña = models.CharField(max_length=255, null=False)
-
-    def __str__(self):
-        return str(self.codAdministrador) #devuelve el código como un string
 
 
 class Usuario(models.Model):
