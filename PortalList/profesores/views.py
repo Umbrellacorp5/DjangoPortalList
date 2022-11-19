@@ -74,7 +74,6 @@ def lista(request):
     Asx = []
     Asx1 = []
     Asx2 = []
-    Asx3 = []
     i=-1
     q=-1
     for cod in Estan.objects.raw('SELECT * FROM administracion_estan WHERE codGrupo_id = %s',[grupo1]):
@@ -86,18 +85,17 @@ def lista(request):
             UsuariosAlumno = ua.usuarioci_id
             FotoAlumno = ua.fotoAlumno
             Asx1.append(UsuariosAlumno)
-            Asx2.append(FotoAlumno)
             q+=1
             for ud in Usuario.objects.raw('Select cedula, nombre, apellido FROM administracion_usuario WHERE cedula = %s',[Asx1[q]]):
             
-                UsuariosDatos = ud.cedula , ud.nombre, ud.apellido
-                Asx3.append(UsuariosDatos)
+                UsuariosDatos = ud.cedula , ud.nombre, ud.apellido, ua.fotoAlumno
+                Asx2.append(UsuariosDatos)
     print('---')
     print(Asx)
     print('---')
     print(Asx1)
     print('---')
-    print(Asx3)
+    print(Asx2)
     print('---')
 
     '''         
