@@ -31,35 +31,6 @@
 
 
 <script>
-    GruposData = [
-    {
-        "name": "3BK",
-        "materia": "math"
-    },
-    {
-        "name": "2BA",
-        "materia": "programacion"
-    },
-    {
-        "name": "2BB",
-        "materia": "programacion"
-    },
-    {
-      "name": "1A",
-      "materia": "programacion"
-  },
-  {
-        "name": "1B",
-        "materia": "programacion"
-    },
-    {
-      "name": "1C",
-      "materia": "programacion"
-  }
-]
-
-
-
 
 
 var datajs = JSON.parse("{{datajs|escapejs}}");
@@ -92,27 +63,6 @@ function showGrupos(data){
 }
 
 
-/*
-//llega el js
-//directamente se accede data.indice
-//falta: recorrer la data e ir sacando los datos
-function showGrupos(datajs){
-  console.log(datajs.hello);
-    let htmlContentToAppend = "";
-    for(var x in datajs){
-        htmlContentToAppend += `
-        <div class="card">
-          <div class="container">
-            <h4><b>"${datajs.hello}"</b></h4>
-            <p>${datajs.geeks}</p> 
-          </div>
-        </div>
-        `
-
-        document.getElementById("group-list-container").innerHTML = htmlContentToAppend;
-    }
-}
-*/
 </script>
 
 <body>

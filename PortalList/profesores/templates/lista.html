@@ -64,13 +64,11 @@
 <script>
     
 
-  var AlumnoJson = JSON.parse("{{AlumnoJson|escapejs}}");
+  var AlumnoJdictOfAlumnosson = JSON.parse("{{dictOfAlumnos|escapejs}}");
 
   document.addEventListener("DOMContentLoaded", function () {
-    showLista(AlumnoJson);
+    showLista();
   });
-  alumno=0
-  alumno = {alumno};
   
 
   function showLista(data){
@@ -115,7 +113,7 @@
 
 
 
-  alumnosData = [
+  {% comment %} alumnosData = [
     {
         "foto": "123456789.jpg",
         "nombre": "Jose",
@@ -158,7 +156,7 @@
       "CI": "923456789",
       "falta": 2,
     },
-  ]
+  ] {% endcomment %}
 </script>
 </head>
 

@@ -1,4 +1,5 @@
 import json
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from profesores.forms import IngresarProfesor
 from profesores.models import Materia, Profesor
@@ -43,61 +44,8 @@ def seleccionLista(request):
     if request.method=='POST':
         return redirect('../lista/')
 
-'''  
-def lista(request):
-    if request.method == 'GET':
-        for al in Estan.objects.raw(' SELECT id, codAlumno_id from administracion_estan WHERE codGrupo_id = %s',[grupo]):
-            print(al[1])
-            alumnos = al.codAlumno
-            print(al.codAlumno)
-            print(al.__dict__)
-            print(alumnos.all)
-            print(alumnos.codAlumno)
-            for cod in alumnos.codAlumno:
-                for alumnoI in Alumno.objects.raw('SELECT usuarioci_id, fotoAlumno FROM alumnos_alumno WHERE codAlumno = %i', [cod]):
-                    alumnoCI = alumnoI.ususarioci_id
-                    alumnoFoto = alumnoI.fotoAlumno
-                    for ci in alumnoCI:
-                        for alumnoUsuario in Usuario.objects.raw('SELECT cedula, nombre, apellido FROM administracion_usuario WHERE cedula = %i',[ci]):
-                            Alumnosdict = {
-                                'alumCI' : alumnoUsuario.cedula,
-                                'alumNombre' :alumnoUsuario.nombre,
-                                'alumApellido' : alumnoUsuario.apellido,
-                                'alumFoto' : alumnoFoto
-                            }
-                            AlumnoJson = dumps(Alumnosdict)
-            return render(request,'lista.html', {'AlumnoJson': AlumnoJson})
-''' 
 
 def lista(request):
-    #falta recibir la lista de alumnos y enviarla al html
-    Asx = []
-    Asx1 = []
-    Asx2 = []
-    i=-1
-    q=-1
-    for cod in Estan.objects.raw('SELECT * FROM administracion_estan WHERE codGrupo_id = %s',[grupo1]):
-        gruposAlumno = cod.codAlumno_id
-        Asx.append(gruposAlumno)
-        i+=1
-        for ua in Alumno.objects.raw('Select codAlumno, usuarioci_id, fotoAlumno FROM alumnos_alumno WHERE codAlumno = %s',[Asx[i]]):
-            
-            UsuariosAlumno = ua.usuarioci_id
-            FotoAlumno = ua.fotoAlumno
-            Asx1.append(UsuariosAlumno)
-            q+=1
-            for ud in Usuario.objects.raw('Select cedula, nombre, apellido FROM administracion_usuario WHERE cedula = %s',[Asx1[q]]):
-            
-                UsuariosDatos = ud.cedula , ud.nombre, ud.apellido, ua.fotoAlumno
-                Asx2.append(UsuariosDatos)
-    print('---')
-    print(Asx)
-    print('---')
-    print(Asx1)
-    print('---')
-    print(Asx2)
-    print('---')
-
     '''         
     1-conseguir la lista de codAlumnos
     2-conseguir los usuarios
@@ -105,12 +53,43 @@ def lista(request):
     4-enviar lista al html de lista
     '''
     if request.method == 'GET':
-        mydata = Estan.objects.filter(codGrupo_id=grupo).values('codAlumno_id')
-        print(mydata)
-        list_result = [entry for entry in mydata]
-        print(list_result)
-        print(list_result[0]['codAlumno_id'])
-        return render(request,'lista.html')
+        #falta recibir la lista de alumnos y enviarla al html
+        Asx = []
+        Asx1 = []
+        Asx2 = []
+        i=-1
+        q=-1
+        for cod in Estan.objects.raw('SELECT * FROM administracion_estan WHERE codGrupo_id = %s',[grupo1]):
+            gruposAlumno = cod.codAlumno_id
+            Asx.append(gruposAlumno)
+            i+=1
+            for ua in Alumno.objects.raw('Select codAlumno, usuarioci_id, fotoAlumno FROM alumnos_alumno WHERE codAlumno = %s',[Asx[i]]):
+                
+                UsuariosAlumno = ua.usuarioci_id
+                FotoAlumno = ua.fotoAlumno
+                Asx1.append(UsuariosAlumno)
+                q+=1
+                for ud in Usuario.objects.raw('Select cedula, nombre, apellido FROM administracion_usuario WHERE cedula = %s',[Asx1[q]]):
+                
+                    UsuariosDatos = ud.cedula , ud.nombre, ud.apellido #ua.fotoAlumno
+                    Asx2.append(UsuariosDatos)
+        print('---')
+        print(Asx)
+        print('---')
+        print(Asx1)
+        print('---')
+        print(Asx2)
+        print('---')
+
+        tups = Asx2
+        dictionary = {}
+        dictOfAlumnos = Convert(tups, dictionary)
+        
+        return render(request,'lista.html',{'dictOfAlumnos' : dictOfAlumnos})
+        
+
+    
+
     
 
 
@@ -134,3 +113,10 @@ def enviarLista(request):
     if request.method == 'POST':
         print(request)
     return print('termino')
+
+def Convert(tup, di):
+    for a, b, c in tup:
+        di.setdefault(a, []).append(b)
+        di.setdefault(a, []).append(c)
+        #di.setdefault(a, []).append(d)
+    return di
