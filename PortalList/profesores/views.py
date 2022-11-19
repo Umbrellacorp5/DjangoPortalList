@@ -32,6 +32,8 @@ def seleccionLista(request):
             grupo = g.codGrupo_id
         for ng in Grupo.objects.raw('SELECT nombre, codGrupo FROM administracion_grupo WHERE codGrupo = %s',[grupo]):
             gruposProfesor = ng.nombre
+            global grupo1
+            grupo1= ng.codGrupo
         dataDictionary = {
             'NombreMateria': nombreMateria,
             'NombreGrupo': gruposProfesor,
@@ -69,8 +71,36 @@ def lista(request):
 
 def lista(request):
     #falta recibir la lista de alumnos y enviarla al html
+    Asx = []
+    Asx1 = []
+    Asx2 = []
+    Asx3 = []
+    i=-1
+    q=-1
+    for cod in Estan.objects.raw('SELECT * FROM administracion_estan WHERE codGrupo_id = %s',[grupo1]):
+        gruposAlumno = cod.codAlumno_id
+        Asx.append(gruposAlumno)
+        i+=1
+        for ua in Alumno.objects.raw('Select codAlumno, usuarioci_id, fotoAlumno FROM alumnos_alumno WHERE codAlumno = %s',[Asx[i]]):
+            
+            UsuariosAlumno = ua.usuarioci_id
+            FotoAlumno = ua.fotoAlumno
+            Asx1.append(UsuariosAlumno)
+            Asx2.append(FotoAlumno)
+            q+=1
+            for ud in Usuario.objects.raw('Select cedula, nombre, apellido FROM administracion_usuario WHERE cedula = %s',[Asx1[q]]):
+            
+                UsuariosDatos = ud.cedula , ud.nombre, ud.apellido
+                Asx3.append(UsuariosDatos)
+    print('---')
+    print(Asx)
+    print('---')
+    print(Asx1)
+    print('---')
+    print(Asx3)
+    print('---')
 
-    '''
+    '''         
     1-conseguir la lista de codAlumnos
     2-conseguir los usuarios
     3-hacer una lista con los datos de esos usuarios(ci,nombre,apellido,foto)
